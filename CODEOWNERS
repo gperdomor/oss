@@ -1,0 +1,10 @@
+# CODEOWNERS file for prism repository
+# This file defines individuals or teams that are responsible for code in this repository.
+# Each line is a file pattern followed by one or more owners.
+
+# Default owner for everything in the repo
+* @gperdomor
+
+# You can specify different owners for specific paths if needed:
+# /packages/specific-package/ @gperdomor @another-user
+# /tools/ @gperdomor @team-name

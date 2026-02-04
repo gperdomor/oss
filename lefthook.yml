@@ -1,0 +1,41 @@
+# Lefthook configuration
+# See: https://lefthook.dev/configuration/index.html
+
+min_version: 2.0.0
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      run: pnpm exec nx format:write {staged_files}
+      glob: '*.{js,mjs,jsx,json,css,scss,md,ts,tsx,html,graphql,yml,yaml}'
+      stage_fixed: true
+
+    - name: check-lock-files
+      run: pnpm run check-lock-files
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: pnpm exec commitlint --edit {1}
+
+pre-push:
+  parallel: true
+  jobs:
+    - name: check-format
+      run: pnpm exec nx format:check {push_files}
+
+    - name: check-lock-files
+      run: pnpm run check-lock-files
+
+post-checkout:
+  jobs:
+    - name: notify-lockfile-changes
+      files: git diff-tree -r --name-only --no-commit-id {1} {2}
+      run: node ./tools/scripts/notify-lockfile-changes.mjs {files}
+
+post-merge:
+  jobs:
+    - name: notify-lockfile-changes
+      files: git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD
+      run: node ./tools/scripts/notify-lockfile-changes.mjs {files}
