@@ -10,7 +10,7 @@ const Configuration: UserConfig = {
     'scope-enum': async (ctx) => [
       RuleConfigSeverity.Error,
       'always',
-      ['deps', 'release', ...(await utils.getProjects(ctx))],
+      ['repo', 'deps', 'release', ...(await utils.getProjects(ctx))],
     ],
   },
 };

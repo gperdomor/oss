@@ -9,7 +9,6 @@
     "preinstall": "node ./tools/scripts/preinstall.mjs"
   },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "20.4.1",
     "@commitlint/config-conventional": "20.4.1",
@@ -17,6 +16,7 @@
     "@commitlint/cz-commitlint": "20.4.1",
     "@commitlint/types": "20.4.0",
     "@nx/js": "22.4.2",
+    "@nx/plugin": "22.4.2",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",

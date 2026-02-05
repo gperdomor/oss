@@ -45,4 +45,5 @@ Thumbs.db
 
 # Fix for issue when working on the repo in a dev container
 /.pnpm-store
+
 vitest.config.*.timestamp*
