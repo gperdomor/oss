@@ -1,5 +1,6 @@
 {
   "name": "@org/source",
+  "description": "Nx workspace for open-source packages and tools.",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
