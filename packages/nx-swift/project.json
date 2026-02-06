@@ -1,0 +1,32 @@
+{
+  "name": "nx-swift",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nx-swift/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/nx-swift/dist",
+        "main": "packages/nx-swift/src/index.ts",
+        "tsConfig": "packages/nx-swift/tsconfig.lib.json",
+        "rootDir": "packages/nx-swift/src",
+        "generatePackageJson": false,
+        "assets": [
+          {
+            "input": "./packages/nx-swift/src",
+            "glob": "**/!(*.ts)",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-swift/src",
+            "glob": "**/*.d.ts",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

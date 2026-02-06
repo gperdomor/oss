@@ -23,6 +23,9 @@
     },
     {
       "path": "./packages/nx-go"
+    },
+    {
+      "path": "./packages/nx-swift"
     }
   ]
 }
