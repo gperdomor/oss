@@ -24,13 +24,13 @@ importers:
         specifier: 0.563.0
         version: 0.563.0(react@19.2.4)
       next:
-        specifier: ~16.0.1
+        specifier: 16.0.11
         version: 16.0.11(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
       tailwind-merge:
         specifier: 3.4.0
@@ -52,10 +52,10 @@ importers:
         specifier: 20.4.0
         version: 20.4.0
       '@eslint/js':
-        specifier: ^9.8.0
+        specifier: 9.39.2
         version: 9.39.2
       '@next/eslint-plugin-next':
-        specifier: ^16.0.1
+        specifier: 16.1.6
         version: 16.1.6
       '@nx/eslint':
         specifier: 22.4.5
@@ -85,16 +85,16 @@ importers:
         specifier: 22.4.5
         version: 22.4.5(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.18))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.5.29(@swc/helpers@0.5.18))
       '@swc-node/register':
-        specifier: ~1.9.1
+        specifier: 1.9.2
         version: 1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.18))(@swc/types@0.1.25)(typescript@5.9.3)
       '@swc/cli':
-        specifier: ~0.6.0
+        specifier: 0.6.0
         version: 0.6.0(@swc/core@1.5.29(@swc/helpers@0.5.18))(chokidar@4.0.3)
       '@swc/core':
-        specifier: ~1.5.7
+        specifier: 1.5.29
         version: 1.5.29(@swc/helpers@0.5.18)
       '@swc/helpers':
-        specifier: ~0.5.11
+        specifier: 0.5.18
         version: 0.5.18
       '@tailwindcss/postcss':
         specifier: 4.1.18
@@ -106,16 +106,16 @@ importers:
         specifier: 20.19.9
         version: 20.19.9
       '@types/react':
-        specifier: ^19.0.0
+        specifier: 19.2.13
         version: 19.2.13
       '@types/react-dom':
-        specifier: ^19.0.0
+        specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.13)
       '@vitest/coverage-v8':
-        specifier: ^4.0.0
+        specifier: 4.0.18
         version: 4.0.18(vitest@4.0.18)
       '@vitest/ui':
-        specifier: ^4.0.0
+        specifier: 4.0.18
         version: 4.0.18(vitest@4.0.18)
       commitizen:
         specifier: 4.3.1
@@ -124,13 +124,13 @@ importers:
         specifier: 3.4.2
         version: 3.4.2
       eslint:
-        specifier: ^9.8.0
+        specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
       eslint-config-next:
-        specifier: ^16.0.1
+        specifier: 16.1.6
         version: 16.1.6(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)
       eslint-config-prettier:
-        specifier: ^10.0.0
+        specifier: 10.1.8
         version: 10.1.8(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-import:
         specifier: 2.31.0
@@ -148,10 +148,10 @@ importers:
         specifier: 2.4.2
         version: 2.4.2
       jsdom:
-        specifier: ^27.1.0
+        specifier: 27.4.0
         version: 27.4.0
       jsonc-eslint-parser:
-        specifier: ^2.1.0
+        specifier: 2.4.2
         version: 2.4.2
       lefthook:
         specifier: 2.1.0
@@ -163,55 +163,55 @@ importers:
         specifier: 8.4.38
         version: 8.4.38
       prettier:
-        specifier: ^2.6.2
+        specifier: 2.8.8
         version: 2.8.8
       tailwindcss:
         specifier: 4.1.18
         version: 4.1.18
       tslib:
-        specifier: ^2.3.0
+        specifier: 2.8.1
         version: 2.8.1
       typescript:
-        specifier: ~5.9.2
+        specifier: 5.9.3
         version: 5.9.3
       typescript-eslint:
-        specifier: ^8.40.0
+        specifier: 8.54.0
         version: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)
       verdaccio:
-        specifier: ^6.0.5
+        specifier: 6.2.5
         version: 6.2.5(encoding@0.1.13)(typanion@3.14.0)
       vite:
-        specifier: ^7.0.0
+        specifier: 7.3.1
         version: 7.3.1(@types/node@20.19.9)(jiti@2.4.2)(less@4.5.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(yaml@2.8.2)
       vite-plugin-dts:
-        specifier: ~4.5.0
+        specifier: 4.5.4
         version: 4.5.4(@types/node@20.19.9)(rollup@4.57.1)(typescript@5.9.3)(vite@7.3.1(@types/node@20.19.9)(jiti@2.4.2)(less@4.5.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(yaml@2.8.2))
       vitest:
-        specifier: ^4.0.8
+        specifier: 4.0.18
         version: 4.0.18(@types/node@20.19.9)(@vitest/ui@4.0.18)(jiti@2.4.2)(jsdom@27.4.0)(less@4.5.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)(terser@5.46.0)(yaml@2.8.2)
 
   docs/cvb-docs:
     dependencies:
       next:
-        specifier: ~16.0.1
+        specifier: 16.0.11
         version: 16.0.11(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
 
   docs/nx-tools-docs:
     dependencies:
       next:
-        specifier: ~16.0.1
+        specifier: 16.0.11
         version: 16.0.11(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
 
   packages/class-variance-builder: {}
@@ -15214,7 +15214,7 @@ snapshots:
 
   compressible@2.0.18:
     dependencies:
-      mime-db: 1.52.0
+      mime-db: 1.54.0
 
   compression@1.8.1:
     dependencies:
@@ -16305,7 +16305,7 @@ snapshots:
 
   ext-list@2.2.2:
     dependencies:
-      mime-db: 1.52.0
+      mime-db: 1.54.0
 
   ext-name@5.0.0:
     dependencies:
