@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "jsx": "preserve",
     "noEmit": true,
     "emitDeclarationOnly": false,
@@ -19,10 +20,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "fumadocs-mdx:collections/*": [".source/*"]
     },
     "outDir": "dist",
-    "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -32,7 +33,9 @@
     "src/**/*.jsx",
     "../../docs/cvb-docs/.next/types/**/*.ts",
     "../../dist/docs/cvb-docs/.next/types/**/*.ts",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    ".source/**/*.ts",
+    "source.config.ts"
   ],
   "exclude": [
     "out-tsc",

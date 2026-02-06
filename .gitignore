@@ -52,3 +52,6 @@ vite.config.*.timestamp*
 # Next.js
 .next
 out
+
+# Fumadocs
+.source
