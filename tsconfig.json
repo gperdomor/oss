@@ -20,6 +20,9 @@
     },
     {
       "path": "./packages/nx-graphql-codegen"
+    },
+    {
+      "path": "./packages/nx-go"
     }
   ]
 }
