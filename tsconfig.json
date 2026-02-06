@@ -8,6 +8,9 @@
     },
     {
       "path": "./packages/nx-container"
+    },
+    {
+      "path": "./packages/nx-prisma"
     }
   ]
 }

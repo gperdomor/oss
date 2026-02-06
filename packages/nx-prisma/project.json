@@ -1,0 +1,32 @@
+{
+  "name": "nx-prisma",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nx-prisma/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/nx-prisma/dist",
+        "main": "packages/nx-prisma/src/index.ts",
+        "tsConfig": "packages/nx-prisma/tsconfig.lib.json",
+        "rootDir": "packages/nx-prisma/src",
+        "generatePackageJson": false,
+        "assets": [
+          {
+            "input": "./packages/nx-prisma/src",
+            "glob": "**/!(*.ts)",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-prisma/src",
+            "glob": "**/*.d.ts",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
