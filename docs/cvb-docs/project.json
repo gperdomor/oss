@@ -1,0 +1,9 @@
+{
+  "name": "cvb-docs",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "docs/cvb-docs",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project cvb-docs --web",
+  "targets": {}
+}

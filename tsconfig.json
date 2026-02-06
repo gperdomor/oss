@@ -26,6 +26,9 @@
     },
     {
       "path": "./packages/nx-swift"
+    },
+    {
+      "path": "./docs/cvb-docs"
     }
   ]
 }
