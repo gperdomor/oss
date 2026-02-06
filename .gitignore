@@ -48,3 +48,7 @@ Thumbs.db
 
 vitest.config.*.timestamp*
 vite.config.*.timestamp*
+
+# Next.js
+.next
+out
