@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/class-variance-builder"
+    },
+    {
+      "path": "./packages/nx-graphql-codegen"
     }
   ]
 }

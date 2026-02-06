@@ -1,0 +1,32 @@
+{
+  "name": "nx-graphql-codegen",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nx-graphql-codegen/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/nx-graphql-codegen/dist",
+        "main": "packages/nx-graphql-codegen/src/index.ts",
+        "tsConfig": "packages/nx-graphql-codegen/tsconfig.lib.json",
+        "rootDir": "packages/nx-graphql-codegen/src",
+        "generatePackageJson": false,
+        "assets": [
+          {
+            "input": "./packages/nx-graphql-codegen/src",
+            "glob": "**/!(*.ts)",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-graphql-codegen/src",
+            "glob": "**/*.d.ts",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
