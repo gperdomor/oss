@@ -1,0 +1,9 @@
+{
+  "name": "nx-set-shas",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nx-set-shas/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project nx-set-shas --web",
+  "targets": {}
+}
