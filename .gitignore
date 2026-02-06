@@ -47,3 +47,4 @@ Thumbs.db
 /.pnpm-store
 
 vitest.config.*.timestamp*
+vite.config.*.timestamp*

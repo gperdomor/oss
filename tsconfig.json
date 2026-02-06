@@ -14,6 +14,9 @@
     },
     {
       "path": "./packages/nx-set-shas"
+    },
+    {
+      "path": "./packages/class-variance-builder"
     }
   ]
 }
