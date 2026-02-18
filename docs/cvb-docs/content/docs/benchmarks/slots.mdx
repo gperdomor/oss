@@ -1,0 +1,102 @@
+---
+title: Slot Benchmarks
+description: Measure slot-related svb function, evaluating their behavior under various conditions.
+---
+
+## Slot Recipe creation
+
+The timing that it takes to create a new slot recipe for multipart components. This happens when you define your recipe using the `svb` function.
+
+### Simple recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| svb 🥇   | 10,734,775 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0002 | ±0.08% | 32,204,328 |
+| tv       |  3,376,814 | 0.0003 | 0.0003 | 0.0004 | 0.0005 | 0.0007 | ±0.54% | 10,130,443 |
+
+3.18x faster than tv
+
+### Complex recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| svb 🥇   | 10,886,399 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0002 | ±0.08% | 32,659,199 |
+| tv       |  3,169,811 | 0.0003 | 0.0003 | 0.0005 | 0.0006 | 0.0007 | ±0.47% |  9,509,435 |
+
+3.43x faster than tv
+
+### Large recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| svb 🥇   | 10,848,504 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0002 | ±0.08% | 32,545,514 |
+| tv       |  1,435,096 | 0.0007 | 0.0006 | 0.0009 | 0.0009 | 0.0021 | ±0.40% |  4,305,289 |
+
+7.56x faster than tv
+
+## Slot Recipe usage
+
+This benchmark calculate the time to resolve your styles based on your options.
+
+### Simple with defaults
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| svb 🥇   | 1,827,031 | 0.0005 | 0.0005 | 0.0007 | 0.0007 | 0.0019 | ±0.37% | 5,481,094 |
+| tv -     |   800,568 | 0.0012 | 0.0012 | 0.0015 | 0.0017 | 0.0211 | ±0.66% | 2,401,706 |
+
+2.28x faster than tv
+
+### Simple with overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| svb 🥇   | 1,273,362 | 0.0008 | 0.0008 | 0.0010 | 0.0010 | 0.0049 | ±0.08% | 3,820,087 |
+| tv       |   728,059 | 0.0014 | 0.0013 | 0.0017 | 0.0017 | 0.0208 | ±0.90% | 2,184,180 |
+
+1.75x faster than tv
+
+### Complex with defaults
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| svb 🥇   | 410,508 | 0.0024 | 0.0024 | 0.0026 | 0.0027 | 0.0164 | ±0.31% | 1,231,527 |
+| tv       | 148,965 | 0.0067 | 0.0066 | 0.0072 | 0.0083 | 0.0375 | ±0.16% |   446,898 |
+
+2.76x faster than tv
+
+### Complex with overrides
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| svb 🥇   | 400,545 | 0.0025 | 0.0025 | 0.0027 | 0.0027 | 0.0168 | ±0.12% | 1,201,637 |
+| tv       | 176,568 | 0.0057 | 0.0055 | 0.0068 | 0.0077 | 0.0348 | ±0.17% |   529,706 |
+
+2.27x faster than tv
+
+### Large with defaults
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme | samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | ------: |
+| svb 🥇   |  66,834 | 0.0150 | 0.0147 | 0.0178 | 0.0292 | 0.0583 | ±0.14% |  200504 |
+| tv       |  23,410 | 0.0427 | 0.0419 | 0.0673 | 0.1125 | 0.1597 | ±0.47% |   70232 |
+
+2.85x faster than tv
+
+### Large with overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme | samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | ------: |
+| svb 🥇   | 60,157.13 | 0.0166 | 0.0164 | 0.0184 | 0.0337 | 0.0620 | ±0.13% |  180472 |
+| tv       | 17,284.04 | 0.0579 | 0.0569 | 0.0985 | 0.1559 | 0.1823 | ±0.19% |   51853 |
+
+3.48x faster than tv
+
+## Summary
+
+The benchmark results clearly demonstrate the superior performance of the Class Variance Builder compared to Tailwind Variants in both recipe creation and usage.
+
+- **Recipe Creation**: The `cvb` package consistently outperforms `tailwind-variants` in creating slot recipes for multipart components. Across all scenarios—simple, complex, and large recipes—`cvb` achieves significantly higher operations per second, making it the faster and more efficient choice for recipe creation.
+- **Recipe Usage**: When it comes to resolving styles, `cvb` again outshines `tailwind-variants`. It delivers faster performance in all tested scenarios, including simple and complex recipes. The performance gap widens further in large recipes, where `cvb` demonstrates remarkable efficiency.
+
+In summary, `cvb` is the clear winner in both recipe creation and usage, offering unparalleled speed and efficiency compared to `tailwind-variants`. This makes `cvb` the ideal choice for developers seeking high-performance solutions for managing styles in multipart components.

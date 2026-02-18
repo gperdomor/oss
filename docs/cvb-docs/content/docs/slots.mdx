@@ -1,0 +1,260 @@
+---
+title: Slots
+description: Slots are handy when you need to apply style variations to multiple parts of a component.
+---
+
+While standard recipes with `cvb` are perfect for styling single elements, complex components often consist of multiple parts that need coordinated styling. Slot recipes, created with `svb` function, provide a powerful solution for these multi-part components.
+
+## When to Use Slot Recipes
+
+Slot recipes are ideal for components like:
+
+- Cards with headers, bodies, and footers
+- Tabs with tab lists, tab panels, and indicators
+- Dropdowns with triggers, content, and items
+- Any component where multiple elements need to respond to the same variants
+
+## Understanding Slot Recipes
+
+A slot recipe defines all possible visual states of a component in a single, structured declaration:
+
+```ts
+svb({
+  slots: [...],       // Named parts that make up your component
+  base: {             // Base Styles per slot
+    "..."
+  },
+  variants: {         // Variant Groups
+    color: {
+      green: {        // Variant Options per slot
+        "..."
+      },
+      blue: {         // Variant Options per slot
+        "..."
+      }
+    },
+    ...
+  }
+})
+```
+
+A slot recipe is defined using the `svb` function and consists of these key properties:
+
+- `slots`: An array of named parts that make up your component
+- `base`: Base styles applied to each slot regardless of variants
+- `variants`: Styling options that affect multiple slots simultaneously
+- `compoundVariants`: Styles applied when specific variant combinations are selected
+- `defaultVariants`: Pre-selected variant values when none are explicitly provided
+
+<Callout type="warn">Credit: This API was inspired by [PandaCSS](https://panda-css.com/).</Callout>
+
+## Creating your first Slot Recipe
+
+Let's create a `badge` component with a colored dot indicator:
+
+```ts title="components/badge.recipe.ts"
+import { svb } from 'cvb';
+
+// [!code ++:33]
+export const badge = svb({
+  slots: ['root', 'dot'],
+  base: {
+    root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs',
+    dot: '',
+  },
+  variants: {
+    color: {
+      green: {
+        root: 'bg-green-50 text-green-700',
+        dot: 'fill-green-500',
+      },
+      indigo: {
+        root: 'bg-indigo-50 text-indigo-700',
+        dot: 'fill-indigo-500',
+      },
+      red: {
+        root: 'bg-red-50 text-red-700',
+        dot: 'fill-red-500',
+      },
+    },
+    size: {
+      sm: {
+        root: 'px-1.5 py-0.5',
+        dot: 'size-1.5',
+      },
+      md: {
+        root: 'px-2 py-1',
+        dot: 'size-2',
+      },
+    },
+  },
+});
+```
+
+<Callout>Use of Tailwind CSS is optional</Callout>
+
+This recipe generates class names for both the root container and the dot based on the selected variants:
+
+```ts
+badge({ color: 'indigo', size: 'sm' });
+// Result:
+// {
+//   root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs bg-indigo-50 text-indigo-700 px-1.5 py-0.5',
+//   dot: 'size-1.5 fill-indigo-500',
+// }
+```
+
+### Boolean variants
+
+For simple on/off values, boolean variants provide a clean solution:
+
+```ts title="components/badge.recipe.ts"
+import { svb } from 'cvb';
+
+export const badge = svb({
+  // ...previous code
+  variants: {
+    // ...previous variants
+    // [!code ++:7]
+    disabled: {
+      true: { root: 'opacity-50' },
+    },
+    flat: {
+      true: { root: '' },
+      false: { root: 'ring-1 ring-inset' },
+    },
+  },
+});
+```
+
+Boolean variants are especially useful for toggling states like disabled, loading, or selected.
+
+```ts
+badge({ color: 'indigo', size: 'sm', disabled: true });
+// Result:
+// {
+//   root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs bg-indigo-50 text-indigo-700 px-1.5 py-0.5 opacity-50',
+//   dot: 'size-1.5 fill-indigo-500',
+// }
+```
+
+### Compound slots variants
+
+Just like in standard recipes, compound variants apply styles only when specific combinations of variants are selected, enabling complex conditional styling logic:
+
+```ts title="components/badge.recipe.ts"
+import { svb } from 'cvb';
+
+export const badge = svb({
+  // ...previous code
+  // [!code ++:27]
+  compoundVariants: [
+    // Apply specific ring colors to root container based on green color variant when not flat
+    {
+      color: 'green',
+      flat: false,
+      class: { root: 'ring-green-600/20' }, // You can also use "className"
+    },
+    // Apply specific ring colors to root container based on indigo color variant when not flat
+    {
+      color: 'indigo',
+      flat: false,
+      class: { root: 'ring-indigo-700/10' }, // You can also use "className"
+    },
+    // Apply specific ring colors to root container based on red color variant when not flat
+
+    {
+      color: 'red',
+      flat: false,
+      class: { root: 'ring-red-600/10' }, // You can also use "className"
+    },
+    // Apply font-medium to both green and red variants when not flat
+    {
+      color: ['green', 'red'],
+      flat: false,
+      class: { root: 'font-medium' }, // You can also use "className"
+    },
+  ],
+});
+```
+
+Compound variants are powerful for creating context-aware styling rules where the appearance depends on multiple factors.
+
+```ts
+badge({ color: 'indigo', size: 'md', flat: false });
+// Result:
+// {
+//   root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs bg-indigo-50 text-indigo-700 px-2 py-1 ring-1 ring-inset ring-indigo-700/10',
+//   dot: 'size-2 fill-indigo-500',
+// }
+```
+
+### Default Variants
+
+Set default variant values to ensure your component looks great even without any props:
+
+```ts title="components/badge.recipe.ts"
+import { svb } from 'cvb';
+
+export const badge = svb({
+  // ...previous code
+  // [!code ++:5]
+  defaultVariants: {
+    color: 'indigo',
+    size: 'md',
+    flat: 'false',
+  },
+});
+```
+
+With defaults defined, calling `badge()` without arguments will use these values:
+
+```ts
+badge();
+// Result:
+// {
+//   root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs bg-indigo-50 text-indigo-700 px-2 py-1 ring-1 ring-inset ring-indigo-700/10',
+//   dot: 'size-2 fill-indigo-500',
+// }
+
+badge({ color: 'green', flat: true }); // Overrides only the color and flat variants
+// Result:
+// {
+//   root: 'inline-flex items-center rounded-md gap-x-1.5 text-xs bg-green-50 text-green-700 px-2 py-1',
+//   dot: 'size-2 fill-green-500',
+// }
+```
+
+## Using the recipe
+
+Once defined, recipes can be easily integrated into your components:
+
+```tsx title="components/badge.tsx"
+import { badge } from './badge.recipe'; // [!code highlight]
+
+interface BadgeProps {
+  children: React.ReactNode;
+  color?: 'green' | 'indigo' | 'red';
+  size?: 'sm' | 'md';
+  disabled?: boolean;
+  flat?: boolean;
+}
+
+export function Badge({ children, ...props }: BadgeProps) {
+  const styles = badge({ color: 'green', size: 'md' }); // [!code highlight]
+
+  return (
+    <span className={styles.root}>
+      <svg className={styles.dot} viewBox="0 0 6 6" aria-hidden="true">
+        <circle cx="3" cy="3" r="3" />
+      </svg>
+      Badge
+    </span>
+  );
+}
+```
+
+<Callout type="info">
+  For TypeScript users, CVB provides powerful type utilities to ensure complete type safety. See our TypeScript
+  [guide](./typescript) to learn how to automatically derive prop types from your recipes.
+</Callout>

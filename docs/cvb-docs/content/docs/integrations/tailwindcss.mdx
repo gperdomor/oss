@@ -1,0 +1,165 @@
+---
+title: Tailwind CSS
+description: Use Tailwind CSS to handle your styles
+---
+
+CVB and [Tailwind CSS](https://tailwindcss.com/) create a powerful combination for building component-based UI systems. While CVB works with any styling approach, it shines particularly well with Tailwind's utility-first methodology.
+
+## Why Integrate CVB with Tailwind?
+
+- **Component Variants + Utility Classes:** Create variant-driven components while leveraging Tailwind's utility-based approach
+- **Type-Safe Styling:** Add structure and type safety to your Tailwind classes
+- **Reduced Boilerplate:** Eliminate repetitive className conditionals in your components
+- **Consistent Patterns:** Standardize how styling variants are applied across your project
+
+## Setup IntelliSense
+
+One of the biggest advantages of using Tailwind is its excellent editor integration. By configuring your IDE, you can get autocompletion for Tailwind classes inside CVB functions:
+
+<Tabs items={['Visual Studio Code', 'Zed', 'Neovim', 'WebStorm']} groupId="ide" persist>
+  <Tab value="Visual Studio Code">
+    <Steps>
+      <Step>
+        [Install the "Tailwind CSS IntelliSense" Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+      </Step>
+      <Step>
+        Add the following to your `.vscode/settings.json`:
+        ```json title=".vscode/settings.json"
+        {
+          "tailwindCSS.classFunctions": ["cvb", "svb", "cx"]
+        }
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab value="Zed">
+    Add the following to your [`.zed/settings.json`](https://zed.dev/docs/configuring-zed#settings-files):
+    ```json title=".zed/settings.json"
+    {
+      "lsp": {
+        "tailwindcss-language-server": {
+          "settings": {
+            "classFunctions": ["cvb", "svb", "cx"]
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab value="Neovim">
+    <Steps>
+      <Step>
+        [Install the extension](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss)
+      </Step>
+      <Step>
+        Add the following configuration:
+        ```lua
+        require 'lspconfig'.tailwindcss.setup({
+          settings = {
+            tailwindCSS = {
+              classFunctions: ["cvb", "svb", "cx"]
+            }
+          }
+        })
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab value="WebStorm">
+    <Steps>
+      <Step>
+        Check the version. Available for [WebStorm 2023.1](https://www.jetbrains.com/webstorm/whatsnew/) and later
+      </Step>
+      <Step>
+        Open the settings. Go to [Languages and Frameworks | Style Sheets | Tailwind CSS](https://www.jetbrains.com/help/webstorm/tailwind-css.html#ws_css_tailwind_configuration)
+      </Step>
+      <Step>
+        Add the following to your tailwind configuration:
+        ```json
+        {
+          classFunctions: ["cvb", "svb", "cx"]
+        }
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Handling Style Conflicts
+
+One challenge when using Tailwind is handling conflicting utility classes. For example, in `"border rounded px-2 py-1 p-3"`, the `p-3` class conflicts with `px-2 and py-1`, but CSS cascade rules mean specific properties override general ones, regardless of class order.
+
+### The problem
+
+```ts
+// This button has a problem: p-3 is being overridden by px-2 and py-1
+const button = cvb({
+  base: 'border rounded px-2 py-1', // px-2 py-1 are specific padding utilities
+  variants: {
+    size: {
+      small: 'text-sm',
+      large: 'p-3', // conflict with this general padding
+    },
+  },
+});
+```
+
+### The solution: Tailwind Merge
+
+The `tailwind-merge` package intelligently resolves these conflicts by understanding Tailwind's utility relationships:
+
+1. First, install `tailwind-merge`:
+
+```package-install
+npm i tailwind-merge
+```
+
+2. Create a custom CVB configuration:
+
+```ts title="cvb.config.ts"
+import { defineConfig } from 'cvb';
+import { twMerge } from 'tailwind-merge';
+
+export const { cvb, svb, cx, compose } = defineConfig({
+  hooks: {
+    onComplete: (className) => twMerge(className), // Resolves Tailwind conflicts [!code highlight]
+  },
+});
+```
+
+3. Use your configured CVB functions:
+
+```ts title="components/button.ts"
+import { cvb, cx } from '../lib/cvb.config'; // Use your custom config
+
+export const button = cvb({
+  base: 'px-4 py-2 rounded',
+  variants: {
+    color: {
+      primary: 'bg-blue-500 text-white hover:bg-blue-600',
+      secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+    },
+    size: {
+      small: 'text-sm',
+      large: 'text-lg p-5', // p-5 will correctly override px-4 and py-2
+    },
+  },
+  defaultVariants: {
+    color: 'primary',
+    size: 'small',
+  },
+});
+
+// Usage
+button({ size: 'large' });
+// Result: "rounded bg-blue-500 text-white hover:bg-blue-600 text-lg p-5"
+// Without tailwind-merge, you'd get "px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 text-lg p-5"
+
+cx('p-5 bg-gray-200', 'bg-blue-500');
+// Result: "p-5 bg-blue-500"
+```
+
+<Callout>
+  Remember that CVB works with any CSS approach, not just Tailwind. You can mix Tailwind with CSS Modules, CSS-in-JS, or
+  any other styling method while still getting the benefits of CVB's variant system.
+</Callout>
