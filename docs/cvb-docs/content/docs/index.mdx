@@ -1,0 +1,106 @@
+---
+title: Overview
+description: The what and the why of Class Variance Builder.
+icon: Album
+---
+
+## Introduction
+
+Class Variance Builder <span className='text-fd-muted-foreground text-sm'>(or just CVB)</span> is a universal, lightweight and performant styling solution with a focus on component architecture for the modern web.
+
+## Performance
+
+### Near-Zero Runtime
+
+In web applications, performance is a priority. CVB was designed with this principle at its core.
+
+CVB achieves exceptional runtime performance by eliminating unnecessary prop interpolations and style recalculations.
+
+<Callout>`cvb` is a tiny library, weighing in at less than 1KB (minified and gzipped).</Callout>
+
+### Server-Side Rendering
+
+CVB fully supports server-side rendering across all browsers. While CVB's runtime is extremely lightweight, leveraging SSR/SSG environments allows you to eliminate this JavaScript entirely from the client bundle for static components, further optimizing performance and user experience.
+
+## Key Features
+
+### Variants
+
+CVB introduces variants as a first-class citizen in your styling workflow, enabling you to create flexible, type-safe component APIs with minimal boilerplate. The `cvb` function provides a powerful foundation for building dynamic UI components.
+
+### Slots
+
+Slot recipes come in handy when you need to apply style variations to multiple parts of a component. While using `cvb` might be enough for simple cases, slot recipes are a better fit for more complex cases.
+
+The slot recipe function (`svb`) enables you to style multi-part components with cohesive variant control. While standard recipes (`cvb`) handle single-element styling effectively, slot recipes excel at coordinating styles across complex component structures.
+
+### Composition
+
+The CVB's powerful composition model allows you to create a library of specialized recipe fragments that can be combined in different ways, enabling a modular approach to styling that scales with your design system's complexity.
+
+### Overrides
+
+CVB provides flexible style customization through the `class` or `className` props on any component styled with CVB recipes. These props let you add custom styles while preserving the variant system's benefits.
+
+### Utils
+
+CVB prioritizes developer experience with a thoughtfully designed API that makes styling components intuitive and productive.
+
+- The `defineConfig` generate your own version of `cvb`, `svb`, `cx` and `compose` functions based on your preferred configuration
+- The `cx` function is a lightweight utility for conditionally combining CSS class names
+
+### Developer Experience
+
+CVB prioritizes developer experience with a thoughtfully designed API that makes styling components intuitive and productive.
+
+With CVB, you'll benefit from:
+
+- **Rich TypeScript Integration**: Enjoy full type safety with autocompletion for variant names and values, preventing invalid combinations and typos
+- **Intelligent IntelliSense**: Get real-time feedback on variant compatibility and available options directly in your editor
+- **Predictable Composition Model**: Combine multiple recipes with a consistent merging strategy that's easy to reason about
+- **Zero Configuration**: Start using CVB immediately with sensible defaults while maintaining the flexibility to customize when needed
+- **Framework Agnostic**: Works seamlessly with React, Vue, Svelte or any other framework, providing a consistent styling experience. Create your styles, use it everywhere
+- **Zero Dependencies**: Keep your project lean and secure with no external dependencies to manage
+
+This focus on developer experience means less time fighting with your styling system and more time building great user interfaces.
+
+## Community
+
+Join the growing CVB community! We believe in building together and welcome contributors of all experience levels.
+
+### Get Involved
+
+- **Report Issues**: Found a bug or have a suggestion? [Open an issue](https://github.com/gperdomor/oss/issues/new/choose) on GitHub
+- **Ask Questions**: Need help or clarification? Start a conversation in [GitHub Discussions](https://github.com/gperdomor/oss/discussions)
+- **Contribute Code**: Pull requests are welcome! Check our [contribution guidelines](https://github.com/gperdomor/oss/blob/main/CONTRIBUTING.md) to get started
+- **Share Your Work**: Built something with CVB? Share it with the community in the [Showcase discussion](https://github.com/gperdomor/oss/discussions/categories/show-and-tell)
+- **Spread the Word**: Star the [repository](https://github.com/gperdomor/oss), share on social media, or write about your experience
+
+### Resources
+
+- [GitHub Repository](https://github.com/gperdomor/oss) - Source code, issues, and project management
+- [GitHub Discussions](https://github.com/gperdomor/oss/discussions) - Community conversations and support
+- [NPM Package](https://www.npmjs.com/package/cvb) - Latest releases and installation information
+- [Documentation](https://class-variance-builder.vercel.app) - Comprehensive guides and API reference
+- [Code of Conduct](https://github.com/gperdomor/oss/blob/main/CODE_OF_CONDUCT.md) - Our community standards and expectations
+
+Your feedback and contributions help make CVB better for everyone!
+
+## Acknowledgement
+
+The development of **Class Variance Builder** stands on the shoulders of giants. We're deeply grateful for these exceptional projects that provided inspiration, ideas, and patterns:
+
+- [CVA (Class Variance Authority)](https://cva.style/) - Pioneered the variant-based approach to styling components
+- [Tailwind Variants](https://tailwind-variants.org/) - The power of Tailwind combined with a first-class variant API
+- [PandaCSS](https://panda-css.com/) - CSS-in-JS with build time generated styles
+
+### Special Thanks
+
+A heartfelt thank you to [Renato Ribeiro](https://github.com/renatorib) who generously transferred the original `cvb` package name, allowing us to build this project with a clear and consistent identity.
+
+{/* ## What is Next?
+
+<Cards>
+  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
+  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+</Cards> */}

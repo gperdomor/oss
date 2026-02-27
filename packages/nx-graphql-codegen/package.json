@@ -24,7 +24,7 @@
     "ts-node": "^10.0.0"
   },
   "devDependencies": {
-    "@nx/devkit": "22.5.0"
+    "@nx/devkit": "22.5.1"
   },
   "engines": {
     "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"

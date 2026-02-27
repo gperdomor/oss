@@ -1,0 +1,25 @@
+{
+  "title": "Class Variance Builder",
+  "description": "The docs for CVB",
+  "icon": "Building2",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "comparisons",
+    "api-reference",
+    "benchmarks",
+    "faq",
+    "---Getting Started---",
+    "installation",
+    "variants",
+    "slots",
+    "---Advanced---",
+    "overriding-styles",
+    "composing-recipes",
+    "utils",
+    "typescript",
+    "integrations",
+    "[Sponsors](https://github.com/sponsors/gperdomor)"
+  ]
+}

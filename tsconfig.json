@@ -29,6 +29,9 @@
     },
     {
       "path": "./apps/website"
+    },
+    {
+      "path": "./docs/cvb-docs"
     }
   ]
 }

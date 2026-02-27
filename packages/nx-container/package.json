@@ -31,10 +31,10 @@
   },
   "devDependencies": {
     "@nx-tools/ci-context": "workspace:*",
-    "@nx/devkit": "22.5.0",
-    "@nx/js": "22.5.0",
+    "@nx/devkit": "22.5.1",
+    "@nx/js": "22.5.1",
     "@types/tmp": "0.2.6",
-    "nx": "22.5.0"
+    "nx": "22.5.1"
   },
   "engines": {
     "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"

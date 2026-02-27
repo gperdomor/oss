@@ -1,0 +1,45 @@
+---
+title: Installation
+description: How to install Class Variance Builder and get up and running.
+---
+
+## Install CVB
+
+To add Class Variance Builder to your project, just execute the following command:
+
+```package-install
+npm i cvb
+```
+
+Node.js 18 or above required.
+
+<Callout>
+  If you're a Tailwind CSS user, [here](./integrations/tailwindcss) are some additional (optional) steps to get the most
+  out of `CVB`
+</Callout>
+
+## Enjoy!
+
+Now you can start using CVB in your project. Import the `cvb` function and create your first component recipe:
+
+```tsx
+import { cvb } from 'cvb';
+
+const button = cvb({
+  base: 'px-4 py-2 text-sm rounded-md font-medium',
+  variants: {
+    color: {
+      primary: 'bg-sky-300 text-slate-900 hover:bg-sky-200 active:bg-sky-500',
+      secondary: 'bg-slate-800 text-white hover:bg-slate-700 active:text-slate-400',
+    },
+    size: {
+      sm: 'px-2 py-1 text-xs',
+      md: 'px-4 py-2 text-sm',
+    },
+  },
+});
+
+function Button() {
+  return <button className={button({ color: 'secondary', size: 'md' })}>Click me</button>;
+}
+```

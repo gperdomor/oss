@@ -1,0 +1,141 @@
+---
+title: Utils
+description: Additional utilities functions provided by CVB
+---
+
+CVB provides powerful utility functions that enhance your workflow beyond the recipe pattern. These utilities can be used independently or alongside recipe functions to build more flexible components
+
+## cx - Class Name Combiner
+
+The `cx` function is a lightweight utility for conditionally combining CSS class names, similar to popular libraries like `clsx` and `classnames`, but with a focus on simplicity and performance.
+
+```ts
+import { cx } from 'cvb';
+
+function Button({ primary, large, disabled, className }) {
+  return (
+    <button
+      className={cx(
+        'rounded focus:ring-2',
+        primary ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800',
+        large && 'text-lg px-6 py-3',
+        disabled && 'opacity-50 cursor-not-allowed',
+        className,
+      )}
+    >
+      Click me
+    </button>
+  );
+}
+```
+
+### Key Features
+
+- **Lightweight:** Tiny implementation with zero dependencies
+- **Efficient:** Optimized for speed with minimal runtime overhead
+- **Type-Safe:** Full TypeScript support for better development experience
+- **Intuitive API:** Simple function call with unlimited arguments
+
+### Usage examples
+
+```ts
+// Basic combination
+cx('flex', 'items-center');
+// => "flex items-center"
+
+// With boolean expressions
+cx('btn', isActive && 'btn-active');
+// => "btn btn-active" if isActive is true
+// => "btn" if isActive is false
+
+// With ternary expressions
+cx('btn', isPrimary ? 'btn-primary' : 'btn-secondary');
+// => "btn btn-primary" or "btn btn-secondary"
+
+// Multiple space-separated classes
+cx('p-4 m-2', 'flex items-center');
+// => "p-4 m-2 flex items-center"
+
+// Spreading arrays
+cx(...['font-bold', 'text-lg', isImportant && 'text-red-500']);
+// => "font-bold text-lg text-red-500" if isImportant is true
+
+// Real-world example
+cx(
+  'transition-colors rounded-md',
+  isActive ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800',
+  isDisabled && 'opacity-50 cursor-not-allowed',
+  size === 'large' ? 'px-6 py-3 text-lg' : 'px-4 py-2 text-base',
+);
+```
+
+<Callout type="info">
+  The `cx` function only accepts string expressions as arguments, preferring a more functional approach over object
+  syntax. This design choice leads to a more intuitive syntax with conditions first and better support for conditional
+  branches through ternary operators.
+</Callout>
+
+## defineConfig
+
+The `defineConfig` function allows you to create your own version of CVB's core functions with custom configuration options.
+
+```ts title="cvb.config.ts"
+import { defineConfig } from 'cvb';
+
+function processClass(className: string) {
+  // Do something with your classes
+  return className;
+}
+
+// Create custom CVB instance
+export const { cvb, svb, cx, compose } = defineConfig({
+  hooks: {
+    onComplete: (className) => processClass(className),
+  },
+});
+```
+
+### Configuration Options
+
+Currently, defineConfig supports the following options:
+
+```ts
+interface DefineConfigOptions {
+  hooks?: {
+    /**
+     * Hook function called after class names are concatenated
+     */
+    onComplete?: (className: string) => string;
+  };
+}
+```
+
+### Common Use Cases
+
+#### Tailwind CSS Class Resolution
+
+When working with Tailwind CSS, you can use tailwind-merge to resolve conflicting utility classes
+
+<Callout type="info">
+  See our Tailwind CSS integration [guide](./integrations/tailwindcss#handling-style-conflicts) for details.
+</Callout>
+
+#### Custom Class Transformations
+
+You can implement custom class transformations for special requirements:
+
+{/* prettier-ignore */}
+```ts
+export const { cvb, svb, cx, compose } = defineConfig({
+  hooks: {
+    onComplete: (className) => {
+      // Convert shorthand classes to full versions
+      return className
+        .replace(/\bfb\b/g, 'font-bold')
+        .replace(/\bfi\b/g, 'font-italic');
+    },
+  },
+});
+
+cx('fb', 'text-red-500'); // => 'font-bold text-red-500'
+```

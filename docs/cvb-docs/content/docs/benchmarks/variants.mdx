@@ -1,0 +1,120 @@
+---
+title: Variants Benchmarks
+description: Measure the performance of cvb function, providing insights into their efficiency and responsiveness
+---
+
+## Recipe creation
+
+The timing that it takes to create a new recipe. This happens when you define your recipe using the `cvb` function.
+
+#### Simple recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb      | 10,523,519 | 0.0001 | 0.0001 | 0.0001 | 0.0002 | 0.0003 | ±0.70% | 31,570,558 |
+| cva 🥇   | 11,296,263 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0002 | ±0.10% | 33,888,791 |
+
+1.07x faster than cvb
+
+#### Complex recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb      | 10,128,267 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0003 | ±0.55% | 30,386,917 |
+| cva 🥇   | 11,681,957 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | ±0.08% | 35,045,872 |
+
+1.15x faster than cvb
+
+#### Large recipe
+
+| function |    ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | ---------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb      | 10,205,317 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0003 | ±0.55% | 30,615,952 |
+| cva 🥇   | 11,866,965 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | 0.0001 | ±0.08% | 35,600,898 |
+
+1.16x faster than cvb
+
+## Recipe usage
+
+This benchmark calculate the time to resolve your styles based on your options.
+
+### Simple with defaults
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb 🥇   | 3,800,365 | 0.0003 | 0.0003 | 0.0004 | 0.0005 | 0.0017 | ±0.12% | 11,401,096 |
+| cva      | 3,305,294 | 0.0003 | 0.0003 | 0.0005 | 0.0006 | 0.0017 | ±0.32% |  9,915,883 |
+
+1.15x faster than cva
+
+### Simple with overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb 🥇   | 3,708,168 | 0.0003 | 0.0003 | 0.0003 | 0.0005 | 0.0006 | ±0.35% | 11,124,507 |
+| cva      | 1,348,985 | 0.0007 | 0.0007 | 0.0011 | 0.0014 | 0.0154 | ±0.29% |  4,046,956 |
+
+2.75x faster than cva
+
+### Simple with class overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |    samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | ---------: |
+| cvb 🥇   | 3,351,673 | 0.0003 | 0.0003 | 0.0004 | 0.0005 | 0.0007 | ±0.11% | 10,055,020 |
+| cva      | 1,059,503 | 0.0009 | 0.0009 | 0.0012 | 0.0016 | 0.0206 | ±0.28% |  3,178,512 |
+
+3.16x faster than cva
+
+### Complex with defaults
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,511,088 | 0.0007 | 0.0007 | 0.0009 | 0.0011 | 0.0146 | ±0.27% | 4,533,267 |
+| cva      |   372,512 | 0.0027 | 0.0026 | 0.0031 | 0.0052 | 0.0279 | ±0.20% | 1,117,537 |
+
+4.06x faster than cva
+
+### Complex with overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,277,813 | 0.0008 | 0.0007 | 0.0010 | 0.0014 | 0.0179 | ±1.26% | 3,833,440 |
+| cva      |   216,137 | 0.0046 | 0.0043 | 0.0087 | 0.0231 | 0.0354 | ±0.91% |   648,416 |
+
+5.91x faster than cva
+
+### Complex with class overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,383,560 | 0.0007 | 0.0007 | 0.0009 | 0.0011 | 0.0158 | ±0.11% | 4,150,682 |
+| cva      |   250,294 | 0.0040 | 0.0038 | 0.0053 | 0.0182 | 0.0323 | ±0.25% |   750,885 |
+
+5.53x faster than cva
+
+### Large with defaults
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 696,615 | 0.0014 | 0.0014 | 0.0017 | 0.0027 | 0.0211 | ±1.24% | 2,089,846 |
+| cva      |  53,525 | 0.0187 | 0.0180 | 0.0381 | 0.0514 | 0.1852 | ±0.20% |   160,577 |
+
+13.01x faster than cva
+
+### Large with overrides
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 713,752 | 0.0014 | 0.0013 | 0.0016 | 0.0019 | 0.0211 | ±0.19% | 2,141,259 |
+| cva      |  50,967 | 0.0196 | 0.0190 | 0.0403 | 0.0557 | 0.1848 | ±0.19% |   152,902 |
+
+14.00x faster than cva
+
+## Summary
+
+The benchmark results provide a clear comparison between the `cvb` and `cva` packages, highlighting their respective strengths and use cases:
+
+- **Recipe Creation**: The `cva` package exhibits a slight performance advantage in recipe creation. It is marginally faster across various scenarios, including simple, complex, and large recipes.
+- **Recipe Usage**: The `cvb` package excels in recipe usage, significantly outperforming `cva`. It demonstrates remarkable efficiency, particularly in complex and large recipes, achieving up to 14x the performance of `cva`. This positions `cvb` as the ideal choice for applications that prioritize frequent and high-performance recipe usage.
+
+In summary, while `cva` is slightly better for initial recipe creation, `cvb` offers unparalleled performance in real-world usage scenarios, making it the superior option for most applications.

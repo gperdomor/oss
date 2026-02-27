@@ -1,0 +1,102 @@
+---
+title: API Reference
+description: Comprehensive reference documentation for all CVB's functions, and configuration options
+icon: Command
+---
+
+CVB provides a carefully designed API that makes styling components with variants intuitive and type-safe. This page documents all exported functions.
+
+## cvb
+
+Creates a standard recipe function that generates class names based on variant props.
+
+```ts
+import { cvb } from 'cvb';
+
+const recipe = cvb(options);
+```
+
+### Parameters
+
+1. `options`
+   - `base`: Base styles applied to every instance of the component.
+   - `variants`: Groups of mutually exclusive styling options.
+   - `compoundVariants`: Styles applied when specific variant combinations are selected.
+   - `defaultVariants`: Pre-selected variant values when none are explicitly provided.
+
+### Returns
+
+A `cvb` recipe function.
+
+## svb
+
+Creates a slot recipe function for styling multi-part components.
+
+```ts
+import { svb } from 'cvb';
+
+const recipe = svb(options);
+```
+
+### Parameters
+
+1. `options`
+   - `slots`: An array of named parts that make up your component.
+   - `base`: Base styles applied to each slot regardless of variants.
+   - `variants`: Styling options that affect multiple slots simultaneously.
+   - `compoundVariants`: Styles applied when specific variant combinations are selected.
+   - `defaultVariants`: Pre-selected variant values when none are explicitly provided.
+
+### Returns
+
+A `svb` recipe function.
+
+## cx
+
+The cx function is a lightweight utility for conditionally combining multiple CSS class names, similar to popular libraries like `clsx` and `classnames`.
+
+```ts
+import { cx } from 'cvb';
+
+const className = cx(classes);
+```
+
+### Parameters
+
+- `classes`: Any number of class values to be combined.
+
+### Returns
+
+A single `string` class name.
+
+## compose
+
+Merge your recipes to create new ones.
+
+```ts
+import { compose } from 'cvb';
+
+const composedComponent = compose(options);
+```
+
+### Parameters
+
+`options`: array of `cvb` recipes.
+
+### Returns
+
+A new `cvb` recipe function.
+
+## defineConfig
+
+Generate your own version of `cvb`, `svb`, `cx` and `compose` functions based on your preferred configuration.
+
+```ts title="cvb.config.ts"
+import { defineConfig } from 'cvb';
+
+export const { cvb, svb, cx, compose } = defineConfig(options);
+```
+
+1. `options`
+   - `hooks`
+     - `onComplete`: function that returns a concatenated class string of all classes passed to `cx`, `cvb`, `svb` or `compose`.

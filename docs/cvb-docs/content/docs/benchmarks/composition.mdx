@@ -1,0 +1,86 @@
+---
+title: Composition Benchmarks
+description: This tests evaluate related performance of composed recipes.
+---
+
+## Composition Usage
+
+This benchmark calculate the time to resolve composed recipes styles based on the provided options.
+
+### Simple recipe with defaults
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,739,520 | 0.0006 | 0.0005 | 0.0008 | 0.0009 | 0.0050 | ±0.36% | 5,218,563 |
+| cva      | 1,290,717 | 0.0008 | 0.0007 | 0.0010 | 0.0011 | 0.0150 | ±0.54% | 3,872,154 |
+
+1.35x faster than cva
+
+### Simple recipe with overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,628,822 | 0.0006 | 0.0006 | 0.0008 | 0.0009 | 0.0019 | ±0.11% | 4,886,469 |
+| cva      |   873,589 | 0.0011 | 0.0011 | 0.0014 | 0.0015 | 0.0176 | ±0.22% | 2,620,769 |
+
+1.86x faster than cva
+
+### Simple recipe with many overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,235,610 | 0.0008 | 0.0008 | 0.0010 | 0.0011 | 0.0147 | ±0.18% | 3,706,833 |
+| cva      |   305,025 | 0.0033 | 0.0032 | 0.0044 | 0.0066 | 0.0269 | ±0.12% |   915,076 |
+
+4.05x faster than cva
+
+### Simple recipe with class overrides
+
+| function |   ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | --------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 1,287,080 | 0.0008 | 0.0007 | 0.0010 | 0.0014 | 0.0167 | ±0.23% | 3,861,243 |
+| cva      |   384,514 | 0.0026 | 0.0025 | 0.0030 | 0.0049 | 0.0266 | ±0.24% | 1,153,543 |
+
+3.35x faster than cva
+
+### Complex recipe with defaults
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 943,816 | 0.0011 | 0.0010 | 0.0013 | 0.0014 | 0.0206 | ±0.20% | 2,831,450 |
+| cva      | 722,105 | 0.0014 | 0.0014 | 0.0017 | 0.0018 | 0.0209 | ±0.09% | 2,166,317 |
+
+1.31x faster than cva
+
+### Complex recipe with overrides
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 774,607 | 0.0013 | 0.0012 | 0.0016 | 0.0017 | 0.0206 | ±0.98% | 2,323,822 |
+| cva      | 267,224 | 0.0037 | 0.0037 | 0.0041 | 0.0042 | 0.0194 | ±0.06% |   801,673 |
+
+2.90x faster than cva
+
+### Complex recipe with many overrides
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 580,093 | 0.0017 | 0.0017 | 0.0021 | 0.0027 | 0.0214 | ±0.17% | 1,740,282 |
+| cva      | 115,803 | 0.0086 | 0.0086 | 0.0104 | 0.0127 | 0.0321 | ±0.07% |   347,412 |
+
+5.01x faster than cva
+
+### Complex recipe with class overrides
+
+| function | ops/sec |   mean |    p75 |    p99 |   p995 |  p999  |    rme |   samples |
+| -------- | ------: | -----: | -----: | -----: | -----: | :----: | -----: | --------: |
+| cvb 🥇   | 654,916 | 0.0015 | 0.0015 | 0.0018 | 0.0018 | 0.0210 | ±0.15% | 1,964,749 |
+| cva      | 123,030 | 0.0081 | 0.0080 | 0.0086 | 0.0103 | 0.0362 | ±0.16% |   369,091 |
+
+5.32x faster than cva
+
+## Summary
+
+The benchmark results highlight the performance differences between the `cvb` and `cva` compose functions. The `cvb` compose function consistently outperforms `cva` across all scenarios, making it the more efficient choice for straightforward use cases. The performance gap widens significantly for complex recipes achieving up to 5x the performance of `cva` in some cases.
+
+In summary, the `cvb` compose function is the clear winner in both simple and complex recipe scenarios, offering unmatched speed and efficiency compared to `cva`. This makes `cvb` the ideal choice for developers seeking high-performance solutions for composing styles.
