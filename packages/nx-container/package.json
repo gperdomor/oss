@@ -30,6 +30,7 @@
     "tslib": "^2.6.0"
   },
   "devDependencies": {
+    "@nx-tools/ci-context": "workspace:*",
     "@types/tmp": "0.2.6"
   },
   "engines": {

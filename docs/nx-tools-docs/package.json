@@ -1,13 +1,11 @@
 {
-  "name": "@nx-tools/website",
+  "name": "@org/nx-tools-docs",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@takumi-rs/image-response": "0.69.3",
     "fumadocs-core": "16.6.7",
-    "fumadocs-docgen": "3.0.7",
     "fumadocs-mdx": "14.2.8",
-    "fumadocs-typescript": "5.1.4",
     "fumadocs-ui": "16.6.7",
     "lucide-react": "0.575.0",
     "next": "16.1.6",

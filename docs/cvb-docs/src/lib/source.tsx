@@ -30,7 +30,7 @@ function pageTreeCodeTitles(): LoaderPlugin {
 }
 
 export function getPageImage(page: InferPageType<typeof source>) {
-  const segments = [...page.slugs, 'image.png'];
+  const segments = [...page.slugs, 'image.webp'];
 
   return {
     segments,

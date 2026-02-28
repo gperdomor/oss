@@ -32,6 +32,9 @@
     },
     {
       "path": "./docs/cvb-docs"
+    },
+    {
+      "path": "./docs/nx-tools-docs"
     }
   ]
 }
