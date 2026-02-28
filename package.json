@@ -18,8 +18,8 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.4.1",
-    "@commitlint/config-conventional": "20.4.1",
+    "@commitlint/cli": "20.4.2",
+    "@commitlint/config-conventional": "20.4.2",
     "@commitlint/config-nx-scopes": "20.4.0",
     "@commitlint/cz-commitlint": "20.4.1",
     "@commitlint/types": "20.4.0",
