@@ -1,5 +1,5 @@
 import * as core from '@nx-tools/core';
-import { ExecutorContext } from '@nx/devkit';
+import { ExecutorContext, getPackageManagerCommand } from '@nx/devkit';
 import executor from './executor';
 import { GenerateExecutorSchema } from './schema';
 
@@ -32,18 +32,24 @@ describe('Generate Executor', () => {
   });
 
   it('can run with empty options', async () => {
+    const [bin, ...pmArgs] = getPackageManagerCommand().exec.trim().split(/\s+/);
     const options: GenerateExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
-    expect(expectCommandToHaveBeenCalled('npx', ['graphql-codegen', '--config=workspace-root/apps/foo/codegen.ts']));
+    expect(
+      expectCommandToHaveBeenCalled(bin, [...pmArgs, 'graphql-codegen', '--config=workspace-root/apps/foo/codegen.ts']),
+    );
     expect(output.success).toBeTruthy();
   });
 
   it('can run with config options', async () => {
+    const [bin, ...pmArgs] = getPackageManagerCommand().exec.trim().split(/\s+/);
     const options: GenerateExecutorSchema = {
       config: 'workspace-root/apps/foo/codegen.ts',
     };
     const output = await executor(options, context as ExecutorContext);
-    expect(expectCommandToHaveBeenCalled('npx', ['graphql-codegen', '--config=workspace-root/apps/foo/codegen.ts']));
+    expect(
+      expectCommandToHaveBeenCalled(bin, [...pmArgs, 'graphql-codegen', '--config=workspace-root/apps/foo/codegen.ts']),
+    );
     expect(output.success).toBeTruthy();
   });
 });
