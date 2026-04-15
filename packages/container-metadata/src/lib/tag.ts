@@ -105,10 +105,10 @@ export function Parse(s: string): Tag {
       const value = parts[1];
       switch (key) {
         case 'type': {
-          if (!Object.values(Type).includes(value)) {
+          if (!(Object.values(Type) as string[]).includes(value)) {
             throw new Error(`Unknown tag type attribute: ${value}`);
           }
-          tag.type = value;
+          tag.type = value as Type;
           break;
         }
         default: {
