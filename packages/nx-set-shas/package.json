@@ -42,8 +42,8 @@
   ],
   "dependencies": {
     "@nx-tools/core": "workspace:*",
-    "@oclif/core": "4.8.0",
-    "@oclif/plugin-help": "6.2.37",
+    "@oclif/core": "4.10.5",
+    "@oclif/plugin-help": "6.2.44",
     "semver": "^7.7.4"
   },
   "peerDependencies": {

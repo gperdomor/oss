@@ -41,11 +41,11 @@
     "!**/*.tsbuildinfo"
   ],
   "dependencies": {
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.1.0",
     "@nx-tools/core": "workspace:*",
-    "@octokit/openapi-types": "^22.0.0",
+    "@octokit/openapi-types": "^27.0.0",
     "properties-file": "^3.6.4",
-    "std-env": "3.10.0"
+    "std-env": "4.0.0"
   },
   "peerDependencies": {
     "tslib": "^2.6.0"

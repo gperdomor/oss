@@ -17,8 +17,8 @@
   "dependencies": {
     "@nx-tools/container-metadata": "workspace:*",
     "@nx-tools/core": "workspace:*",
-    "csv-parse": "^5.6.0",
-    "handlebars": "^4.7.8",
+    "csv-parse": "^6.2.1",
+    "handlebars": "^4.7.9",
     "semver": "^7.7.4",
     "tmp": "^0.2.5"
   },
