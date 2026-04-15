@@ -70,10 +70,19 @@ export class Teamcity {
       return;
     }
 
-    const ensureProto = !repo.match(/^(\w+:)?\/\//) ? '//' : '';
+    const repoWithoutGit = repo.replace(/\.git$/, '');
 
     // use node:url for ssh support, which URL doesn't have
-    const repoURL = url.parse(ensureProto + repo.replace(/\.git$/, ''));
+    // For SSH-style URLs (git@host:path) convert colon path-separator to slash
+    // to avoid url.parse() throwing on the "invalid port" in newer Node.js versions
+    let urlToParse: string;
+    if (!repoWithoutGit.match(/^(\w+:)?\/\//)) {
+      urlToParse = '//' + repoWithoutGit.replace(/^([^@/]+@[^:/]+):/, '$1/');
+    } else {
+      urlToParse = repoWithoutGit;
+    }
+
+    const repoURL = url.parse(urlToParse);
     repoURL.host = repoURL.hostname;
     repoURL.auth = '';
     repoURL.protocol = 'https';
