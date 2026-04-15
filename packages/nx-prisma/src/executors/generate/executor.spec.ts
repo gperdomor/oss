@@ -1,5 +1,5 @@
 import * as core from '@nx-tools/core';
-import { ExecutorContext } from '@nx/devkit';
+import { ExecutorContext, getPackageManagerCommand } from '@nx/devkit';
 import executor from './executor';
 import { GenerateExecutorSchema } from './schema';
 
@@ -17,8 +17,9 @@ const context: Omit<ExecutorContext, 'nxJsonConfiguration' | 'projectGraph'> = {
   isVerbose: false,
 };
 
-export const expectCommandToHaveBeenCalled = (cmd: string, args: string[]) => {
-  expect(core.exec).toHaveBeenCalledWith(cmd, args, { throwOnError: false });
+export const expectCommandToHaveBeenCalled = (args: string[]) => {
+  const [bin, ...pmArgs] = getPackageManagerCommand().exec.trim().split(/\s+/);
+  expect(core.exec).toHaveBeenCalledWith(bin, [...pmArgs, ...args], { throwOnError: false });
 };
 
 // Reset mocks after each test
@@ -35,11 +36,7 @@ describe('Generate Executor', () => {
     const options: GenerateExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
-        'prisma',
-        'generate',
-        '--schema=workspace-root/apps/foo/prisma/schema.prisma',
-      ]),
+      expectCommandToHaveBeenCalled(['prisma', 'generate', '--schema=workspace-root/apps/foo/prisma/schema.prisma']),
     );
     expect(output.success).toBeTruthy();
   });
@@ -51,7 +48,7 @@ describe('Generate Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'generate', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled(['prisma', 'generate', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );
@@ -64,7 +61,7 @@ describe('Generate Executor', () => {
       };
       const output = await executor(options, context as ExecutorContext);
       expect(
-        expectCommandToHaveBeenCalled('npx', [
+        expectCommandToHaveBeenCalled([
           'prisma',
           'generate',
           '--schema=workspace-root/apps/foo/prisma/schema.prisma',
@@ -84,7 +81,7 @@ describe('Generate Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled([
         'prisma',
         'generate',
         '--schema=my-schema.schema',

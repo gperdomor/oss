@@ -23,11 +23,7 @@ describe('Format Executor', () => {
     const options: FormatExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
-        'prisma',
-        'format',
-        '--schema=workspace-root/apps/foo/prisma/schema.prisma',
-      ]),
+      expectCommandToHaveBeenCalled(['prisma', 'format', '--schema=workspace-root/apps/foo/prisma/schema.prisma']),
     );
     expect(output.success).toBeTruthy();
   });
@@ -39,7 +35,7 @@ describe('Format Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'format', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled(['prisma', 'format', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );
@@ -49,7 +45,7 @@ describe('Format Executor', () => {
       schema: 'my-schema.schema',
     };
     const output = await executor(options, context as ExecutorContext);
-    expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'format', '--schema=my-schema.schema']));
+    expect(expectCommandToHaveBeenCalled(['prisma', 'format', '--schema=my-schema.schema']));
     expect(output.success).toBeTruthy();
   });
 });

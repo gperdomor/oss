@@ -23,7 +23,7 @@ describe('Status Executor', () => {
     const options: StatusExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled([
         'prisma',
         'migrate',
         'status',
@@ -40,7 +40,7 @@ describe('Status Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'migrate', 'status', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled(['prisma', 'migrate', 'status', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );

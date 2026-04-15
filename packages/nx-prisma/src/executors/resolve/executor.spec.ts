@@ -47,7 +47,7 @@ describe('Resolve Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled([
         'prisma',
         'migrate',
         'resolve',
@@ -65,7 +65,7 @@ describe('Resolve Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled([
         'prisma',
         'migrate',
         'resolve',
@@ -83,7 +83,7 @@ describe('Resolve Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled([
         'prisma',
         'migrate',
         'resolve',
