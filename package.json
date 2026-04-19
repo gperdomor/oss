@@ -61,7 +61,7 @@
     "jsdom": "27.4.0",
     "jsonc-eslint-parser": "2.4.2",
     "lefthook": "2.1.5",
-    "memfs": "4.56.10",
+    "memfs": "4.57.1",
     "nx": "22.6.5",
     "oclif": "4.23.0",
     "postcss": "8.5.6",
