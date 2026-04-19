@@ -60,7 +60,7 @@
     "jiti": "2.6.1",
     "jsdom": "27.4.0",
     "jsonc-eslint-parser": "2.4.2",
-    "lefthook": "2.1.0",
+    "lefthook": "2.1.5",
     "memfs": "4.56.10",
     "nx": "22.6.5",
     "oclif": "4.22.73",
