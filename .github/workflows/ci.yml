@@ -33,16 +33,18 @@ jobs:
       - run: pnpm dlx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="lint,test,build,typecheck,e2e-ci"
 
       # Cache node_modules
-      - uses: actions/setup-node@d5d74e528a529a3e1a2096cf14ab3a295290fe7b
+      - uses: actions/setup-node@5e1db152050bf653a7c29da92bc2af976a516e19
         with:
           node-version-file: 'mise.toml'
           cache: 'pnpm'
 
+      - run: pnpm --version
       - run: pnpm install --frozen-lockfile
 
       - uses: nrwl/nx-set-shas@v5
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
+      - run: pnpm exec nx format:check
       - run: pnpm exec nx-cloud record -- pnpm exec nx format:check
       - run: pnpm exec nx affected -t lint test build typecheck e2e-ci
       # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
