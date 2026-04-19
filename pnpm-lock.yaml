@@ -25,20 +25,20 @@ importers:
         version: 19.2.4(react@19.2.4)
     devDependencies:
       '@commitlint/cli':
-        specifier: 20.4.2
-        version: 20.4.2(@types/node@24.10.13)(conventional-commits-parser@6.4.0)(typescript@5.9.3)
+        specifier: 20.5.0
+        version: 20.5.0(@types/node@24.10.13)(conventional-commits-parser@6.4.0)(typescript@5.9.3)
       '@commitlint/config-conventional':
-        specifier: 20.4.2
-        version: 20.4.2
+        specifier: 20.5.0
+        version: 20.5.0
       '@commitlint/config-nx-scopes':
-        specifier: 20.4.0
-        version: 20.4.0(nx@22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18)))
+        specifier: 20.5.0
+        version: 20.5.0(nx@22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18)))
       '@commitlint/cz-commitlint':
-        specifier: 20.4.1
-        version: 20.4.1(@types/node@24.10.13)(commitizen@4.3.1(@types/node@24.10.13)(typescript@5.9.3))(inquirer@8.2.7(@types/node@24.10.13))(typescript@5.9.3)
+        specifier: 20.5.1
+        version: 20.5.1(@types/node@24.10.13)(commitizen@4.3.1(@types/node@24.10.13)(typescript@5.9.3))(inquirer@8.2.7(@types/node@24.10.13))(typescript@5.9.3)
       '@commitlint/types':
-        specifier: 20.4.0
-        version: 20.4.0
+        specifier: 20.5.0
+        version: 20.5.0
       '@eslint/js':
         specifier: 9.39.2
         version: 9.39.2
@@ -1347,17 +1347,17 @@ packages:
   '@colordx/core@5.2.0':
     resolution: {integrity: sha512-wifnqsGCXRh+lJdX4975nKEPJaSk7k8rMiA/VeGrS4tOTn06WZrow6cUA7wFJKPXfcqj0rXeH4BMgGoKZvBf7g==}
 
-  '@commitlint/cli@20.4.2':
-    resolution: {integrity: sha512-YjYSX2yj/WsVoxh9mNiymfFS2ADbg2EK4+1WAsMuckwKMCqJ5PDG0CJU/8GvmHWcv4VRB2V02KqSiecRksWqZQ==}
+  '@commitlint/cli@20.5.0':
+    resolution: {integrity: sha512-yNkyN/tuKTJS3wdVfsZ2tXDM4G4Gi7z+jW54Cki8N8tZqwKBltbIvUUrSbT4hz1bhW/h0CdR+5sCSpXD+wMKaQ==}
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.4.2':
-    resolution: {integrity: sha512-rwkTF55q7Q+6dpSKUmJoScV0f3EpDlWKw2UPzklkLS4o5krMN1tPWAVOgHRtyUTMneIapLeQwaCjn44Td6OzBQ==}
+  '@commitlint/config-conventional@20.5.0':
+    resolution: {integrity: sha512-t3Ni88rFw1XMa4nZHgOKJ8fIAT9M2j5TnKyTqJzsxea7FUetlNdYFus9dz+MhIRZmc16P0PPyEfh6X2d/qw8SA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/config-nx-scopes@20.4.0':
-    resolution: {integrity: sha512-1UbNSJEN6GCDKkyIdi7qgfXTMrGciNyLehzL9MznelGlqHH8z8GtABxBfzAL0Ll3Rb6hX367zbAJ9W25sKmgQQ==}
+  '@commitlint/config-nx-scopes@20.5.0':
+    resolution: {integrity: sha512-By4+g43Io7kby70InfCS94DX0hGoJUgVeW2VrZzNDe4ZVsmeN34GTyCVOAo59O1f+2e+rvgrUY732iw1V1v5Tw==}
     engines: {node: '>=v18'}
     peerDependencies:
       nx: '>=14.0.0'
@@ -1369,8 +1369,8 @@ packages:
     resolution: {integrity: sha512-T/Uh6iJUzyx7j35GmHWdIiGRQB+ouZDk0pwAaYq4SXgB54KZhFdJ0vYmxiW6AMYICTIWuyMxDBl1jK74oFp/Gw==}
     engines: {node: '>=v18'}
 
-  '@commitlint/cz-commitlint@20.4.1':
-    resolution: {integrity: sha512-ZxtONcpX4h4ir+aFKenyhQ6cqhGiVbHfsUpXMJz+u494KKkw5mPjD5CmbWk8Vgw5o9b22KLBwZaIdwiWCD7aqA==}
+  '@commitlint/cz-commitlint@20.5.1':
+    resolution: {integrity: sha512-tvcHpk/DQRF749PuaYKPeLhml4grD4h8qEIW5uoboKy0tfnJxmAy99xOo2U1xpQj5uo3LH7pjnVv1xvuhzLWRw==}
     engines: {node: '>=v18'}
     peerDependencies:
       commitizen: ^4.0.3
@@ -1426,10 +1426,6 @@ packages:
 
   '@commitlint/top-level@20.4.3':
     resolution: {integrity: sha512-qD9xfP6dFg5jQ3NMrOhG0/w5y3bBUsVGyJvXxdWEwBm8hyx4WOk3kKXw28T5czBYvyeCVJgJJ6aoJZUWDpaacQ==}
-    engines: {node: '>=v18'}
-
-  '@commitlint/types@20.4.0':
-    resolution: {integrity: sha512-aO5l99BQJ0X34ft8b0h7QFkQlqxC6e7ZPVmBKz13xM9O8obDaM1Cld4sQlJDXXU/VFuUzQ30mVtHjVz74TuStw==}
     engines: {node: '>=v18'}
 
   '@commitlint/types@20.5.0':
@@ -13670,13 +13666,13 @@ snapshots:
 
   '@colordx/core@5.2.0': {}
 
-  '@commitlint/cli@20.4.2(@types/node@24.10.13)(conventional-commits-parser@6.4.0)(typescript@5.9.3)':
+  '@commitlint/cli@20.5.0(@types/node@24.10.13)(conventional-commits-parser@6.4.0)(typescript@5.9.3)':
     dependencies:
       '@commitlint/format': 20.5.0
       '@commitlint/lint': 20.5.0
       '@commitlint/load': 20.5.0(@types/node@24.10.13)(typescript@5.9.3)
       '@commitlint/read': 20.5.0(conventional-commits-parser@6.4.0)
-      '@commitlint/types': 20.4.0
+      '@commitlint/types': 20.5.0
       tinyexec: 1.0.2
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -13685,14 +13681,14 @@ snapshots:
       - conventional-commits-parser
       - typescript
 
-  '@commitlint/config-conventional@20.4.2':
+  '@commitlint/config-conventional@20.5.0':
     dependencies:
-      '@commitlint/types': 20.4.0
+      '@commitlint/types': 20.5.0
       conventional-changelog-conventionalcommits: 9.3.1
 
-  '@commitlint/config-nx-scopes@20.4.0(nx@22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18)))':
+  '@commitlint/config-nx-scopes@20.5.0(nx@22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18)))':
     dependencies:
-      '@commitlint/types': 20.4.0
+      '@commitlint/types': 20.5.0
     optionalDependencies:
       nx: 22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18))
 
@@ -13701,11 +13697,11 @@ snapshots:
       '@commitlint/types': 20.5.0
       ajv: 8.18.0
 
-  '@commitlint/cz-commitlint@20.4.1(@types/node@24.10.13)(commitizen@4.3.1(@types/node@24.10.13)(typescript@5.9.3))(inquirer@8.2.7(@types/node@24.10.13))(typescript@5.9.3)':
+  '@commitlint/cz-commitlint@20.5.1(@types/node@24.10.13)(commitizen@4.3.1(@types/node@24.10.13)(typescript@5.9.3))(inquirer@8.2.7(@types/node@24.10.13))(typescript@5.9.3)':
     dependencies:
       '@commitlint/ensure': 20.5.0
       '@commitlint/load': 20.5.0(@types/node@24.10.13)(typescript@5.9.3)
-      '@commitlint/types': 20.4.0
+      '@commitlint/types': 20.5.0
       commitizen: 4.3.1(@types/node@24.10.13)(typescript@5.9.3)
       inquirer: 8.2.7(@types/node@24.10.13)
       is-plain-obj: 4.1.0
@@ -13798,11 +13794,6 @@ snapshots:
   '@commitlint/top-level@20.4.3':
     dependencies:
       escalade: 3.2.0
-
-  '@commitlint/types@20.4.0':
-    dependencies:
-      conventional-commits-parser: 6.4.0
-      picocolors: 1.1.1
 
   '@commitlint/types@20.5.0':
     dependencies:
