@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@nx/devkit": "22.5.3",
-    "next": "16.1.7",
+    "next": "16.2.3",
     "prisma": "7.3.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
