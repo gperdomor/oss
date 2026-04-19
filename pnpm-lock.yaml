@@ -214,8 +214,8 @@ importers:
         specifier: 14.2.8
         version: 14.2.8(@types/mdast@4.0.4)(@types/mdx@2.0.13)(@types/react@19.2.14)(fumadocs-core@16.6.7(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.4)(@types/mdast@4.0.4)(@types/react@19.2.14)(lucide-react@0.577.0(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react@19.2.5)(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass-embedded@1.99.0)(sass@1.99.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
       fumadocs-typescript:
-        specifier: 5.1.4
-        version: 5.1.4(b5045393b23c9e92139aa2af2b0168ce)
+        specifier: 5.2.4
+        version: 5.2.4(2698f82d84844cec8d0a1d31675a2123)
       fumadocs-ui:
         specifier: 16.6.7
         version: 16.6.7(@takumi-rs/image-response@0.69.3)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(fumadocs-core@16.6.7(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.4)(@types/mdast@4.0.4)(@types/react@19.2.14)(lucide-react@0.577.0(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.18)
@@ -7737,16 +7737,18 @@ packages:
       vite:
         optional: true
 
-  fumadocs-typescript@5.1.4:
-    resolution: {integrity: sha512-myh3CzJ+2auPQfIM26GnYPeUPTEpkTJdtf6tbadZPHu+6ww9BEG3Vr0TWiRnkb27cw7+CePbaqL8Yp2ZAzuBow==}
+  fumadocs-typescript@5.2.4:
+    resolution: {integrity: sha512-R9iCRTgKo6jUHemVnO52kA1uFIBK3lZwT3gQRseIsluMKWeI1k37rA1LCF99j0/yP64XXGuHk+vfDzAn35Dl4A==}
     peerDependencies:
       '@types/estree': '*'
       '@types/hast': '*'
       '@types/mdast': '*'
       '@types/react': '*'
-      fumadocs-core: ^16.5.0
-      fumadocs-ui: ^16.5.0
-      react: '*'
+      fumadocs-core: ^16.7.0
+      fumadocs-ui: ^16.7.0
+      react: ^19.2.0
+      react-dom: ^19.2.0
+      shiki: '*'
       typescript: '*'
     peerDependenciesMeta:
       '@types/estree':
@@ -7758,6 +7760,8 @@ packages:
       '@types/react':
         optional: true
       fumadocs-ui:
+        optional: true
+      shiki:
         optional: true
 
   fumadocs-ui@16.6.7:
@@ -21244,13 +21248,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fumadocs-typescript@5.1.4(b5045393b23c9e92139aa2af2b0168ce):
+  fumadocs-typescript@5.2.4(2698f82d84844cec8d0a1d31675a2123):
     dependencies:
       estree-util-value-to-estree: 3.5.0
       fumadocs-core: 16.6.7(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.4)(@types/mdast@4.0.4)(@types/react@19.2.14)(lucide-react@0.577.0(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6)
       hast-util-to-estree: 3.1.3
       hast-util-to-jsx-runtime: 2.3.6
       react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
       remark: 15.0.1
       remark-rehype: 11.1.2
       ts-morph: 27.0.2
@@ -21263,6 +21268,7 @@ snapshots:
       '@types/mdast': 4.0.4
       '@types/react': 19.2.14
       fumadocs-ui: 16.6.7(@takumi-rs/image-response@0.69.3)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(fumadocs-core@16.6.7(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.4)(@types/mdast@4.0.4)(@types/react@19.2.14)(lucide-react@0.577.0(react@19.2.5))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod@4.3.6))(next@16.2.3(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.18)
+      shiki: 3.23.0
     transitivePeerDependencies:
       - supports-color
 
