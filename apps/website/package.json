@@ -5,7 +5,7 @@
   "dependencies": {
     "@takumi-rs/image-response": "0.69.3",
     "fumadocs-core": "16.6.7",
-    "fumadocs-docgen": "3.0.7",
+    "fumadocs-docgen": "3.0.10",
     "fumadocs-mdx": "14.2.8",
     "fumadocs-typescript": "5.1.4",
     "fumadocs-ui": "16.6.7",
