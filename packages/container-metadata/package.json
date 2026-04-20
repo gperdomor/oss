@@ -34,7 +34,7 @@
     "@renovatebot/pep440": "4.2.1",
     "csv-parse": "^5.6.0",
     "handlebars": "^4.7.8",
-    "moment-timezone": "^0.5.48",
+    "moment-timezone": "^0.6.0",
     "semver": "^7.7.4"
   },
   "peerDependencies": {
