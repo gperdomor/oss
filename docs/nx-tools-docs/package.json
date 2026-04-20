@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@takumi-rs/image-response": "0.69.3",
-    "fumadocs-core": "16.6.7",
+    "fumadocs-core": "16.7.14",
     "fumadocs-mdx": "14.2.8",
     "fumadocs-ui": "16.6.7",
     "lucide-react": "0.577.0",
