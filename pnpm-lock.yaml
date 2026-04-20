@@ -336,8 +336,8 @@ importers:
         specifier: '>=18.0.0 <23.0.0'
         version: 22.6.5(nx@22.6.5(@swc-node/register@1.11.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@swc/core@1.15.11(@swc/helpers@0.5.18))(@swc/types@0.1.26)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18)))
       '@renovatebot/pep440':
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 4.2.2
+        version: 4.2.2
       csv-parse:
         specifier: ^5.6.0
         version: 5.6.0
@@ -3981,8 +3981,8 @@ packages:
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
 
-  '@renovatebot/pep440@4.2.1':
-    resolution: {integrity: sha512-2FK1hF93Fuf1laSdfiEmJvSJPVIDHEUTz68D3Fi9s0IZrrpaEcj6pTFBTbYvsgC5du4ogrtf5re7yMMvrKNgkw==}
+  '@renovatebot/pep440@4.2.2':
+    resolution: {integrity: sha512-dSbrkSS9/NfNwhOgQ0rpKA9KNiKSFhgK707Wi+oX8SZLqvu8dvsVuzORbKOYq5eX4nSiwrHApWisecw0cZhjVQ==}
     engines: {node: ^20.9.0 || ^22.11.0 || ^24, pnpm: ^10.0.0}
 
   '@repeaterjs/repeater@3.0.6':
@@ -17039,7 +17039,7 @@ snapshots:
 
   '@radix-ui/rect@1.1.1': {}
 
-  '@renovatebot/pep440@4.2.1': {}
+  '@renovatebot/pep440@4.2.2': {}
 
   '@repeaterjs/repeater@3.0.6': {}
 

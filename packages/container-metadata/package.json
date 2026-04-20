@@ -31,7 +31,7 @@
   "dependencies": {
     "@nx-tools/ci-context": "workspace:*",
     "@nx-tools/core": "workspace:*",
-    "@renovatebot/pep440": "4.2.1",
+    "@renovatebot/pep440": "4.2.2",
     "csv-parse": "^5.6.0",
     "handlebars": "^4.7.8",
     "moment-timezone": "^0.5.48",
