@@ -3,8 +3,21 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+
+# PNPM related files
 /.pnpm-store
 pnpm-lock.yaml
+
+# Agents related files
+.agents
+.claude
+.codex
+.cursor
+.gemini
+.github/*
+!.github/workflows/
+!.github/workflows/**
+.opencode
 
 /tmp
 /**/dist
