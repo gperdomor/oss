@@ -62,7 +62,7 @@
     "memfs": "4.57.1",
     "nx": "22.6.5",
     "oclif": "4.23.0",
-    "postcss": "8.5.9",
+    "postcss": "8.5.10",
     "prettier": "3.8.2",
     "tailwindcss": "4.1.18",
     "ts-node": "10.9.2",
