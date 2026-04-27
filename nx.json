@@ -69,7 +69,7 @@
     }
   ],
   "release": {
-    "projects": ["packages/*"],
+    "projects": ["packages/*", "!class-variance-builder"],
     "releaseTag": {
       "pattern": "{version}"
     },

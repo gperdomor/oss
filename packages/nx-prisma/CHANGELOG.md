@@ -1,3 +1,25 @@
+## 7.2.2 (2026-04-27)
+
+### 🚀 Features
+
+- **cvb-docs:** updated cvb docs ([c0827acf](https://github.com/gperdomor/oss/commit/c0827acf))
+- **class-variance-builder:** added class-variance-builder package ([5db77152](https://github.com/gperdomor/oss/commit/5db77152))
+
+### 🩹 Fixes
+
+- **deps:** bump nx monorepo from 22.4.5 to v22.5.0 ([e6cd031b](https://github.com/gperdomor/oss/commit/e6cd031b))
+- **deps:** bump nx monorepo from 22.4.5 to v22.5.0 ([5ced0864](https://github.com/gperdomor/oss/commit/5ced0864))
+
+### 🏡 Chore
+
+- **deps:** bump nx monorepo from 22.5.1 to v22.5.3 ([f24577e4](https://github.com/gperdomor/oss/commit/f24577e4))
+- change nx-tools references to oss ([7d4a622b](https://github.com/gperdomor/oss/commit/7d4a622b))
+- update nx to 22.4.5 ([a4656ee8](https://github.com/gperdomor/oss/commit/a4656ee8))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.2.1 (2026-02-06)
 
 This was a version bump only for nx-prisma to align it with other projects, there were no code changes.

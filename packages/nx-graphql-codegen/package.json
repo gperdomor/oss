@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/nx-graphql-codegen",
-  "version": "7.2.1",
+  "version": "7.2.2",
   "type": "commonjs",
   "author": "Rene Bonilla <rbonillajr@hotmail.com>",
   "repository": {

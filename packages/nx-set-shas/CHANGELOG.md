@@ -1,3 +1,20 @@
+## 7.2.2 (2026-04-27)
+
+### 🩹 Fixes
+
+- **deps:** bump @oclif/plugin-help from 6.2.37 to v6.2.44 ([7dc7893a](https://github.com/gperdomor/oss/commit/7dc7893a))
+- **deps:** bump @oclif/core from 4.8.0 to v4.10.5 ([#1503](https://github.com/gperdomor/oss/pull/1503))
+- **deps:** bump nx monorepo from 22.4.5 to v22.5.0 ([5ced0864](https://github.com/gperdomor/oss/commit/5ced0864))
+
+### 🏡 Chore
+
+- change nx-tools references to oss ([7d4a622b](https://github.com/gperdomor/oss/commit/7d4a622b))
+- update nx to 22.4.5 ([a4656ee8](https://github.com/gperdomor/oss/commit/a4656ee8))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.2.1 (2026-02-06)
 
 ### 🩹 Fixes
