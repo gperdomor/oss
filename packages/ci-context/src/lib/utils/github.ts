@@ -1,11 +1,11 @@
 import * as github from '@actions/github';
-import { Context } from '@actions/github/lib/context.js';
 import { logger } from '@nx-tools/core';
 import { Payload, RepoMetadata, RunnerContext } from '../interfaces.js';
 
 export class Github {
   public static async context(): Promise<RunnerContext> {
-    const ctx = new Context();
+    const ctx = github.context;
+
     const { actor, eventName, job, ref, runId, runNumber, sha, serverUrl, payload } = ctx;
 
     let repoUrl = '';

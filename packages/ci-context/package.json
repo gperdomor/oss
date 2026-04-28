@@ -41,7 +41,7 @@
     "!**/*.tsbuildinfo"
   ],
   "dependencies": {
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.0.0",
     "@nx-tools/core": "workspace:*",
     "@octokit/openapi-types": "^22.0.0",
     "properties-file": "^3.6.4",
