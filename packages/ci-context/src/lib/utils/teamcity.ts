@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { readFile } from 'fs/promises';
 import { getProperties } from 'properties-file';
-import * as url from 'url';
 import { RepoMetadata, RunnerContext } from '../interfaces.js';
 import { Git } from './git.js';
 
@@ -70,22 +69,32 @@ export class Teamcity {
       return;
     }
 
-    const ensureProto = !repo.match(/^(\w+:)?\/\//) ? '//' : '';
+    repo = repo.replace(/\.git$/, '');
 
-    // use node:url for ssh support, which URL doesn't have
-    const repoURL = url.parse(ensureProto + repo.replace(/\.git$/, ''));
-    repoURL.host = repoURL.hostname;
-    repoURL.auth = '';
-    repoURL.protocol = 'https';
-    repoURL.pathname = repoURL.pathname?.replace('/:', '/') ?? null;
+    let hostname: string;
+    let port: string | null = null;
+    let pathname: string;
+
+    const scpMatch = repo.match(/^(?:[^@]+@)?([^:]+):(.+)$/);
+    if (scpMatch && !repo.match(/^(\w+:)?\/\//)) {
+      hostname = scpMatch[1];
+      pathname = `/${scpMatch[2]}`;
+    } else {
+      const repoURL = new URL(repo.startsWith('//') ? `https:${repo}` : repo);
+      hostname = repoURL.hostname;
+      port = repoURL.port || null;
+      pathname = repoURL.pathname.replace('/:', '/');
+    }
 
     if (configProperties['version'] === 'gerrit') {
       const DEFAULT_GERRIT_SSH_PORT = '29418';
-      repoURL.port = repoURL.port === DEFAULT_GERRIT_SSH_PORT ? null : repoURL.port;
-      repoURL.pathname = repoURL.pathname ? `/q/project:` + encodeURIComponent(repoURL.pathname.substring(1)) : '';
+      const effectivePort = port === DEFAULT_GERRIT_SSH_PORT ? null : port;
+      const hostWithPort = effectivePort ? `${hostname}:${effectivePort}` : hostname;
+      const encodedPath = encodeURIComponent(pathname.substring(1));
+      return `https://${hostWithPort}/q/project:${encodedPath}`;
     }
 
-    return url.format(repoURL);
+    return `https://${hostname}${pathname}`.replace(/\/$/, '');
   }
 }
 

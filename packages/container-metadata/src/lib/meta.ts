@@ -2,7 +2,7 @@
 import { RunnerContext as Context, RepoMetadata } from '@nx-tools/ci-context';
 import { interpolate, logger as L, tmpDir } from '@nx-tools/core';
 import * as pep440 from '@renovatebot/pep440';
-import * as handlebars from 'handlebars';
+import { compile, parseWithoutProcessing } from 'handlebars';
 import moment from 'moment-timezone';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -117,7 +117,7 @@ export class Meta {
 
     const currentDate = this.date;
     const vraw = this.setValue(
-      handlebars.compile(tag.attrs['pattern'])({
+      compile(tag.attrs['pattern'])({
         date: function (format: string, options: any) {
           const m = moment(currentDate);
           let tz = 'UTC';
@@ -161,12 +161,12 @@ export class Meta {
     });
     if (semver.prerelease(vraw)) {
       if (Meta.isRawStatement(tag.attrs['pattern'])) {
-        vraw = this.setValue(handlebars.compile(tag.attrs['pattern'])(sver), tag);
+        vraw = this.setValue(compile(tag.attrs['pattern'])(sver), tag);
       } else {
-        vraw = this.setValue(handlebars.compile('{{version}}')(sver), tag);
+        vraw = this.setValue(compile('{{version}}')(sver), tag);
       }
     } else {
-      vraw = this.setValue(handlebars.compile(tag.attrs['pattern'])(sver), tag);
+      vraw = this.setValue(compile(tag.attrs['pattern'])(sver), tag);
       latest = true;
     }
 
@@ -199,7 +199,7 @@ export class Meta {
       }
     } else {
       vraw = this.setValue(
-        handlebars.compile(tag.attrs['pattern'])({
+        compile(tag.attrs['pattern'])({
           raw: function () {
             return vraw;
           },
@@ -335,7 +335,7 @@ export class Meta {
 
   public static isRawStatement(pattern: string): boolean {
     try {
-      const hp = handlebars.parseWithoutProcessing(pattern);
+      const hp = parseWithoutProcessing(pattern);
       if (hp.body.length == 1 && hp.body[0].type == 'MustacheStatement') {
         const stm: any = hp.body[0];
         return stm['path']['parts'].length == 1 && stm['path']['parts'][0] == 'raw';
@@ -363,7 +363,7 @@ export class Meta {
   private setGlobalExp(val: string): string {
     const context = this.context;
     const currentDate = this.date;
-    return handlebars.compile(val)({
+    return compile(val)({
       branch: function () {
         if (!/^refs\/heads\//.test(context.ref)) {
           return '';
