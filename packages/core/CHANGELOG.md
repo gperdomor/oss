@@ -1,3 +1,7 @@
+## 7.2.3 (2026-05-01)
+
+This was a version bump only for core to align it with other projects, there were no code changes.
+
 ## 7.2.2 (2026-04-27)
 
 ### 🚀 Features

@@ -1,3 +1,14 @@
+## 7.2.3 (2026-05-01)
+
+### 🩹 Fixes
+
+- **ci-context:** fix test's ([9b207e28](https://github.com/gperdomor/oss/commit/9b207e28))
+- **ci-context:** update @actions/github to v9 ([896dba78](https://github.com/gperdomor/oss/commit/896dba78))
+
+### ❤️ Thank You
+
+- Optischa
+
 ## 7.2.2 (2026-04-27)
 
 ### 🚀 Features
