@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@nx/devkit": "22.6.5",
-    "next": "16.2.3",
+    "next": "16.2.4",
     "prisma": "7.7.0",
     "react": "19.2.5",
     "react-dom": "19.2.5"
@@ -22,7 +22,7 @@
     "@commitlint/config-conventional": "20.5.0",
     "@commitlint/config-nx-scopes": "20.5.0",
     "@eslint/js": "9.39.4",
-    "@next/eslint-plugin-next": "16.2.3",
+    "@next/eslint-plugin-next": "16.2.4",
     "@nx/eslint": "22.6.5",
     "@nx/eslint-plugin": "22.6.5",
     "@nx/js": "22.6.5",
