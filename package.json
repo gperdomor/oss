@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@nx/devkit": "22.6.5",
-    "next": "16.2.3",
+    "next": "16.2.6",
     "prisma": "7.7.0",
     "react": "19.2.5",
     "react-dom": "19.2.5"
@@ -62,7 +62,7 @@
     "memfs": "4.57.1",
     "nx": "22.6.5",
     "oclif": "4.23.0",
-    "postcss": "8.5.9",
+    "postcss": "8.5.10",
     "prettier": "3.8.2",
     "tailwindcss": "4.1.18",
     "ts-node": "10.9.2",
