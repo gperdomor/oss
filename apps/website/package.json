@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@takumi-rs/image-response": "0.69.3",
+    "@takumi-rs/image-response": "0.73.1",
     "fumadocs-core": "16.7.14",
     "fumadocs-docgen": "3.0.10",
     "fumadocs-mdx": "14.2.8",
