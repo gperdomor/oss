@@ -42,9 +42,9 @@
   ],
   "dependencies": {
     "@nx-tools/core": "workspace:*",
-    "@oclif/core": "4.10.5",
-    "@oclif/plugin-help": "6.2.44",
-    "semver": "^7.7.4"
+    "@oclif/core": "4.11.7",
+    "@oclif/plugin-help": "6.2.50",
+    "semver": "^7.8.4"
   },
   "peerDependencies": {
     "tslib": "^2.6.0"

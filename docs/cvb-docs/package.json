@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@takumi-rs/core": "0.73.1",
-    "@takumi-rs/image-response": "0.69.3",
-    "fumadocs-core": "16.7.14",
+    "@takumi-rs/core": "1.8.6",
+    "@takumi-rs/image-response": "1.8.6",
+    "fumadocs-core": "16.10.3",
     "fumadocs-docgen": "3.0.10",
-    "fumadocs-mdx": "14.2.8",
-    "fumadocs-ui": "16.6.7",
-    "lucide-react": "0.577.0",
-    "next": "16.2.6",
-    "react": "19.2.5",
-    "react-dom": "19.2.5",
-    "tailwind-merge": "3.5.0"
+    "fumadocs-mdx": "15.0.12",
+    "fumadocs-ui": "16.10.3",
+    "lucide-react": "1.20.0",
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwind-merge": "3.6.0"
   }
 }

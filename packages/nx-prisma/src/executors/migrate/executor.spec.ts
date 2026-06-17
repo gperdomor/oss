@@ -26,7 +26,7 @@ describe.skip('Migrate Executor', () => {
     const options: MigrateExecutorSchema = { name: 'mig-name' };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(
-      `npx prisma migrate dev --schema=workspace-root/apps/foo/prisma/schema.prisma --name="mig-name"`,
+      `pnpm exec prisma migrate dev --schema=workspace-root/apps/foo/prisma/schema.prisma --name="mig-name"`,
       {
         stdio: 'inherit',
       },
@@ -43,7 +43,7 @@ describe.skip('Migrate Executor', () => {
       };
       const output = await executor(options, context as ExecutorContext);
       expect(execSync).toHaveBeenCalledWith(
-        `npx prisma migrate dev --schema=workspace-root/apps/foo/prisma/schema.prisma --name="users" --${flag}`,
+        `pnpm exec prisma migrate dev --schema=workspace-root/apps/foo/prisma/schema.prisma --name="users" --${flag}`,
         {
           stdio: 'inherit',
         },
@@ -62,7 +62,7 @@ describe.skip('Migrate Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(
-      'npx prisma migrate dev --schema=my-schema.schema --name="migration-name" --create-only --skip-generate --skip-seed',
+      'pnpm exec prisma migrate dev --schema=my-schema.schema --name="migration-name" --create-only --skip-generate --skip-seed',
       { stdio: 'inherit' },
     );
     expect(output.success).toBeTruthy();

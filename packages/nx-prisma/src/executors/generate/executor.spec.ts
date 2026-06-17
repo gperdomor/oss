@@ -18,7 +18,9 @@ const context: Omit<ExecutorContext, 'nxJsonConfiguration' | 'projectGraph'> = {
 };
 
 export const expectCommandToHaveBeenCalled = (cmd: string, args: string[]) => {
-  expect(core.exec).toHaveBeenCalledWith(cmd, args, { throwOnError: false });
+  expect(core.exec).toHaveBeenCalledWith(cmd === 'npx' ? 'pnpm' : cmd, cmd === 'npx' ? ['exec', ...args] : args, {
+    throwOnError: false,
+  });
 };
 
 // Reset mocks after each test

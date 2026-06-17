@@ -3,6 +3,13 @@ packages:
   - 'apps/*'
   - 'docs/*'
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@prisma/engines'
   - '@swc/core'
+  - esbuild
   - 'lefthook'
+  - less
   - 'nx'
+  - prisma
+  - sharp
+  - unrs-resolver

@@ -59,3 +59,5 @@ out
 
 # Fumadocs
 .source
+.nx/migrate-runs
+.nx/self-healing

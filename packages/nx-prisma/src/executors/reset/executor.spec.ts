@@ -26,7 +26,7 @@ describe.skip('Reset Executor', () => {
     const options: ResetExecutorSchema = { force: true };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(
-      `npx prisma migrate reset --schema=workspace-root/apps/foo/prisma/schema.prisma --force`,
+      `pnpm exec prisma migrate reset --schema=workspace-root/apps/foo/prisma/schema.prisma --force`,
       {
         stdio: 'inherit',
       },
@@ -42,7 +42,7 @@ describe.skip('Reset Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(execSync).toHaveBeenCalledWith(`npx prisma migrate reset --${option}=${value} --force`, {
+      expect(execSync).toHaveBeenCalledWith(`pnpm exec prisma migrate reset --${option}=${value} --force`, {
         stdio: 'inherit',
       });
       expect(output.success).toBeTruthy();
@@ -56,7 +56,7 @@ describe.skip('Reset Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(
-      `npx prisma migrate reset --schema=workspace-root/apps/foo/prisma/schema.prisma --force --${flag}`,
+      `pnpm exec prisma migrate reset --schema=workspace-root/apps/foo/prisma/schema.prisma --force --${flag}`,
       {
         stdio: 'inherit',
       },
@@ -73,7 +73,7 @@ describe.skip('Reset Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(
-      'npx prisma migrate reset --schema=my-schema.schema --force --skip-generate --skip-seed',
+      'pnpm exec prisma migrate reset --schema=my-schema.schema --force --skip-generate --skip-seed',
       { stdio: 'inherit' },
     );
     expect(output.success).toBeTruthy();
