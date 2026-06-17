@@ -1,5 +1,5 @@
-import { CreateNodesContextV2, workspaceRoot } from '@nx/devkit';
-import { calculateHashForCreateNodes } from '@nx/devkit/src/utils/calculate-hash-for-create-nodes';
+import { CreateNodesContext, workspaceRoot } from '@nx/devkit';
+import { calculateHashForCreateNodes } from '@nx/devkit/internal';
 import { vol } from 'memfs';
 import { createNodes, PLUGIN_NAME } from './nodes';
 
@@ -11,7 +11,7 @@ vi.mock('node:fs', async () => {
   return { default: memfs.fs, ...(memfs.fs as any) };
 });
 
-vi.mock('@nx/devkit/src/utils/calculate-hash-for-create-nodes', () => {
+vi.mock('@nx/devkit/internal', () => {
   return {
     calculateHashForCreateNodes: vi.fn().mockResolvedValue('mock-hash'),
   };
@@ -19,7 +19,7 @@ vi.mock('@nx/devkit/src/utils/calculate-hash-for-create-nodes', () => {
 
 describe(`Plugin: ${PLUGIN_NAME}`, () => {
   const TEMP_WS_ROOT = '/workspace-root';
-  let context: CreateNodesContextV2;
+  let context: CreateNodesContext;
   const createNodesFunction = createNodes[1];
 
   beforeEach(() => {

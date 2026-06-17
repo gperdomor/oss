@@ -31,3 +31,5 @@ apps/website/**/.source
 .github/workflows/build-nx-docker.yml
 .github/workflows/build-nx-podman.yml
 out-tsc
+
+.nx/self-healing

@@ -2,7 +2,20 @@ packages:
   - 'packages/*'
   - 'apps/*'
   - 'docs/*'
-onlyBuiltDependencies:
-  - '@swc/core'
-  - 'lefthook'
-  - 'nx'
+allowBuilds:
+  '@parcel/watcher': false
+  '@prisma/engines': false
+  '@swc/core': false
+  esbuild: false
+  lefthook: true
+  less: false
+  nx: true
+  prisma: false
+  sharp: false
+  unrs-resolver: false
+
+overrides:
+  '@nx/devkit': '23.0.0'
+  'nx': '23.0.0'
+
+minimumReleaseAge: 0

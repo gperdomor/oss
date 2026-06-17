@@ -1,15 +1,15 @@
 import {
   CreateDependencies,
-  CreateNodesContextV2,
+  CreateNodes,
+  CreateNodesContext,
   createNodesFromFiles,
-  CreateNodesV2,
   detectPackageManager,
   parseJson,
   readJsonFile,
   TargetConfiguration,
   writeJsonFile,
 } from '@nx/devkit';
-import { calculateHashForCreateNodes } from '@nx/devkit/src/utils/calculate-hash-for-create-nodes';
+import { calculateHashForCreateNodes } from '@nx/devkit/internal';
 import { getLockFileName } from '@nx/js';
 import { existsSync, readFileSync } from 'node:fs';
 import { workspaceDataDirectory } from 'nx/src/utils/cache-directory';
@@ -42,7 +42,7 @@ export const createDependencies: CreateDependencies = () => {
   return [];
 };
 
-export const createNodesV2: CreateNodesV2<ContainerPluginOptions> = [
+export const createNodesV2: CreateNodes<ContainerPluginOptions> = [
   '**/Dockerfile',
   async (configFiles, options, context) => {
     return await createNodesFromFiles(
@@ -59,7 +59,7 @@ export const createNodes = createNodesV2;
 async function createNodesInternal(
   configFilePath: string,
   options: ContainerPluginOptions | undefined,
-  context: CreateNodesContextV2,
+  context: CreateNodesContext,
 ) {
   const normalized = normalizeOptions(options);
   const projectRoot = dirname(configFilePath);

@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@nx/devkit": "22.6.5",
+    "@nx/devkit": "23.0.0",
     "next": "16.2.6",
     "prisma": "7.7.0",
     "react": "19.2.5",
@@ -23,18 +23,18 @@
     "@commitlint/config-nx-scopes": "20.5.0",
     "@eslint/js": "9.39.4",
     "@next/eslint-plugin-next": "16.2.3",
-    "@nx/eslint": "22.6.5",
-    "@nx/eslint-plugin": "22.6.5",
-    "@nx/js": "22.6.5",
-    "@nx/next": "22.6.5",
-    "@nx/plugin": "22.6.5",
-    "@nx/vite": "22.6.5",
-    "@nx/vitest": "22.6.5",
-    "@nx/web": "22.6.5",
-    "@nx/workspace": "22.6.5",
+    "@nx/eslint": "23.0.0",
+    "@nx/eslint-plugin": "23.0.0",
+    "@nx/js": "23.0.0",
+    "@nx/next": "23.0.0",
+    "@nx/plugin": "23.0.0",
+    "@nx/vite": "23.0.0",
+    "@nx/vitest": "23.0.0",
+    "@nx/web": "23.0.0",
+    "@nx/workspace": "23.0.0",
     "@prisma/client": "7.7.0",
     "@swc-node/register": "1.11.1",
-    "@swc/cli": "0.7.10",
+    "@swc/cli": "0.8.1",
     "@swc/core": "1.15.11",
     "@swc/helpers": "0.5.18",
     "@tailwindcss/postcss": "4.1.18",
@@ -60,7 +60,7 @@
     "jsonc-eslint-parser": "2.4.2",
     "lefthook": "2.1.6",
     "memfs": "4.57.1",
-    "nx": "22.6.5",
+    "nx": "23.0.0",
     "oclif": "4.23.0",
     "postcss": "8.5.10",
     "prettier": "3.8.2",
@@ -71,7 +71,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.58.1",
     "verdaccio": "6.5.2",
-    "vite": "7.3.2",
+    "vite": "8.0.16",
     "vite-plugin-dts": "4.5.4",
     "vitest": "4.1.4"
   },
@@ -88,5 +88,5 @@
       }
     }
   },
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+  "packageManager": "pnpm@11.7.0+sha512.19cc852c120c7125760f2443ee6be0ca5b40f9f50598de1a09a1f177503e010e57c23c77646e01e761de59bf874fb22a3398c33ab9691fc13eb946b6f0f4d620"
 }
