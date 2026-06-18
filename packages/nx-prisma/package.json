@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/nx-prisma",
-  "version": "7.2.4",
+  "version": "7.2.3",
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
   "type": "commonjs",

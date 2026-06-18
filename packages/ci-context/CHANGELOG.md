@@ -1,7 +1,3 @@
-## 7.2.4 (2026-06-18)
-
-This was a version bump only for ci-context to align it with other projects, there were no code changes.
-
 ## 7.2.3 (2026-05-01)
 
 ### 🩹 Fixes
