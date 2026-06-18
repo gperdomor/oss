@@ -1,3 +1,13 @@
+## 7.2.4 (2026-06-18)
+
+### 🏡 Chore
+
+- update to nx 23.0.0 ([2540b845](https://github.com/gperdomor/oss/commit/2540b845))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.2.3 (2026-05-01)
 
 ### 🩹 Fixes
