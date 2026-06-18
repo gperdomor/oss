@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/container-metadata",
-  "version": "7.2.3",
+  "version": "7.2.4",
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
   "type": "module",
