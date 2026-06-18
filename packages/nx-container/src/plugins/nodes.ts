@@ -9,12 +9,20 @@ import {
   TargetConfiguration,
   writeJsonFile,
 } from '@nx/devkit';
-import { calculateHashForCreateNodes } from '@nx/devkit/internal';
 import { getLockFileName } from '@nx/js';
 import { existsSync, readFileSync } from 'node:fs';
 import { workspaceDataDirectory } from 'nx/src/utils/cache-directory';
 import { dirname, join } from 'path';
 import { DEFAULT_ENGINE, DEFAULT_REGISTRY } from '../generators/configuration/constants';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { calculateHashForCreateNodes } = (() => {
+  // for compatibility with older versions of Nx
+  try {
+    return require('@nx/devkit/internal');
+  } catch {
+    return require('@nx/devkit/src/utils/calculate-hash-for-create-nodes');
+  }
+})() as typeof import('@nx/devkit/internal');
 
 export const PLUGIN_NAME = '@nx-tools/nx-container';
 
