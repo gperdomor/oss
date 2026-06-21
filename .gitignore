@@ -43,19 +43,19 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
+.claude/worktrees
+.claude/settings.local.json
+.nx/polygraph
+
 # Fix for issue when working on the repo in a dev container
-.pnpm-store
+/.pnpm-store
 
-test-output
-
-vite.config.*.timestamp*
 vitest.config.*.timestamp*
+vite.config.*.timestamp*
 
 # Next.js
 .next
 out
 
 # Fumadocs
-.contentlayer
-.content-collections
 .source

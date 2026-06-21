@@ -14,19 +14,19 @@ permissions:
 jobs:
   publish:
     # prevents this action from running on forks
-    if: github.repository == 'gperdomor/nx-tools'
+    if: github.repository == 'gperdomor/oss'
     name: Publish to npm
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           filter: tree:0
           fetch-depth: 0 # include tags
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           run_install: false
 

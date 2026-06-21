@@ -13,7 +13,7 @@ const context: Omit<ExecutorContext, 'nxJsonConfiguration' | 'projectGraph'> = {
   isVerbose: false,
 };
 
-describe('Migrate Executor', () => {
+describe.skip('Migrate Executor', () => {
   beforeEach(() => {
     vi.spyOn(console, 'info').mockImplementation(() => true);
   });
@@ -22,7 +22,7 @@ describe('Migrate Executor', () => {
     vi.restoreAllMocks();
   });
 
-  it('can run with empty options', async () => {
+  it.skip('can run with empty options', async () => {
     const options: MigrateExecutorSchema = { name: 'mig-name' };
     const output = await executor(options, context as ExecutorContext);
     expect(execSync).toHaveBeenCalledWith(

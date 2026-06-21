@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as gitlab from './gitlab';
-import { Gitlab } from './gitlab';
+import { RunnerContext } from '../interfaces.js';
+import * as gitlab from './gitlab.js';
+import { Gitlab } from './gitlab.js';
 
 describe('GitLab Context', () => {
   let context: RunnerContext;
@@ -16,7 +16,7 @@ describe('GitLab Context', () => {
     vi.stubEnv('CI_PIPELINE_ID', '10');
     vi.stubEnv('CI_PIPELINE_IID', '100');
     vi.stubEnv('CI_DEFAULT_BRANCH', 'main');
-    vi.stubEnv('CI_PROJECT_URL', 'https://gitlab.com/gperdomor/nx-tools');
+    vi.stubEnv('CI_PROJECT_URL', 'https://gitlab.com/gperdomor/oss');
     vi.stubEnv('CI_PROJECT_NAME', 'nx-tools');
     vi.stubEnv('CI_PROJECT_VISIBILITY', 'public');
   });
@@ -44,7 +44,7 @@ describe('GitLab Context', () => {
         ref: 'refs/heads/gitlab-ref-slug',
         runId: 100,
         runNumber: 10,
-        repoUrl: 'https://gitlab.com/gperdomor/nx-tools',
+        repoUrl: 'https://gitlab.com/gperdomor/oss',
         sha: 'gitlab-sha',
       });
     });
@@ -77,7 +77,7 @@ describe('GitLab Context', () => {
           ref: 'refs/tags/gitlab-tag',
           runId: 100,
           runNumber: 10,
-          repoUrl: 'https://gitlab.com/gperdomor/nx-tools',
+          repoUrl: 'https://gitlab.com/gperdomor/oss',
           sha: 'gitlab-sha',
         });
       });
@@ -91,7 +91,7 @@ describe('GitLab Context', () => {
       expect(repo).toEqual({
         default_branch: 'main',
         description: '',
-        html_url: 'https://gitlab.com/gperdomor/nx-tools',
+        html_url: 'https://gitlab.com/gperdomor/oss',
         license: null,
         name: 'nx-tools',
       });

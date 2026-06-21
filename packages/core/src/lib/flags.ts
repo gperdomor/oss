@@ -1,5 +1,5 @@
 import { env, isDebug as stdIsDebug } from 'std-env';
-import { toBoolean } from './utils';
+import { toBoolean } from './utils.js';
 
 /**
  * Detect if debugging is enabled by checking `DEBUG` or `RUNNER_DEBUG` environment variables.

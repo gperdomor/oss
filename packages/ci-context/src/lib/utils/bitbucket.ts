@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { RepoMetadata, RunnerContext } from '../interfaces';
+import { RepoMetadata, RunnerContext } from '../interfaces.js';
 
 export class BitBucket {
   public static async context(): Promise<RunnerContext> {

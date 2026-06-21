@@ -1,0 +1,89 @@
+---
+title: TypeScript
+description: Out of the box TypeScript experience.
+---
+
+Class Variant Builder provides typing out of the box, but this page contains some further utilities and tips
+
+## Extracting Variant Types
+
+You can use the `VariantProps` utility to extract variant types.
+
+```ts title="components/badge.recipe.ts"
+import { cvb } from 'cvb';
+import type { VariantProps } from 'cvb'; // [!code highlight]
+
+export const badge = cvb({
+  base: 'inline-flex items-center rounded-md gap-x-1.5 text-xs',
+  variants: {
+    color: {
+      green: 'bg-green-50 text-green-700',
+      indigo: 'bg-indigo-50 text-indigo-700',
+      red: 'bg-red-50 text-red-700',
+    },
+    size: {
+      sm: 'px-1.5 py-0.5',
+      md: 'px-2 py-1',
+    },
+    flat: {
+      false: 'ring-1 ring-inset',
+    },
+  },
+});
+
+/**
+ * Result:
+ * color?: "green" | "indigo" | "red"
+ * size?: "sm" | "md"
+ * flat?: boolean
+ */
+export type BadgeRecipeProps = VariantProps<typeof badge>; // [!code highlight]
+```
+
+## Required Variants
+
+To keep the API small and unopinionated, `cvb` **doesn't** offer a built-in solution for setting required variants.
+
+Instead, we recommend using TypeScript's [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html):
+
+```ts title="components/badge.recipe.ts"
+import { cvb } from 'cvb';
+import type { VariantProps } from 'cvb'; // [!code highlight]
+
+export const badgeVariants = cvb({
+  base: 'inline-flex items-center rounded-md gap-x-1.5 text-xs',
+  variants: {
+    color: {
+      green: 'bg-green-50 text-green-700',
+      indigo: 'bg-indigo-50 text-indigo-700',
+      red: 'bg-red-50 text-red-700',
+    },
+    size: {
+      sm: 'px-1.5 py-0.5',
+      md: 'px-2 py-1',
+    },
+    flat: {
+      false: 'ring-1 ring-inset',
+    },
+  },
+  defaultVariants: {
+    color: 'indigo',
+  },
+});
+
+type BadgeRecipeProps = VariantProps<typeof badgeVariants>; // [!code highlight]
+
+export interface BadgeProps // [!code highlight:3]
+  extends Omit<BadgeRecipeProps, 'flat'>,
+    Required<Pick<BadgeRecipeProps, 'flat'>> {}
+
+export const badge = (props: BadgeProps) => badgeVariants(props); // [!code highlight]
+
+// ❌ TypeScript Error:
+// Argument of type "{}": is not assignable to parameter of type "BadgeProps".
+// Property "flat" is missing in type "{}" but required in type "BadgeProps".
+badge({}); // [!code highlight]
+
+// ✅
+badge({ flat: true }); // [!code highlight]
+```
