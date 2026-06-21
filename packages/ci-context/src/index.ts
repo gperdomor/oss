@@ -1,3 +1,3 @@
-export { ContextProxyFactory } from './lib/context.factory';
-export type { RepoMetadata, RunnerContext } from './lib/interfaces';
-export { RepoProxyFactory } from './lib/repo.factory';
+export { ContextProxyFactory } from './lib/context.factory.js';
+export type { RepoMetadata, RunnerContext } from './lib/interfaces.js';
+export { RepoProxyFactory } from './lib/repo.factory.js';

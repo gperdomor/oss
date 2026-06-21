@@ -1,17 +1,17 @@
 import { logger } from '@nx-tools/core';
 import { provider } from 'std-env';
-import { RunnerContext } from './interfaces';
-import { Azure } from './utils/azure-devops';
-import { BitBucket } from './utils/bitbucket';
-import { Circle } from './utils/circle';
-import { Drone } from './utils/drone';
-import { Git } from './utils/git';
-import { Github } from './utils/github';
-import { Gitlab } from './utils/gitlab';
-import { Jenkins } from './utils/jenkins';
-import { Semaphore } from './utils/semaphore';
-import { Teamcity } from './utils/teamcity';
-import { Travis } from './utils/travis';
+import { RunnerContext } from './interfaces.js';
+import { Azure } from './utils/azure-devops.js';
+import { BitBucket } from './utils/bitbucket.js';
+import { Circle } from './utils/circle.js';
+import { Drone } from './utils/drone.js';
+import { Git } from './utils/git.js';
+import { Github } from './utils/github.js';
+import { Gitlab } from './utils/gitlab.js';
+import { Jenkins } from './utils/jenkins.js';
+import { Semaphore } from './utils/semaphore.js';
+import { Teamcity } from './utils/teamcity.js';
+import { Travis } from './utils/travis.js';
 
 export class ContextProxyFactory {
   public static async create(): Promise<RunnerContext> {

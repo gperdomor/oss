@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as circle from './circle';
-import { Circle } from './circle';
+import { RunnerContext } from '../interfaces.js';
+import * as circle from './circle.js';
+import { Circle } from './circle.js';
 
 describe('CircleCI Context', () => {
   let context: RunnerContext;
@@ -13,7 +13,7 @@ describe('CircleCI Context', () => {
     vi.stubEnv('CIRCLE_USERNAME', 'circleci-actor');
     vi.stubEnv('CIRCLE_JOB', 'circleci-job');
     vi.stubEnv('CIRCLE_BUILD_NUM', '30');
-    vi.stubEnv('CIRCLE_REPOSITORY_URL', 'https://circle.com/gperdomor/nx-tools');
+    vi.stubEnv('CIRCLE_REPOSITORY_URL', 'https://circle.com/gperdomor/oss');
     vi.stubEnv('CIRCLE_PROJECT_REPONAME', 'nx-tools');
   });
 
@@ -35,7 +35,7 @@ describe('CircleCI Context', () => {
         ref: 'refs/heads/circleci-ref-slug',
         runId: 30,
         runNumber: 30,
-        repoUrl: 'https://circle.com/gperdomor/nx-tools',
+        repoUrl: 'https://circle.com/gperdomor/oss',
         sha: 'circleci-sha',
       });
     });
@@ -53,7 +53,7 @@ describe('CircleCI Context', () => {
         ref: 'refs/heads/circleci-ref-slug',
         runId: 30,
         runNumber: 30,
-        repoUrl: 'https://circle.com/gperdomor/nx-tools',
+        repoUrl: 'https://circle.com/gperdomor/oss',
         sha: 'circleci-sha',
       });
     });
@@ -79,7 +79,7 @@ describe('CircleCI Context', () => {
           ref: 'refs/tags/circleci-tag',
           runId: 30,
           runNumber: 30,
-          repoUrl: 'https://circle.com/gperdomor/nx-tools',
+          repoUrl: 'https://circle.com/gperdomor/oss',
           sha: 'circleci-sha',
         });
       });
@@ -93,7 +93,7 @@ describe('CircleCI Context', () => {
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://circle.com/gperdomor/nx-tools',
+        html_url: 'https://circle.com/gperdomor/oss',
         license: null,
         name: 'nx-tools',
       });

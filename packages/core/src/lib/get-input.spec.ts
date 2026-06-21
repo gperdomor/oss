@@ -1,5 +1,5 @@
 import * as path from 'node:path';
-import { getBooleanInput, getInput, getMultilineInput, getPosixName } from './get-input';
+import { getBooleanInput, getInput, getMultilineInput, getPosixName } from './get-input.js';
 
 const testEnvVars: NodeJS.ProcessEnv = {
   'my var': '',

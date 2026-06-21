@@ -4,15 +4,6 @@
   "include": [],
   "references": [
     {
-      "path": "../ci-context"
-    },
-    {
-      "path": "../core"
-    },
-    {
-      "path": "../container-metadata"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {

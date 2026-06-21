@@ -12,7 +12,7 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml", "{workspaceRoot}/.gitlab-ci.yml"]
   },
-  "nxCloudId": "665f26ad97b7ef2700a63c6a",
+  "nxCloudId": "698b44accc4d72749cc9e0fb",
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
@@ -35,17 +35,25 @@
       }
     },
     {
+      "plugin": "@nx/vitest",
+      "options": {
+        "testTargetName": "test",
+        "ciTargetName": "test-ci",
+        "testMode": "watch"
+      }
+    },
+    {
       "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
-        "testTargetName": "test",
+        "testTargetName": "vite:test",
         "serveTargetName": "serve",
         "devTargetName": "dev",
         "previewTargetName": "preview",
         "serveStaticTargetName": "serve-static",
-        "typecheckTargetName": "typecheck",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
+        "typecheckTargetName": "vite:typecheck",
+        "buildDepsTargetName": "vite:build-deps",
+        "watchDepsTargetName": "vite:watch-deps"
       }
     },
     {
@@ -60,19 +68,11 @@
       }
     }
   ],
-  "targetDefaults": {
-    "test": {
-      "dependsOn": ["^build"]
-    },
-    "@nx/js:tsc": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    }
-  },
   "release": {
-    "projects": ["packages/*"],
-    "releaseTagPattern": "{version}",
+    "projects": ["packages/*", "!class-variance-builder"],
+    "releaseTag": {
+      "pattern": "{version}"
+    },
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build",
       "versionActionsOptions": {
@@ -94,6 +94,16 @@
       }
     }
   },
+  "targetDefaults": {
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
+  },
   "generators": {
     "@nx/next": {
       "application": {
@@ -101,5 +111,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "analytics": false
 }
