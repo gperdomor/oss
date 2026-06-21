@@ -38,7 +38,7 @@
     "@swc/core": "1.15.11",
     "@swc/helpers": "0.5.18",
     "@tailwindcss/postcss": "4.1.18",
-    "@types/mdx": "2.0.13",
+    "@types/mdx": "2.0.14",
     "@types/node": "24.12.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
