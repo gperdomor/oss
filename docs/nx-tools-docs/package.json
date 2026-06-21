@@ -1,0 +1,16 @@
+{
+  "name": "@org/nx-tools-docs",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@takumi-rs/image-response": "0.73.1",
+    "fumadocs-core": "16.7.14",
+    "fumadocs-mdx": "14.2.8",
+    "fumadocs-ui": "16.6.7",
+    "lucide-react": "0.577.0",
+    "next": "16.2.3",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "tailwind-merge": "3.5.0"
+  }
+}

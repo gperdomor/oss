@@ -1,18 +1,19 @@
 import nxScopes from '@commitlint/config-nx-scopes';
-import { type UserConfig, RuleConfigSeverity } from '@commitlint/types';
+import { defineConfig } from 'czg';
 
 const { utils } = nxScopes;
 
-const Configuration: UserConfig = {
+export default defineConfig({
   extends: ['@commitlint/config-conventional', '@commitlint/config-nx-scopes'],
   rules: {
     // @ts-expect-error nx-scopes is not typed
-    'scope-enum': async (ctx) => [
-      RuleConfigSeverity.Error,
-      'always',
-      ['repo', 'deps', 'release', ...(await utils.getProjects(ctx))],
-    ],
+    'scope-enum': async (ctx) => [2, 'always', ['repo', 'deps', 'release', ...(await utils.getProjects(ctx))]],
   },
-};
-
-export default Configuration;
+  prompt: {
+    useAI: false,
+    aiNumber: 5,
+    aiDiffIgnore: ['pnpm-lock.yaml'],
+    aiQuestionCB: ({ maxSubjectLength, diff }) =>
+      `For the following Git diff code, please write an insightful and concise Git commit message in the imperative mood without a prefix. Note that the length of this sentence must not exceed ${maxSubjectLength} characters!! : \n\`\`\`diff\n${diff}\n\`\`\``,
+  },
+});

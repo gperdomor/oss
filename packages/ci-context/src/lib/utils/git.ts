@@ -1,5 +1,5 @@
 import { exec } from '@nx-tools/core';
-import { RepoMetadata, RunnerContext } from '../interfaces';
+import { RepoMetadata, RunnerContext } from '../interfaces.js';
 
 export class Git {
   public static async context(): Promise<RunnerContext> {

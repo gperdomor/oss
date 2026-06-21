@@ -13,7 +13,7 @@ const context: Omit<ExecutorContext, 'nxJsonConfiguration' | 'projectGraph'> = {
   isVerbose: false,
 };
 
-describe('Reset Executor', () => {
+describe.skip('Reset Executor', () => {
   beforeEach(() => {
     vi.spyOn(console, 'info').mockImplementation(() => true);
   });

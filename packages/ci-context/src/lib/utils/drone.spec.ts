@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as drone from './drone';
-import { Drone } from './drone';
+import { RunnerContext } from '../interfaces.js';
+import * as drone from './drone.js';
+import { Drone } from './drone.js';
 
 describe('Drone Context', () => {
   let context: RunnerContext;
@@ -14,8 +14,8 @@ describe('Drone Context', () => {
     vi.stubEnv('DRONE_COMMIT_AUTHOR', 'drone-actor');
     vi.stubEnv('DRONE_BUILD_NUMBER', '100');
     vi.stubEnv('DRONE_REPO_BRANCH', 'drone-main');
-    vi.stubEnv('DRONE_REPO_LINK', 'https://drone.com/gperdomor/nx-tools');
-    vi.stubEnv('DRONE_REPO', 'gperdomor/nx-tools');
+    vi.stubEnv('DRONE_REPO_LINK', 'https://drone.com/gperdomor/oss');
+    vi.stubEnv('DRONE_REPO', 'gperdomor/oss');
   });
 
   afterEach(() => {
@@ -40,7 +40,7 @@ describe('Drone Context', () => {
         ref: 'refs/heads/drone-ref',
         runId: 100,
         runNumber: 100,
-        repoUrl: 'https://drone.com/gperdomor/nx-tools',
+        repoUrl: 'https://drone.com/gperdomor/oss',
         sha: 'drone-sha',
       });
     });
@@ -72,7 +72,7 @@ describe('Drone Context', () => {
           ref: 'refs/tags/drone-v1.0.0',
           runId: 100,
           runNumber: 100,
-          repoUrl: 'https://drone.com/gperdomor/nx-tools',
+          repoUrl: 'https://drone.com/gperdomor/oss',
           sha: 'drone-sha',
         });
       });
@@ -86,9 +86,9 @@ describe('Drone Context', () => {
       expect(repo).toEqual({
         default_branch: 'drone-main',
         description: '',
-        html_url: 'https://drone.com/gperdomor/nx-tools',
+        html_url: 'https://drone.com/gperdomor/oss',
         license: null,
-        name: 'gperdomor/nx-tools',
+        name: 'gperdomor/oss',
       });
     });
   });

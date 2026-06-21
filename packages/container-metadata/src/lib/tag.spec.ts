@@ -1,6 +1,6 @@
 import { logger } from '@nx-tools/core';
-import { mockConsole } from '../test-utils.spec';
-import { DefaultPriorities, Parse, RefEvent, ShaFormat, Tag, Transform, Type } from './tag';
+import { mockConsole } from '../test-utils.spec.js';
+import { DefaultPriorities, Parse, RefEvent, ShaFormat, Tag, Transform, Type } from './tag.js';
 
 beforeAll(() => {
   mockConsole();

@@ -2,8 +2,8 @@ import { RunnerContext as Context, ContextProxyFactory, RepoMetadata, RepoProxyF
 import { isDebug, logger as L } from '@nx-tools/core';
 import { ExecutorContext } from '@nx/devkit';
 import * as fs from 'node:fs';
-import { getInputs, Inputs } from './context';
-import { Meta, Version } from './meta';
+import { getInputs, Inputs } from './context.js';
+import { Meta, Version } from './meta.js';
 
 function setOutput(_name: string, _value: string) {
   // core.setOutput(name, value);

@@ -1,7 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { getPosixName } from './get-input';
-import { getInputList } from './get-input-list';
+import { getInputList } from './get-input-list.js';
+import { getPosixName } from './get-input.js';
 
 describe('getInputList', () => {
   it('single line correctly', async () => {

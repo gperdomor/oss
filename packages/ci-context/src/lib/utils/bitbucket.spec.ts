@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as bitbucket from './bitbucket';
-import { BitBucket } from './bitbucket';
+import { RunnerContext } from '../interfaces.js';
+import * as bitbucket from './bitbucket.js';
+import { BitBucket } from './bitbucket.js';
 
 describe('BitBucket Context', () => {
   let context: RunnerContext;
@@ -12,9 +12,9 @@ describe('BitBucket Context', () => {
     vi.stubEnv('BITBUCKET_STEP_TRIGGERER_UUID', 'bitbucket-actor-uuid');
     vi.stubEnv('BITBUCKET_STEP_UUID', 'bitbucket-job-uuid');
     vi.stubEnv('BITBUCKET_BUILD_NUMBER', '50');
-    vi.stubEnv('BITBUCKET_REPO_FULL_NAME', 'gperdomor/nx-tools');
+    vi.stubEnv('BITBUCKET_REPO_FULL_NAME', 'gperdomor/oss');
     vi.stubEnv('BITBUCKET_WORKSPACE', 'nx-tools');
-    vi.stubEnv('BITBUCKET_GIT_HTTP_ORIGIN', 'https://bitbucket.org/gperdomor/nx-tools');
+    vi.stubEnv('BITBUCKET_GIT_HTTP_ORIGIN', 'https://bitbucket.org/gperdomor/oss');
   });
 
   afterEach(() => {
@@ -34,7 +34,7 @@ describe('BitBucket Context', () => {
         ref: 'refs/heads/bitbucket-ref-slug',
         runId: 50,
         runNumber: 50,
-        repoUrl: 'https://bitbucket.org/gperdomor/nx-tools',
+        repoUrl: 'https://bitbucket.org/gperdomor/oss',
         sha: 'bitbucket-sha',
       });
     });
@@ -52,7 +52,7 @@ describe('BitBucket Context', () => {
         ref: 'refs/heads/bitbucket-ref-slug',
         runId: 50,
         runNumber: 50,
-        repoUrl: 'https://bitbucket.org/gperdomor/nx-tools',
+        repoUrl: 'https://bitbucket.org/gperdomor/oss',
         sha: 'bitbucket-sha',
       });
     });
@@ -74,7 +74,7 @@ describe('BitBucket Context', () => {
           ref: 'refs/tags/bitbucket-tag',
           runId: 50,
           runNumber: 50,
-          repoUrl: 'https://bitbucket.org/gperdomor/nx-tools',
+          repoUrl: 'https://bitbucket.org/gperdomor/oss',
           sha: 'bitbucket-sha',
         });
       });
@@ -88,7 +88,7 @@ describe('BitBucket Context', () => {
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://bitbucket.org/gperdomor/nx-tools',
+        html_url: 'https://bitbucket.org/gperdomor/oss',
         license: null,
         name: 'nx-tools',
       });

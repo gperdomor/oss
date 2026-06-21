@@ -1,16 +1,16 @@
 import { provider } from 'std-env';
-import { RepoMetadata } from './interfaces';
-import * as azure from './utils/azure-devops';
-import * as bitbucket from './utils/bitbucket';
-import * as circle from './utils/circle';
-import * as drone from './utils/drone';
-import * as git from './utils/git';
-import * as github from './utils/github';
-import * as gitlab from './utils/gitlab';
-import * as jenkins from './utils/jenkins';
-import * as semaphore from './utils/semaphore';
-import * as teamcity from './utils/teamcity';
-import * as travis from './utils/travis';
+import { RepoMetadata } from './interfaces.js';
+import * as azure from './utils/azure-devops.js';
+import * as bitbucket from './utils/bitbucket.js';
+import * as circle from './utils/circle.js';
+import * as drone from './utils/drone.js';
+import * as git from './utils/git.js';
+import * as github from './utils/github.js';
+import * as gitlab from './utils/gitlab.js';
+import * as jenkins from './utils/jenkins.js';
+import * as semaphore from './utils/semaphore.js';
+import * as teamcity from './utils/teamcity.js';
+import * as travis from './utils/travis.js';
 
 export class RepoProxyFactory {
   public static async create(token: string): Promise<RepoMetadata> {

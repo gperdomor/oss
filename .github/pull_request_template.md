@@ -1,5 +1,5 @@
 <!-- Please make sure you have read the submission guidelines before posting an PR -->
-<!-- https://github.com/gperdomor/nx-tools/blob/main/CONTRIBUTING.md#-submitting-a-pr -->
+<!-- https://github.com/gperdomor/oss/blob/main/CONTRIBUTING.md#-submitting-a-pr -->
 
 <!-- Please make sure that your commit message follows our format -->
 <!-- Example: `fix(scope): must begin with lowercase` -->

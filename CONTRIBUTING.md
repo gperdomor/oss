@@ -1,13 +1,13 @@
 # Contributing Guide
 
-Thanks for showing interest to contribute to `nx-tools`. Before starting your contribution, please take a moment to read the following guidelines.
+Thanks for showing interest to contribute to `oss`. Before starting your contribution, please take a moment to read the following guidelines.
 
 ## Think you found a bug?
 
 If you find a bug in the source code or a mistake in the documentation, you can help us by
-[submitting an issue](https://github.com/gperdomor/nx-tools/blob/main/CONTRIBUTING.md#submit-issue)
-to [the GitHub Repository](https://github.com/gperdomor/nx-tools). Even better, you can
-[submit a Pull Request](https://github.com/gperdomor/nx-tools/blob/main/CONTRIBUTING.md#submit-pr) with a fix.
+[submitting an issue](https://github.com/gperdomor/oss/blob/main/CONTRIBUTING.md#submit-issue)
+to [the GitHub Repository](https://github.com/gperdomor/oss). Even better, you can
+[submit a Pull Request](https://github.com/gperdomor/oss/blob/main/CONTRIBUTING.md#submit-pr) with a fix.
 
 ## Project Structure
 
@@ -108,7 +108,7 @@ bugs. Interestingly, from our experience, users often find coding problems thems
 reproduction repository. We understand that sometimes it might be hard to extract essentials bits of code from a larger
 codebase, but we really need to isolate the problem before we can fix it.
 
-You can file new issues by filling out our [issue form](https://github.com/gperdomor/nx-tools/issues/new/choose).
+You can file new issues by filling out our [issue form](https://github.com/gperdomor/oss/issues/new/choose).
 
 ### <a name="submit-pr"></a> Submitting a PR
 
@@ -181,7 +181,7 @@ Closes #15
 
 #### Commitizen
 
-To simplify and automate the process of committing with this format, **nx-tools** is a [Commitizen](https://github.com/commitizen/cz-cli) friendly repository, just do `git add` and
+To simplify and automate the process of committing with this format, **oss** is a [Commitizen](https://github.com/commitizen/cz-cli) friendly repository, just do `git add` and
 execute `npm run commit`.
 
 <!-- ## Want to help improve the docs?
@@ -194,4 +194,4 @@ TODO
 
 ## License
 
-By contributing your code to the `nx-tools` GitHub repository, you agree to license your contribution under the [MIT License](https://github.com/gperdomor/nx-tools/blob/main/LICENSE).
+By contributing your code to the `oss` GitHub repository, you agree to license your contribution under the [MIT License](https://github.com/gperdomor/oss/blob/main/LICENSE).

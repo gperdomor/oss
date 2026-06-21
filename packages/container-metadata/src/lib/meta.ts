@@ -2,15 +2,15 @@
 import { RunnerContext as Context, RepoMetadata } from '@nx-tools/ci-context';
 import { interpolate, logger as L, tmpDir } from '@nx-tools/core';
 import * as pep440 from '@renovatebot/pep440';
-import * as handlebars from 'handlebars';
+import handlebars from 'handlebars';
 import moment from 'moment-timezone';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as semver from 'semver';
-import { Inputs } from './context';
-import * as fcl from './flavor';
-import * as icl from './image';
-import * as tcl from './tag';
+import { Inputs } from './context.js';
+import * as fcl from './flavor.js';
+import * as icl from './image.js';
+import * as tcl from './tag.js';
 
 const defaultShortShaLength = 7;
 
