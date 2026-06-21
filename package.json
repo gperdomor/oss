@@ -13,7 +13,7 @@
   "dependencies": {
     "@nx/devkit": "23.0.0",
     "next": "16.2.6",
-    "prisma": "7.7.0",
+    "prisma": "7.8.0",
     "react": "19.2.5",
     "react-dom": "19.2.5"
   },
@@ -32,7 +32,7 @@
     "@nx/vitest": "23.0.0",
     "@nx/web": "23.0.0",
     "@nx/workspace": "23.0.0",
-    "@prisma/client": "7.7.0",
+    "@prisma/client": "7.8.0",
     "@swc-node/register": "1.11.1",
     "@swc/cli": "0.8.1",
     "@swc/core": "1.15.11",
