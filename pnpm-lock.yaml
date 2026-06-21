@@ -233,8 +233,8 @@ importers:
         specifier: 19.2.5
         version: 19.2.5(react@19.2.5)
       tailwind-merge:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 3.6.0
+        version: 3.6.0
 
   docs/cvb-docs:
     dependencies:
@@ -269,8 +269,8 @@ importers:
         specifier: 19.2.5
         version: 19.2.5(react@19.2.5)
       tailwind-merge:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 3.6.0
+        version: 3.6.0
 
   docs/nx-tools-docs:
     dependencies:
@@ -299,8 +299,8 @@ importers:
         specifier: 19.2.5
         version: 19.2.5(react@19.2.5)
       tailwind-merge:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 3.6.0
+        version: 3.6.0
 
   packages/ci-context:
     dependencies:
@@ -11804,8 +11804,8 @@ packages:
     resolution: {integrity: sha512-0OJWD12D7XX3KUg1DYkMaTTjSTo2k/mhIYI3HlBlceXSMcJhW/1qO735fPKS5prcyjvn57Ub151vvASYXpQrEw==}
     engines: {node: '>=18'}
 
-  tailwind-merge@3.5.0:
-    resolution: {integrity: sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A==}
+  tailwind-merge@3.6.0:
+    resolution: {integrity: sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w==}
 
   tailwindcss@4.1.18:
     resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
@@ -21966,7 +21966,7 @@ snapshots:
       react-remove-scroll: 2.7.2(@types/react@19.2.14)(react@19.2.5)
       rehype-raw: 7.0.0
       scroll-into-view-if-needed: 3.1.0
-      tailwind-merge: 3.5.0
+      tailwind-merge: 3.6.0
       unist-util-visit: 5.1.0
     optionalDependencies:
       '@takumi-rs/image-response': 0.69.3
@@ -26646,7 +26646,7 @@ snapshots:
 
   system-architecture@1.0.0: {}
 
-  tailwind-merge@3.5.0: {}
+  tailwind-merge@3.6.0: {}
 
   tailwindcss@4.1.18: {}
 
