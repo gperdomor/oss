@@ -3,16 +3,30 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
-.pnpm-store
+
+# PNPM related files
+/.pnpm-store
 pnpm-lock.yaml
+
+# Agents related files
+.agents
+.claude
+.codex
+.cursor
+.gemini
+.github/*
+!.github/workflows/
+!.github/workflows/**
+.opencode
 
 /tmp
 /**/dist
 
 /**/.next
+next-env.d.ts
 *.mdx
 
-apps/website/.source
+apps/website/**/.source
 .github/instructions/nx.instructions.md
 .github/workflows/build-nx-docker.yml
 .github/workflows/build-nx-podman.yml

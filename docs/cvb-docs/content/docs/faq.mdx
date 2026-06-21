@@ -1,0 +1,21 @@
+---
+title: Frequently Asked Questions
+description: Answers to common questions from the community
+icon: CircleQuestionMark
+---
+
+## Which browsers does CVB support?
+
+CVB works on all modern browsers including Edge (Chromium), Chrome, Safari, and Firefox. It uses standard JavaScript features without relying on experimental browser APIs.
+
+## Is CVB limited to React?
+
+No, CVB is completely framework-agnostic. You can use it with React, Vue, Svelte, Angular, Solid, or any other JavaScript framework. The core API remains the same regardless of which UI library you're using
+
+## Is CVB limited to Tailwind CSS?
+
+No, CVB works with any CSS approach. You can use it with Tailwind CSS, Bootstrap, UnoCSS, Bulma, or any other styling solution. The strings you provide to CVB can come from any source.
+
+## How do I handle Tailwind CSS style conflicts?
+
+For Tailwind CSS users, you can handle class conflicts using the `tailwind-merge` package... This ensures that when multiple Tailwind utility classes target the same property, only the appropriate one is applied. See our dedicated Tailwind integration [guide](./integrations/tailwindcss#handling-style-conflicts) for implementation details

@@ -7,6 +7,12 @@
       "path": "./packages/core"
     },
     {
+      "path": "./packages/nx-set-shas"
+    },
+    {
+      "path": "./packages/class-variance-builder"
+    },
+    {
       "path": "./packages/nx-container"
     },
     {
@@ -22,10 +28,13 @@
       "path": "./packages/container-metadata"
     },
     {
-      "path": "./packages/nx-set-shas"
+      "path": "./apps/website"
     },
     {
-      "path": "./apps/website"
+      "path": "./docs/cvb-docs"
+    },
+    {
+      "path": "./docs/nx-tools-docs"
     }
   ]
 }

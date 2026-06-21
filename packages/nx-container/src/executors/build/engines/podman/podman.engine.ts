@@ -22,7 +22,7 @@ export class Podman extends EngineAdapter {
   async initialize(inputs: Inputs, _ctx?: ExecutorContext): Promise<void> {
     if (!(await podman.isAvailable())) {
       throw new Error(
-        `Podman is required. See https://github.com/gperdomor/nx-tools to set up nx-container executor with podman.`,
+        `Podman is required. See https://github.com/gperdomor/oss to set up nx-container executor with podman.`,
       );
     }
 

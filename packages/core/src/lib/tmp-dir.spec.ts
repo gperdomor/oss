@@ -1,4 +1,4 @@
-import { _tmpDir, tmpDir } from './tmp-dir';
+import { _tmpDir, tmpDir } from './tmp-dir.js';
 
 describe('tmpDir', () => {
   it('debug should call console debug method', () => {

@@ -1,6 +1,6 @@
 import { homedir } from 'node:os';
 import type { MockInstance } from 'vitest';
-import { exec } from './exec';
+import { exec } from './exec.js';
 
 describe('exec', () => {
   let stdoutSpy: MockInstance;
