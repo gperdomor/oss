@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as github from './github';
-import { Github } from './github';
+import { RunnerContext } from '../interfaces.js';
+import * as github from './github.js';
+import { Github } from './github.js';
 
 vi.mock('@actions/github', async (importOriginal) => {
   return {
@@ -12,7 +12,7 @@ vi.mock('@actions/github', async (importOriginal) => {
             data: {
               default_branch: 'main',
               description: 'Nx Tools',
-              html_url: 'https://github.com/gperdomor/nx-tools',
+              html_url: 'https://github.com/gperdomor/oss',
               license: 'MIT',
               name: 'nx-tools',
             },
@@ -35,7 +35,7 @@ describe('GitHub Context', () => {
     vi.stubEnv('GITHUB_JOB', 'github-job');
     vi.stubEnv('GITHUB_RUN_NUMBER', '20');
     vi.stubEnv('GITHUB_RUN_ID', '200');
-    vi.stubEnv('GITHUB_REPOSITORY', 'gperdomor/nx-tools');
+    vi.stubEnv('GITHUB_REPOSITORY', 'gperdomor/oss');
   });
 
   afterEach(() => {
@@ -55,7 +55,7 @@ describe('GitHub Context', () => {
         ref: 'github-ref',
         runId: 200,
         runNumber: 20,
-        repoUrl: 'https://github.com/gperdomor/nx-tools',
+        repoUrl: 'https://github.com/gperdomor/oss',
         sha: 'github-sha',
       });
     });
@@ -72,7 +72,7 @@ describe('GitHub Context', () => {
       expect(repo).toEqual({
         default_branch: 'main',
         description: 'Nx Tools',
-        html_url: 'https://github.com/gperdomor/nx-tools',
+        html_url: 'https://github.com/gperdomor/oss',
         license: 'MIT',
         name: 'nx-tools',
       });

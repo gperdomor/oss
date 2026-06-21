@@ -20,21 +20,21 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/.source": ["./.source/index.ts"]
+      "fumadocs-mdx:collections/*": ["./src/.source/*"]
     },
     "outDir": "dist",
+    "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
     "../../apps/website/.next/types/**/*.ts",
     "../../dist/apps/website/.next/types/**/*.ts",
+    ".source/**/*.ts",
     "next-env.d.ts",
     "src/**/*.js",
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    ".source/**/*.ts",
-    "source.config.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
@@ -42,6 +42,7 @@
     "dist",
     "node_modules",
     "jest.config.ts",
+    "jest.config.cts",
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
     ".next",

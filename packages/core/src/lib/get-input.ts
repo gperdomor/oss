@@ -1,5 +1,5 @@
 import { names } from '@nx/devkit';
-import { toBoolean } from './utils';
+import { toBoolean } from './utils.js';
 
 /**
  * Interface for getInput options

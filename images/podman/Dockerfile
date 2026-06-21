@@ -1,4 +1,4 @@
-FROM quay.io/containers/podman:v5.6.2
+FROM quay.io/containers/podman:v5.8.2
 ARG NODE_VERSION
 RUN dnf -y update && \
 	dnf -y install \

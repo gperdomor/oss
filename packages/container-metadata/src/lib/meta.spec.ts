@@ -4,10 +4,10 @@ import { logger } from '@nx-tools/core';
 import { workspaceRoot } from '@nx/devkit';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import repoFixture from '../../__tests__/fixtures/repo.json';
-import { mockConsole, stubEnvsFromFile } from '../test-utils.spec';
-import { Inputs, getContext, getInputs } from './context';
-import { Meta, Version } from './meta';
+import repoFixture from '../../__tests__/fixtures/repo.json' with { type: 'json' };
+import { mockConsole, stubEnvsFromFile } from '../test-utils.spec.js';
+import { Inputs, getContext, getInputs } from './context.js';
+import { Meta, Version } from './meta.js';
 
 beforeAll(() => {
   mockConsole();

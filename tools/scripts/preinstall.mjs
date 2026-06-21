@@ -2,7 +2,7 @@
  * Pre-install script to validate development environment requirements
  *
  * Validates:
- * - Node.js version (20.19+)
+ * - Node.js version (22.0+)
  * - Package manager (pnpm recommended)
  * - Basic environment setup
  */
@@ -20,8 +20,8 @@ import { execSync } from 'node:child_process';
  */
 const REQUIREMENTS = {
   node: {
-    major: 20,
-    minor: 19,
+    major: 22,
+    minor: 0,
     patch: 0,
   },
 };
