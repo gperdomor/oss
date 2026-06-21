@@ -23,7 +23,8 @@ describe('Studio Executor', () => {
     const options: StudioExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'studio',
         `--schema=workspace-root/apps/foo/prisma/schema.prisma`,
@@ -44,7 +45,8 @@ describe('Studio Executor', () => {
       };
       const output = await executor(options, context as ExecutorContext);
       expect(
-        expectCommandToHaveBeenCalled('npx', [
+        expectCommandToHaveBeenCalled('pnpm', [
+          'exec',
           'prisma',
           'studio',
           '--schema=workspace-root/apps/foo/prisma/schema.prisma',
@@ -63,7 +65,8 @@ describe('Studio Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'studio',
         '--schema=my-schema.schema',

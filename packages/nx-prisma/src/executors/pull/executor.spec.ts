@@ -23,7 +23,8 @@ describe('Pull Executor', () => {
     const options: PullExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'db',
         'pull',
@@ -40,7 +41,7 @@ describe('Pull Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'db', 'pull', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled('pnpm', ['exec', 'prisma', 'db', 'pull', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );
@@ -51,7 +52,8 @@ describe('Pull Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'db',
         'pull',
@@ -70,7 +72,15 @@ describe('Pull Executor', () => {
     };
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', ['prisma', 'db', 'pull', '--schema=my-schema.schema', '--force', '--print']),
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
+        'prisma',
+        'db',
+        'pull',
+        '--schema=my-schema.schema',
+        '--force',
+        '--print',
+      ]),
     );
     expect(output.success).toBeTruthy();
   });

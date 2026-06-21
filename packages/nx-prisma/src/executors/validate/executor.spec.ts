@@ -23,7 +23,8 @@ describe('Validate Executor', () => {
     const options: ValidateExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'validate',
         `--schema=workspace-root/apps/foo/prisma/schema.prisma`,
@@ -39,7 +40,7 @@ describe('Validate Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'validate', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled('pnpm', ['exec', 'prisma', 'validate', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );

@@ -23,7 +23,8 @@ describe('Deploy Executor', () => {
     const options: DeployExecutorSchema = {};
     const output = await executor(options, context as ExecutorContext);
     expect(
-      expectCommandToHaveBeenCalled('npx', [
+      expectCommandToHaveBeenCalled('pnpm', [
+        'exec',
         'prisma',
         'migrate',
         'deploy',
@@ -40,7 +41,7 @@ describe('Deploy Executor', () => {
         [option]: value,
       };
       const output = await executor(options, context as ExecutorContext);
-      expect(expectCommandToHaveBeenCalled('npx', ['prisma', 'migrate', 'deploy', `--${option}=${value}`]));
+      expect(expectCommandToHaveBeenCalled('pnpm', ['exec', 'prisma', 'migrate', 'deploy', `--${option}=${value}`]));
       expect(output.success).toBeTruthy();
     },
   );
