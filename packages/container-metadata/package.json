@@ -32,7 +32,7 @@
     "@nx-tools/core": "workspace:*",
     "@renovatebot/pep440": "4.1.0",
     "csv-parse": "^5.6.0",
-    "handlebars": "^4.7.8",
+    "handlebars": "^4.7.9",
     "moment-timezone": "^0.5.48",
     "semver": "^7.7.3"
   },

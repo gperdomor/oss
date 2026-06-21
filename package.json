@@ -27,11 +27,11 @@
     "fumadocs-mdx": "11.6.10",
     "fumadocs-typescript": "4.0.6",
     "fumadocs-ui": "15.6.1",
-    "handlebars": "4.7.8",
+    "handlebars": "4.7.9",
     "lucide-react": "0.545.0",
     "moment": "2.30.1",
     "moment-timezone": "0.5.48",
-    "next": "15.4.7",
+    "next": "15.5.18",
     "prisma": "7.0.0",
     "properties-file": "3.6.1",
     "react": "19.1.1",
@@ -40,7 +40,7 @@
     "std-env": "3.9.0",
     "tinyexec": "1.0.1",
     "tinyrainbow": "3.0.3",
-    "tmp": "0.2.5"
+    "tmp": "0.2.7"
   },
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
@@ -98,8 +98,8 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.0",
     "verdaccio": "6.2.1",
-    "vite": "7.1.11",
-    "vitest": "3.2.4"
+    "vite": "7.3.5",
+    "vitest": "3.2.6"
   },
   "nx": {
     "includedScripts": [],
