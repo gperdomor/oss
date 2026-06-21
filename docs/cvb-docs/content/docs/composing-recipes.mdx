@@ -1,0 +1,155 @@
+---
+title: Composing Recipes
+description: Merge your recipes to create new ones
+---
+
+One of CVB's most powerful features is the ability to merge multiple recipes through the `compose` utility, enabling a modular approach to styling that scales with your design system's complexity
+
+## The Power of Composition
+
+By breaking down your styling into focused, single-purpose recipes, you can:
+
+- **Eliminate redundancy** across your component library
+- **Maximize reusability** of styling patterns
+- **Organize styles** in a logical, maintainable structure
+- **Create consistency** throughout your design system
+
+This composition model is ideal when you have common variant patterns that should be shared across multiple component types.
+
+## Building a Modular Design System
+
+Let's imagine we're building a component library with buttons and badges that share several styling attributes. Instead of duplicating these styles, we'll use composition to create a reusable system.
+
+### Step 1: Create Shared Recipe Fragments
+
+First, we'll extract shared styling concerns into their own standalone recipes:
+
+```ts title="components/shared-recipes.ts"
+import { cvb } from 'cvb';
+
+// Shared sizing variants that can be applied to multiple components
+export const sizes = cvb({
+  base: 'font-semibold py-1 px-3',
+  variants: {
+    size: {
+      sm: 'text-sm leading-5',
+      md: 'text-base leading-6',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
+// Shared shadow variants
+export const shadows = cvb({
+  variants: {
+    shadow: {
+      none: '',
+      sm: 'drop-shadow-sm',
+      md: 'drop-shadow-md',
+      lg: 'drop-shadow-lg',
+    },
+  },
+  defaultVariants: {
+    shadow: 'none',
+  },
+});
+```
+
+### Step 2: Create Component-Specific Base Recipes
+
+```ts title="components/base-recipes.ts"
+import { cvb, compose } from 'cvb';
+import { sizes, shadows } from './shared-recipes';
+
+// Button-specific styling
+export const baseButton = cvb({
+  base: 'rounded-md text-white cursor-pointer transition-colors',
+  variants: {
+    color: {
+      green: 'bg-green-600 hover:bg-green-700 active:bg-green-800',
+      indigo: 'bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800',
+    },
+  },
+  defaultVariants: {
+    color: 'indigo',
+  },
+});
+
+// Badge-specific styling
+export const baseBadge = cvb({
+  base: 'inline-flex items-center rounded-md ring-1 ring-inset',
+  variants: {
+    color: {
+      green: 'bg-green-50 text-green-700 ring-green-600/20',
+      indigo: 'bg-indigo-50 text-indigo-700 ring-indigo-700/10',
+    },
+  },
+  defaultVariants: {
+    color: 'indigo',
+  },
+});
+```
+
+### Step 3: Compose Final Component Recipes
+
+Now, we can compose these recipes to create our final component styles:
+
+```ts title="components/recipes.ts"
+import { compose } from 'cvb';
+import { sizes, shadows } from './shared-recipes';
+import { baseButton, baseBadge } from './base-recipes';
+
+// Basic compositions
+export const button = compose(baseButton, sizes);
+export const badge = compose(baseBadge, sizes);
+
+// Extended compositions with shadows
+export const buttonWithShadow = compose(button, shadows);
+export const badgeWithShadow = compose(badge, shadows);
+
+// Alternative approach - directly compose all three recipes
+export const buttonPremium = compose(baseButton, sizes, shadows);
+```
+
+## Using Composed Recipes
+
+The resulting composed recipes behave exactly like regular recipes, but with combined variants:
+
+```ts title="components/button.tsx"
+import { button, buttonWithShadow } from '../design-system/recipes';
+
+function Button({ shadow, ...props }) {
+  // Choose the appropriate recipe based on whether shadow is needed
+  const buttonRecipe = shadow ? buttonWithShadow : button;
+
+  return (
+    <button
+      className={buttonRecipe({
+        size: props.size,
+        color: props.color,
+        shadow: shadow ? 'md' : undefined,
+      })}
+    >
+      {props.children}
+    </button>
+  );
+}
+```
+
+<Callout type="info">
+  When composing recipes, later recipes can override styles from earlier ones. The order matters - recipes are applied
+  from left to right, with each subsequent recipe potentially overriding properties from previous ones.
+</Callout>
+
+## Composition Rules and Behavior
+
+The `compose` function follows these rules when merging recipes:
+
+1. **Base Styles:** Base styles from all recipes are combined
+2. **Variants:** All unique variant groups are merged together
+3. **Default Variants:** Later recipes' defaults override earlier ones
+4. **Compound Variants:** All compound variants are preserved
+
+This behavior ensures predictable styling while maximizing flexibility.

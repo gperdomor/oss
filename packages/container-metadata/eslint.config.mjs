@@ -11,6 +11,7 @@ export default [
           ignoredFiles: [
             '{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}',
             '{projectRoot}/vite.config.{js,cjs,mjs,ts,cts,mts}',
+            '{projectRoot}/vitest.config.{js,ts,mjs,mts}',
           ],
           ignoredDependencies: ['dotenv', 'std-env'],
         },
@@ -19,5 +20,8 @@ export default [
     languageOptions: {
       parser: await import('jsonc-eslint-parser'),
     },
+  },
+  {
+    ignores: ['**/out-tsc'],
   },
 ];

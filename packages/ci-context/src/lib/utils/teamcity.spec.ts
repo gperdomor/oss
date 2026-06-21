@@ -1,6 +1,6 @@
-import type { RunnerContext } from '../interfaces';
-import * as teamcity from './teamcity';
-import { Teamcity } from './teamcity';
+import type { RunnerContext } from '../interfaces.js';
+import * as teamcity from './teamcity.js';
+import { Teamcity } from './teamcity.js';
 
 const files = {
   'build.properties': `
