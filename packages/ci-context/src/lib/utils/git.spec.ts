@@ -1,6 +1,6 @@
 import * as core from '@nx-tools/core';
-import * as local from './git';
-import { Git } from './git';
+import * as local from './git.js';
+import { Git } from './git.js';
 
 describe('Git Context', () => {
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Git Context', () => {
     it('Should be take proper cotext values', async () => {
       vi.spyOn(Git, 'getCommitUserEmail').mockResolvedValue('local-actor');
       vi.spyOn(Git, 'ref').mockResolvedValue('local-ref');
-      vi.spyOn(Git, 'remoteURL').mockResolvedValue('https://local-git.com/gperdomor/nx-tools');
+      vi.spyOn(Git, 'remoteURL').mockResolvedValue('https://local-git.com/gperdomor/oss');
       vi.spyOn(Git, 'fullCommit').mockResolvedValue('local-sha');
 
       const context = await Git.context();
@@ -29,7 +29,7 @@ describe('Git Context', () => {
         ref: 'local-ref',
         runId: 0,
         runNumber: 0,
-        repoUrl: 'https://local-git.com/gperdomor/nx-tools',
+        repoUrl: 'https://local-git.com/gperdomor/oss',
         sha: 'local-sha',
       });
     });
@@ -37,14 +37,14 @@ describe('Git Context', () => {
 
   describe('repo', () => {
     it('Should be take proper repo values', async () => {
-      vi.spyOn(Git, 'remoteURL').mockResolvedValue('https://local-git.com/gperdomor/nx-tools');
+      vi.spyOn(Git, 'remoteURL').mockResolvedValue('https://local-git.com/gperdomor/oss');
 
       const repo = await local.repo();
 
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://local-git.com/gperdomor/nx-tools',
+        html_url: 'https://local-git.com/gperdomor/oss',
         license: null,
         name: '',
       });

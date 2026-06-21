@@ -1,18 +1,18 @@
 import * as core from '@nx-tools/core';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ContextProxyFactory } from './context.factory';
-import { RunnerContext } from './interfaces';
-import { Azure } from './utils/azure-devops';
-import { BitBucket } from './utils/bitbucket';
-import { Circle } from './utils/circle';
-import { Drone } from './utils/drone';
-import { Git } from './utils/git';
-import { Github } from './utils/github';
-import { Gitlab } from './utils/gitlab';
-import { Jenkins } from './utils/jenkins';
-import { Semaphore } from './utils/semaphore';
-import { Teamcity } from './utils/teamcity';
-import { Travis } from './utils/travis';
+import { ContextProxyFactory } from './context.factory.js';
+import { RunnerContext } from './interfaces.js';
+import { Azure } from './utils/azure-devops.js';
+import { BitBucket } from './utils/bitbucket.js';
+import { Circle } from './utils/circle.js';
+import { Drone } from './utils/drone.js';
+import { Git } from './utils/git.js';
+import { Github } from './utils/github.js';
+import { Gitlab } from './utils/gitlab.js';
+import { Jenkins } from './utils/jenkins.js';
+import { Semaphore } from './utils/semaphore.js';
+import { Teamcity } from './utils/teamcity.js';
+import { Travis } from './utils/travis.js';
 
 vi.mock('@nx-tools/core', () => ({
   logger: {
@@ -22,17 +22,17 @@ vi.mock('@nx-tools/core', () => ({
 
 vi.mock('std-env');
 
-vi.mock('./utils/azure-devops');
-vi.mock('./utils/bitbucket');
-vi.mock('./utils/circle');
-vi.mock('./utils/drone');
-vi.mock('./utils/git');
-vi.mock('./utils/github');
-vi.mock('./utils/gitlab');
-vi.mock('./utils/jenkins');
-vi.mock('./utils/semaphore');
-vi.mock('./utils/teamcity');
-vi.mock('./utils/travis');
+vi.mock('./utils/azure-devops.js');
+vi.mock('./utils/bitbucket.js');
+vi.mock('./utils/circle.js');
+vi.mock('./utils/drone.js');
+vi.mock('./utils/git.js');
+vi.mock('./utils/github.js');
+vi.mock('./utils/gitlab.js');
+vi.mock('./utils/jenkins.js');
+vi.mock('./utils/semaphore.js');
+vi.mock('./utils/teamcity.js');
+vi.mock('./utils/travis.js');
 
 describe('ContextProxyFactory', () => {
   const mockContext: RunnerContext = {

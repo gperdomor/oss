@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as devops from './azure-devops';
-import { Azure } from './azure-devops';
+import { RunnerContext } from '../interfaces.js';
+import * as devops from './azure-devops.js';
+import { Azure } from './azure-devops.js';
 
 describe('Azure DevOps Context', () => {
   let context: RunnerContext;
@@ -10,7 +10,7 @@ describe('Azure DevOps Context', () => {
     vi.stubEnv('BUILD_SOURCEVERSIONAUTHOR', 'devops-actor');
     vi.stubEnv('AGENT_JOBNAME', 'devops-job');
     vi.stubEnv('BUILD_BUILDID', '40');
-    vi.stubEnv('BUILD_REPOSITORY_URI', 'https://azure.com/gperdomor/nx-tools');
+    vi.stubEnv('BUILD_REPOSITORY_URI', 'https://azure.com/gperdomor/oss');
   });
 
   afterEach(() => {
@@ -36,7 +36,7 @@ describe('Azure DevOps Context', () => {
           ref: 'refs/heads/devops-ref-slug',
           runId: 40,
           runNumber: 40,
-          repoUrl: 'https://azure.com/gperdomor/nx-tools',
+          repoUrl: 'https://azure.com/gperdomor/oss',
           sha: 'devops-sha',
         });
       });
@@ -59,7 +59,7 @@ describe('Azure DevOps Context', () => {
           ref: 'refs/heads/devops-ref-slug',
           runId: 40,
           runNumber: 40,
-          repoUrl: 'https://azure.com/gperdomor/nx-tools',
+          repoUrl: 'https://azure.com/gperdomor/oss',
           sha: 'devops-sha',
         });
       });
@@ -73,7 +73,7 @@ describe('Azure DevOps Context', () => {
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://azure.com/gperdomor/nx-tools',
+        html_url: 'https://azure.com/gperdomor/oss',
         license: null,
         name: 'devops-job',
       });

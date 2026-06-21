@@ -3,8 +3,8 @@ import { Git } from '@nx-tools/ci-context/src/lib/utils/git';
 import { Github } from '@nx-tools/ci-context/src/lib/utils/github';
 import { getPosixName } from '@nx-tools/core';
 import * as path from 'node:path';
-import { stubEnvsFromFile } from '../test-utils.spec';
-import { Inputs, getContext, getInputs } from './context';
+import { stubEnvsFromFile } from '../test-utils.spec.js';
+import { Inputs, getContext, getInputs } from './context.js';
 
 beforeEach(() => {
   vi.resetAllMocks();

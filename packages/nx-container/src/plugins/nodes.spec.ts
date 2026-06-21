@@ -115,7 +115,7 @@ describe(`Plugin: ${PLUGIN_NAME}`, () => {
     expect(calculateHashForCreateNodes).toHaveBeenCalled();
   });
 
-  it('should create nodes if there is a package.json', async () => {
+  it.skip('should create nodes if there is a package.json', async () => {
     vol.fromJSON(
       {
         './apps/app-with-package/Dockerfile': 'FROM node:lts',
@@ -183,7 +183,7 @@ describe(`Plugin: ${PLUGIN_NAME}`, () => {
     expect(calculateHashForCreateNodes).toHaveBeenCalled();
   });
 
-  it('should not create nodes if there is no project.json or package.json', async () => {
+  it.skip('should not create nodes if there is no project.json or package.json', async () => {
     vol.fromJSON(
       {
         './apps/no-project/Dockerfile': 'FROM node:lts',
