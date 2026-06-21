@@ -467,8 +467,8 @@ importers:
         specifier: workspace:*
         version: link:../core
       '@oclif/core':
-        specifier: 4.10.5
-        version: 4.10.5
+        specifier: 4.11.6
+        version: 4.11.6
       '@oclif/plugin-help':
         specifier: 6.2.44
         version: 6.2.44
@@ -3193,8 +3193,8 @@ packages:
   '@nx/workspace@23.0.0':
     resolution: {integrity: sha512-h+Lx5AzLsbnrzv3F3vfqUFmQQginLV/+M/4L2NOwEKeMYNJ4QYDTtgvn0fnJv+qGMWZ4HDScvDNCxVTz8vrhvw==}
 
-  '@oclif/core@4.10.5':
-    resolution: {integrity: sha512-qcdCF7NrdWPfme6Kr34wwljRCXbCVpL1WVxiNy0Ep6vbWKjxAjFQwuhqkoyL0yjI+KdwtLcOCGn5z2yzdijc8w==}
+  '@oclif/core@4.11.6':
+    resolution: {integrity: sha512-8OTkBkWA0HJz2bSIQI0AoiIeL7ok4bZhUaJNEzfLu+iAn3liAyj4KmXRdXAUZBCjPEfdBTpyxKDAg1l/BDJKVg==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/core@4.9.0':
@@ -11387,6 +11387,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   send@0.19.2:
     resolution: {integrity: sha512-VMbMxbDeehAxpOtWJXlcUS5E8iXh6QmN+BkRX1GARS3wRaXEEgzCcB10gTQazO42tpNIya8xIyNx8fll1OFPrg==}
     engines: {node: '>= 0.8.0'}
@@ -16647,7 +16652,7 @@ snapshots:
       - '@swc/core'
       - debug
 
-  '@oclif/core@4.10.5':
+  '@oclif/core@4.11.6':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.17.0
@@ -16660,10 +16665,10 @@ snapshots:
       is-wsl: 2.2.0
       lilconfig: 3.1.3
       minimatch: 10.2.5
-      semver: 7.7.4
+      semver: 7.8.5
       string-width: 4.2.3
       supports-color: 8.1.1
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
       widest-line: 3.1.0
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
@@ -16691,12 +16696,12 @@ snapshots:
 
   '@oclif/plugin-help@6.2.44':
     dependencies:
-      '@oclif/core': 4.10.5
+      '@oclif/core': 4.11.6
 
   '@oclif/plugin-not-found@3.2.80(@types/node@24.12.2)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@24.12.2)
-      '@oclif/core': 4.10.5
+      '@oclif/core': 4.11.6
       ansis: 3.17.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -16704,7 +16709,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.60(supports-color@8.1.1)':
     dependencies:
-      '@oclif/core': 4.10.5
+      '@oclif/core': 4.11.6
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       http-call: 5.3.0(supports-color@8.1.1)
@@ -26088,6 +26093,8 @@ snapshots:
   semver@7.7.4: {}
 
   semver@7.8.0: {}
+
+  semver@7.8.5: {}
 
   send@0.19.2:
     dependencies:
