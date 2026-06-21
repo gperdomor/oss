@@ -3,7 +3,7 @@ import * as os from 'node:os';
 import * as stdEnv from 'std-env';
 import c from 'tinyrainbow';
 import { afterEach, describe, expect, it, MockInstance, vi } from 'vitest';
-import { escapeData, logger } from './logging';
+import { escapeData, logger } from './logging.js';
 
 // Mock dependencies
 vi.mock('std-env');

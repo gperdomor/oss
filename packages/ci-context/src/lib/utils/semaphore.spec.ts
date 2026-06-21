@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as semaphore from './semaphore';
-import { Semaphore } from './semaphore';
+import { RunnerContext } from '../interfaces.js';
+import * as semaphore from './semaphore.js';
+import { Semaphore } from './semaphore.js';
 
 describe('Semaphore Context', () => {
   let context: RunnerContext;
@@ -13,8 +13,8 @@ describe('Semaphore Context', () => {
     vi.stubEnv('SEMAPHORE_PIPELINE_ID', '10');
     vi.stubEnv('SEMAPHORE_JOB_ID', '100');
     vi.stubEnv('SEMAPHORE_GIT_SHA', 'semaphore-sha');
-    vi.stubEnv('SEMAPHORE_GIT_URL', 'https://semaphore.com/gperdomor/nx-tools');
-    vi.stubEnv('SEMAPHORE_GIT_REPO_SLUG', 'gperdomor/nx-tools');
+    vi.stubEnv('SEMAPHORE_GIT_URL', 'https://semaphore.com/gperdomor/oss');
+    vi.stubEnv('SEMAPHORE_GIT_REPO_SLUG', 'gperdomor/oss');
   });
 
   afterEach(() => {
@@ -35,7 +35,7 @@ describe('Semaphore Context', () => {
         ref: 'refs/heads/semaphore-ref',
         runId: 10,
         runNumber: 100,
-        repoUrl: 'https://semaphore.com/gperdomor/nx-tools',
+        repoUrl: 'https://semaphore.com/gperdomor/oss',
         sha: 'semaphore-sha',
       });
     });
@@ -61,7 +61,7 @@ describe('Semaphore Context', () => {
           ref: 'refs/tags/semaphore-tag',
           runId: 10,
           runNumber: 100,
-          repoUrl: 'https://semaphore.com/gperdomor/nx-tools',
+          repoUrl: 'https://semaphore.com/gperdomor/oss',
           sha: 'semaphore-sha',
         });
       });
@@ -75,9 +75,9 @@ describe('Semaphore Context', () => {
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://semaphore.com/gperdomor/nx-tools',
+        html_url: 'https://semaphore.com/gperdomor/oss',
         license: null,
-        name: 'nx-tools',
+        name: 'oss',
       });
     });
   });

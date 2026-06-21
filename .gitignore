@@ -44,18 +44,16 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 # Fix for issue when working on the repo in a dev container
-.pnpm-store
+/.pnpm-store
 
-test-output
-
-vite.config.*.timestamp*
 vitest.config.*.timestamp*
+vite.config.*.timestamp*
 
 # Next.js
 .next
 out
 
 # Fumadocs
-.contentlayer
-.content-collections
 .source
+.claude/worktrees
+.claude/settings.local.json

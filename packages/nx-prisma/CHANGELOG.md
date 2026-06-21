@@ -1,8 +1,26 @@
+## 7.2.1 (2026-02-06)
+
+This was a version bump only for nx-prisma to align it with other projects, there were no code changes.
+
+## 7.2.0 (2025-11-22)
+
+### 🏡 Chore
+
+- **release:** publish 7.1.1-0 ([a6bc84a5](https://github.com/gperdomor/oss/commit/a6bc84a5))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
+## 7.1.1-0 (2025-11-21)
+
+This was a version bump only for nx-prisma to align it with other projects, there were no code changes.
+
 ## 7.1.0 (2025-11-20)
 
 ### 🚀 Features
 
-- **nx-prisma:** added initial support for prisma 7 ([76d0dd3b](https://github.com/gperdomor/nx-tools/commit/76d0dd3b))
+- **nx-prisma:** added initial support for prisma 7 ([76d0dd3b](https://github.com/gperdomor/oss/commit/76d0dd3b))
 
 ### ❤️ Thank You
 
@@ -16,8 +34,8 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🩹 Fixes
 
-- **nx-prisma:** updated tests cases ([7ebe972d](https://github.com/gperdomor/nx-tools/commit/7ebe972d))
-- **nx-prisma:** execute prisma via package manager ([db3e90a3](https://github.com/gperdomor/nx-tools/commit/db3e90a3))
+- **nx-prisma:** updated tests cases ([7ebe972d](https://github.com/gperdomor/oss/commit/7ebe972d))
+- **nx-prisma:** execute prisma via package manager ([db3e90a3](https://github.com/gperdomor/oss/commit/db3e90a3))
 
 ### ❤️ Thank You
 
@@ -28,7 +46,7 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🏡 Chore
 
-- fix dependency range to actually support Nx version 22 ([738f6a1](https://github.com/gperdomor/nx-tools/commit/738f6a1))
+- fix dependency range to actually support Nx version 22 ([738f6a1](https://github.com/gperdomor/oss/commit/738f6a1))
 
 ### ❤️ Thank You
 
@@ -42,12 +60,12 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- added initial support for Nx 22 ([942cc11](https://github.com/gperdomor/nx-tools/commit/942cc11))
+- added initial support for Nx 22 ([942cc11](https://github.com/gperdomor/oss/commit/942cc11))
 
 ### 🏡 Chore
 
-- added node 24 support ([7a348f9](https://github.com/gperdomor/nx-tools/commit/7a348f9))
-- fix customConditions ([5082c66](https://github.com/gperdomor/nx-tools/commit/5082c66))
+- added node 24 support ([7a348f9](https://github.com/gperdomor/oss/commit/7a348f9))
+- fix customConditions ([5082c66](https://github.com/gperdomor/oss/commit/5082c66))
 
 ### ❤️ Thank You
 
@@ -61,15 +79,15 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- **core:** migrate from @action/exec to tinyexec ([#1284](https://github.com/gperdomor/nx-tools/pull/1284))
-- **core:** move core package to ESM ([#1282](https://github.com/gperdomor/nx-tools/pull/1282))
+- **core:** migrate from @action/exec to tinyexec ([#1284](https://github.com/gperdomor/oss/pull/1284))
+- **core:** move core package to ESM ([#1282](https://github.com/gperdomor/oss/pull/1282))
 
 ### 🏡 Chore
 
-- ⚠️ bump min Node.js version to 20.19 ([c8412d2](https://github.com/gperdomor/nx-tools/commit/c8412d2))
-- ⚠️ bump required tslib version ranges ([dc121be](https://github.com/gperdomor/nx-tools/commit/dc121be))
-- ⚠️ bump required nx version ranges ([7d0dbea](https://github.com/gperdomor/nx-tools/commit/7d0dbea))
-- bump nx and tslib version requirements ([#1280](https://github.com/gperdomor/nx-tools/pull/1280))
+- ⚠️ bump min Node.js version to 20.19 ([c8412d2](https://github.com/gperdomor/oss/commit/c8412d2))
+- ⚠️ bump required tslib version ranges ([dc121be](https://github.com/gperdomor/oss/commit/dc121be))
+- ⚠️ bump required nx version ranges ([7d0dbea](https://github.com/gperdomor/oss/commit/7d0dbea))
+- bump nx and tslib version requirements ([#1280](https://github.com/gperdomor/oss/pull/1280))
 
 ### ⚠️ Breaking Changes
 
@@ -85,13 +103,13 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- **website:** initial nx-prisma docs ([#1254](https://github.com/gperdomor/nx-tools/pull/1254))
-- **nx-prisma:** updated config files to align with new plugin generators ([#1237](https://github.com/gperdomor/nx-tools/pull/1237))
+- **website:** initial nx-prisma docs ([#1254](https://github.com/gperdomor/oss/pull/1254))
+- **nx-prisma:** updated config files to align with new plugin generators ([#1237](https://github.com/gperdomor/oss/pull/1237))
 
 ### 🏡 Chore
 
-- move to pnpm as package manager ([#1242](https://github.com/gperdomor/nx-tools/pull/1242))
-- update eslint configuration to ESM files ([#1228](https://github.com/gperdomor/nx-tools/pull/1228))
+- move to pnpm as package manager ([#1242](https://github.com/gperdomor/oss/pull/1242))
+- update eslint configuration to ESM files ([#1228](https://github.com/gperdomor/oss/pull/1228))
 
 ### ❤️ Thank You
 
@@ -105,7 +123,7 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- added provenance support ([732184f](https://github.com/gperdomor/nx-tools/commit/732184f))
+- added provenance support ([732184f](https://github.com/gperdomor/oss/commit/732184f))
 
 ### ❤️ Thank You
 
@@ -115,7 +133,7 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🏡 Chore
 
-- update readme files ([9b6b74c](https://github.com/gperdomor/nx-tools/commit/9b6b74c))
+- update readme files ([9b6b74c](https://github.com/gperdomor/oss/commit/9b6b74c))
 
 ### 🧱 Updated Dependencies
 
@@ -129,13 +147,13 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- added Nx 21 support ([#1197](https://github.com/gperdomor/nx-tools/pull/1197))
-- **nx-prisma:** added prisma v6 support ([82679d2](https://github.com/gperdomor/nx-tools/commit/82679d2))
-- move workspace to use typescript solution ([#1168](https://github.com/gperdomor/nx-tools/pull/1168))
+- added Nx 21 support ([#1197](https://github.com/gperdomor/oss/pull/1197))
+- **nx-prisma:** added prisma v6 support ([82679d2](https://github.com/gperdomor/oss/commit/82679d2))
+- move workspace to use typescript solution ([#1168](https://github.com/gperdomor/oss/pull/1168))
 
 ### 🩹 Fixes
 
-- fix ci ([#1201](https://github.com/gperdomor/nx-tools/pull/1201))
+- fix ci ([#1201](https://github.com/gperdomor/oss/pull/1201))
 
 ### 🧱 Updated Dependencies
 
@@ -149,7 +167,7 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🩹 Fixes
 
-- **core:** fix getProjectRoot on newer Nx versions ([5dab651](https://github.com/gperdomor/nx-tools/commit/5dab651))
+- **core:** fix getProjectRoot on newer Nx versions ([5dab651](https://github.com/gperdomor/oss/commit/5dab651))
 
 ### 🧱 Updated Dependencies
 
@@ -169,11 +187,11 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- **nx-prisma:** add support for all prisma generate options ([08e7dd2](https://github.com/gperdomor/nx-tools/commit/08e7dd2))
+- **nx-prisma:** add support for all prisma generate options ([08e7dd2](https://github.com/gperdomor/oss/commit/08e7dd2))
 
 ### 🩹 Fixes
 
-- **nx-prisma:** Upgraded prisma version ([fbb5767](https://github.com/gperdomor/nx-tools/commit/fbb5767))
+- **nx-prisma:** Upgraded prisma version ([fbb5767](https://github.com/gperdomor/oss/commit/fbb5767))
 
 ### ❤️ Thank You
 
@@ -184,11 +202,11 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- **nx-prisma:** move project to plugins directory ([08ea098](https://github.com/gperdomor/nx-tools/commit/08ea098))
+- **nx-prisma:** move project to plugins directory ([08ea098](https://github.com/gperdomor/oss/commit/08ea098))
 
-- **nx-prisma:** compiled using swc ([bd67998](https://github.com/gperdomor/nx-tools/commit/bd67998))
+- **nx-prisma:** compiled using swc ([bd67998](https://github.com/gperdomor/oss/commit/bd67998))
 
-- **nx-prisma:** fix package version ([7786cc8](https://github.com/gperdomor/nx-tools/commit/7786cc8))
+- **nx-prisma:** fix package version ([7786cc8](https://github.com/gperdomor/oss/commit/7786cc8))
 
 ### ❤️ Thank You
 
@@ -198,15 +216,15 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- add generator flag support to specify generator ([d3d8736](https://github.com/gperdomor/nx-tools/commit/d3d8736))
+- add generator flag support to specify generator ([d3d8736](https://github.com/gperdomor/oss/commit/d3d8736))
 
-- nx 19 support ([3922496](https://github.com/gperdomor/nx-tools/commit/3922496))
+- nx 19 support ([3922496](https://github.com/gperdomor/oss/commit/3922496))
 
-- **nx-prisma:** add support for prisma format ([d43cc65](https://github.com/gperdomor/nx-tools/commit/d43cc65))
+- **nx-prisma:** add support for prisma format ([d43cc65](https://github.com/gperdomor/oss/commit/d43cc65))
 
 ### 🩹 Fixes
 
-- **nx-prisma:** fix generator option in prisma generate command ([a626413](https://github.com/gperdomor/nx-tools/commit/a626413))
+- **nx-prisma:** fix generator option in prisma generate command ([a626413](https://github.com/gperdomor/oss/commit/a626413))
 
 ### ❤️ Thank You
 
@@ -218,15 +236,15 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- add generator flag support to specify generator ([d3d8736](https://github.com/gperdomor/nx-tools/commit/d3d8736))
+- add generator flag support to specify generator ([d3d8736](https://github.com/gperdomor/oss/commit/d3d8736))
 
-- nx 19 support ([3922496](https://github.com/gperdomor/nx-tools/commit/3922496))
+- nx 19 support ([3922496](https://github.com/gperdomor/oss/commit/3922496))
 
-- **nx-prisma:** add support for prisma format ([d43cc65](https://github.com/gperdomor/nx-tools/commit/d43cc65))
+- **nx-prisma:** add support for prisma format ([d43cc65](https://github.com/gperdomor/oss/commit/d43cc65))
 
 ### 🩹 Fixes
 
-- **nx-prisma:** fix generator option in prisma generate command ([a626413](https://github.com/gperdomor/nx-tools/commit/a626413))
+- **nx-prisma:** fix generator option in prisma generate command ([a626413](https://github.com/gperdomor/oss/commit/a626413))
 
 ### ❤️ Thank You
 
@@ -238,15 +256,15 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 ### 🚀 Features
 
-- **nx-prisma:** better executors schemas descriptions ([d5dc51a](https://github.com/gperdomor/nx-tools/commit/d5dc51a))
+- **nx-prisma:** better executors schemas descriptions ([d5dc51a](https://github.com/gperdomor/oss/commit/d5dc51a))
 
-- ⚠️ **nx-prisma:** revamped configuration generator ([9edc1e9](https://github.com/gperdomor/nx-tools/commit/9edc1e9))
+- ⚠️ **nx-prisma:** revamped configuration generator ([9edc1e9](https://github.com/gperdomor/oss/commit/9edc1e9))
 
-- **nx-prisma:** allow to execute seeding script with `tsx` ([36e55c4](https://github.com/gperdomor/nx-tools/commit/36e55c4))
+- **nx-prisma:** allow to execute seeding script with `tsx` ([36e55c4](https://github.com/gperdomor/oss/commit/36e55c4))
 
 ### 🩹 Fixes
 
-- **nx-prisma:** relaxed dependencies ranges ([98b859f](https://github.com/gperdomor/nx-tools/commit/98b859f))
+- **nx-prisma:** relaxed dependencies ranges ([98b859f](https://github.com/gperdomor/oss/commit/98b859f))
 
 #### ⚠️ Breaking Changes
 
@@ -264,24 +282,24 @@ This was a version bump only for nx-prisma to align it with other projects, ther
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
-## [3.0.1](https://github.com/gperdomor/nx-tools/compare/nx-prisma@3.0.0...nx-prisma@3.0.1) (2022-07-11)
+## [3.0.1](https://github.com/gperdomor/oss/compare/nx-prisma@3.0.0...nx-prisma@3.0.1) (2022-07-11)
 
-## [3.0.0](https://github.com/gperdomor/nx-tools/compare/nx-prisma@3.0.0-alpha.3...nx-prisma@3.0.0) (2022-06-14)
+## [3.0.0](https://github.com/gperdomor/oss/compare/nx-prisma@3.0.0-alpha.3...nx-prisma@3.0.0) (2022-06-14)
 
-## [3.0.0-alpha.3](https://github.com/gperdomor/nx-tools/compare/nx-prisma@3.0.0-alpha.2...nx-prisma@3.0.0-alpha.3) (2022-06-14)
+## [3.0.0-alpha.3](https://github.com/gperdomor/oss/compare/nx-prisma@3.0.0-alpha.2...nx-prisma@3.0.0-alpha.3) (2022-06-14)
 
 ### Features
 
-- several updates and nx bump ([e0ad550](https://github.com/gperdomor/nx-tools/commit/e0ad550db010d1710b6729911aae9d432aaf5ffb))
+- several updates and nx bump ([e0ad550](https://github.com/gperdomor/oss/commit/e0ad550db010d1710b6729911aae9d432aaf5ffb))
 
-## [3.0.0-alpha.2](https://github.com/gperdomor/nx-tools/compare/nx-prisma@3.0.0-alpha.1...nx-prisma@3.0.0-alpha.2) (2022-04-29)
+## [3.0.0-alpha.2](https://github.com/gperdomor/oss/compare/nx-prisma@3.0.0-alpha.1...nx-prisma@3.0.0-alpha.2) (2022-04-29)
 
 ### Features
 
 - chore: bump nx to 14.0.5
 - other deps updates
 
-## [3.0.0-alpha.1](https://github.com/nx-tools/nx-tools/compare/nx-prisma@2.0.0-alpha.4...nx-prisma@3.0.0-alpha.1) (2022-04-09)
+## [3.0.0-alpha.1](https://github.com/gperdomor/oss/compare/nx-prisma@2.0.0-alpha.4...nx-prisma@3.0.0-alpha.1) (2022-04-09)
 
 ### ⚠ BREAKING CHANGES
 
@@ -289,25 +307,25 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### Features
 
-- **nx-prisma:** move to swc ([2f05aa3](https://github.com/nx-tools/nx-tools/commit/2f05aa3e482b848646cf6dbfe533def549b826f4))
+- **nx-prisma:** move to swc ([2f05aa3](https://github.com/gperdomor/oss/commit/2f05aa3e482b848646cf6dbfe533def549b826f4))
 
-# [2.0.0-alpha.4](https://github.com/gperdomor/nx-tools/compare/nx-prisma@2.0.0-alpha.3...nx-prisma@2.0.0-alpha.4) (2022-01-02)
+# [2.0.0-alpha.4](https://github.com/gperdomor/oss/compare/nx-prisma@2.0.0-alpha.3...nx-prisma@2.0.0-alpha.4) (2022-01-02)
 
 ### Features
 
-- update versions ([950dc36](https://github.com/gperdomor/nx-tools/commit/950dc36612a94df3f5d87422ee7e38a25c806eec))
+- update versions ([950dc36](https://github.com/gperdomor/oss/commit/950dc36612a94df3f5d87422ee7e38a25c806eec))
 
-# [2.0.0-alpha.3](https://github.com/gperdomor/nx-tools/compare/nx-prisma@2.0.0-alpha.2...nx-prisma@2.0.0-alpha.3) (2022-01-02)
+# [2.0.0-alpha.3](https://github.com/gperdomor/oss/compare/nx-prisma@2.0.0-alpha.2...nx-prisma@2.0.0-alpha.3) (2022-01-02)
 
-# [2.0.0-alpha.2](https://github.com/gperdomor/nx-tools/compare/nx-prisma@2.0.0-alpha.1...nx-prisma@2.0.0-alpha.2) (2022-01-02)
+# [2.0.0-alpha.2](https://github.com/gperdomor/oss/compare/nx-prisma@2.0.0-alpha.1...nx-prisma@2.0.0-alpha.2) (2022-01-02)
 
 ### Bug Fixes
 
-- upgrade @nx-tools/core from 2.0.0-alpha.1 to 2.0.0 ([1481b89](https://github.com/gperdomor/nx-tools/commit/1481b898d42819e246b074dcfa0ebb9117e48214))
+- upgrade @nx-tools/core from 2.0.0-alpha.1 to 2.0.0 ([1481b89](https://github.com/gperdomor/oss/commit/1481b898d42819e246b074dcfa0ebb9117e48214))
 
 ### Features
 
-- **nx-prisma:** updare core version ([2f2065f](https://github.com/gperdomor/nx-tools/commit/2f2065f0ebdb509eaf7f101cb391d883bf94d6f4))
+- **nx-prisma:** updare core version ([2f2065f](https://github.com/gperdomor/oss/commit/2f2065f0ebdb509eaf7f101cb391d883bf94d6f4))
 
 ## 2.0.0-alpha.1 (2021-10-06)
 

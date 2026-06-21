@@ -7,10 +7,10 @@ import moment from 'moment-timezone';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as semver from 'semver';
-import { Inputs } from './context';
-import * as fcl from './flavor';
-import * as icl from './image';
-import * as tcl from './tag';
+import { Inputs } from './context.js';
+import * as fcl from './flavor.js';
+import * as icl from './image.js';
+import * as tcl from './tag.js';
 
 const defaultShortShaLength = 7;
 

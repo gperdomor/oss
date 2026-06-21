@@ -1,6 +1,6 @@
-import { RunnerContext } from '../interfaces';
-import * as jenkins from './jenkins';
-import { Jenkins } from './jenkins';
+import { RunnerContext } from '../interfaces.js';
+import * as jenkins from './jenkins.js';
+import { Jenkins } from './jenkins.js';
 
 describe('Jenkins Context', () => {
   let context: RunnerContext;
@@ -13,7 +13,7 @@ describe('Jenkins Context', () => {
     vi.stubEnv('CHANGE_AUTHOR', 'jenkins-actor');
     vi.stubEnv('JOB_NAME', 'jenkins-job');
     vi.stubEnv('BUILD_NUMBER', '40');
-    vi.stubEnv('GIT_URL', 'https://jenkins.com/gperdomor/nx-tools');
+    vi.stubEnv('GIT_URL', 'https://jenkins.com/gperdomor/oss');
     vi.stubEnv('JOB_BASE_NAME', 'nx-tools');
   });
 
@@ -35,7 +35,7 @@ describe('Jenkins Context', () => {
         ref: 'refs/heads/jenkins-ref-slug',
         runId: 40,
         runNumber: 40,
-        repoUrl: 'https://jenkins.com/gperdomor/nx-tools',
+        repoUrl: 'https://jenkins.com/gperdomor/oss',
         sha: 'jenkins-sha',
       });
     });
@@ -53,7 +53,7 @@ describe('Jenkins Context', () => {
         ref: 'refs/heads/jenkins-ref-slug',
         runId: 40,
         runNumber: 40,
-        repoUrl: 'https://jenkins.com/gperdomor/nx-tools',
+        repoUrl: 'https://jenkins.com/gperdomor/oss',
         sha: 'jenkins-sha',
       });
     });
@@ -75,7 +75,7 @@ describe('Jenkins Context', () => {
           ref: 'refs/tags/jenkins-tag',
           runId: 40,
           runNumber: 40,
-          repoUrl: 'https://jenkins.com/gperdomor/nx-tools',
+          repoUrl: 'https://jenkins.com/gperdomor/oss',
           sha: 'jenkins-sha',
         });
       });
@@ -89,7 +89,7 @@ describe('Jenkins Context', () => {
       expect(repo).toEqual({
         default_branch: '',
         description: '',
-        html_url: 'https://jenkins.com/gperdomor/nx-tools',
+        html_url: 'https://jenkins.com/gperdomor/oss',
         license: null,
         name: 'nx-tools',
       });

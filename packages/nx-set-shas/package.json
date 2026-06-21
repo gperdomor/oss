@@ -1,13 +1,13 @@
 {
   "name": "@nx-tools/nx-set-shas",
-  "version": "7.1.0",
+  "version": "7.2.1",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gperdomor/nx-tools",
+    "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-set-shas"
   },
   "scripts": {
@@ -28,7 +28,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nx-tools/source": "./src/index.ts",
+      "@org/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
@@ -42,9 +42,9 @@
   ],
   "dependencies": {
     "@nx-tools/core": "workspace:*",
-    "@oclif/core": "4.5.4",
-    "@oclif/plugin-help": "6.2.35",
-    "semver": "7.7.3"
+    "@oclif/core": "4.8.0",
+    "@oclif/plugin-help": "6.2.37",
+    "semver": "^7.7.4"
   },
   "peerDependencies": {
     "tslib": "^2.6.0"

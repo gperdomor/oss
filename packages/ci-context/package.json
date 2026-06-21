@@ -1,32 +1,33 @@
 {
   "name": "@nx-tools/ci-context",
-  "version": "7.1.0",
-  "author": "gperdomor <gperdomor@gmail.com>",
+  "version": "7.2.1",
+  "license": "MIT",
+  "author": "Gustavo Perdomo <gperdomor@gmail.com>",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gperdomor/nx-tools",
+    "url": "https://github.com/gperdomor/oss",
     "directory": "packages/ci-context"
   },
-  "bugs": "https://github.com/gperdomor/nx-tools/issues",
-  "license": "MIT",
+  "bugs": "https://github.com/gperdomor/oss/issues",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nx-tools/source": "./src/index.ts",
+      "@org/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./src/lib/utils/git": {
-      "@nx-tools/source": "./src/lib/utils/git.js",
+      "@org/source": "./src/lib/utils/git.js",
       "types": "./dist/lib/utils/git.d.ts",
       "import": "./dist/lib/utils/git.js",
       "default": "./dist/lib/utils/git.js"
     },
     "./src/lib/utils/github": {
-      "@nx-tools/source": "./src/lib/utils/github.js",
+      "@org/source": "./src/lib/utils/github.js",
       "types": "./dist/lib/utils/github.d.ts",
       "import": "./dist/lib/utils/github.js",
       "default": "./dist/lib/utils/github.js"
@@ -43,8 +44,8 @@
     "@actions/github": "^6.0.1",
     "@nx-tools/core": "workspace:*",
     "@octokit/openapi-types": "^22.0.0",
-    "properties-file": "^3.6.1",
-    "std-env": "3.9.0"
+    "properties-file": "^3.6.4",
+    "std-env": "3.10.0"
   },
   "peerDependencies": {
     "tslib": "^2.6.0"

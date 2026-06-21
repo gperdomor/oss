@@ -1,14 +1,14 @@
 {
   "name": "@nx-tools/nx-graphql-codegen",
-  "version": "7.1.0",
+  "version": "7.2.1",
   "type": "commonjs",
   "author": "Rene Bonilla <rbonillajr@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gperdomor/nx-tools",
+    "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-graphql-codegen"
   },
-  "bugs": "https://github.com/gperdomor/nx-tools/issues",
+  "bugs": "https://github.com/gperdomor/oss/issues",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,7 +35,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nx-tools/source": "./src/index.ts",
+      "@org/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"

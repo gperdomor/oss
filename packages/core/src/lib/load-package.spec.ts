@@ -1,4 +1,4 @@
-import { loadPackage } from './load-package';
+import { loadPackage } from './load-package.js';
 
 describe('loadPackage', () => {
   beforeEach(() => {

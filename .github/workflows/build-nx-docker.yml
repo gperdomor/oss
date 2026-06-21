@@ -10,7 +10,7 @@ on:
 
 jobs:
   fetch-tags:
-    if: github.repository == 'gperdomor/nx-tools'
+    if: github.repository == 'gperdomor/oss'
     runs-on: ubuntu-latest
     outputs:
       node-tags: ${{ steps.node-tags.outputs.tags }}
@@ -18,7 +18,7 @@ jobs:
       nx-docker-tags: ${{ steps.nx-docker-tags.outputs.tags }}
       nx-docker-tags-csv: ${{ steps.nx-docker-tags.outputs.tags-csv }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: ./.github/actions/list-tags
         id: node-tags
@@ -35,7 +35,7 @@ jobs:
           sort: true
 
   calculate-tag-difference:
-    if: github.repository == 'gperdomor/nx-tools'
+    if: github.repository == 'gperdomor/oss'
     runs-on: ubuntu-latest
     needs: [fetch-tags]
     outputs:
@@ -43,7 +43,7 @@ jobs:
       missing-tags-csv: ${{ steps.difference.outputs.missing-tags-csv }}
       missing-count: ${{ steps.difference.outputs.missing-count }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: ./.github/actions/calculate-tag-difference
         id: difference
@@ -52,7 +52,7 @@ jobs:
           target-tags: ${{ needs.fetch-tags.outputs.nx-docker-tags }}
 
   build-docker:
-    if: ${{ github.repository == 'gperdomor/nx-tools' && needs.calculate-tag-difference.outputs.missing-count > 0}}
+    if: ${{ github.repository == 'gperdomor/oss' && needs.calculate-tag-difference.outputs.missing-count > 0}}
     runs-on: ubuntu-latest
     needs: calculate-tag-difference
     strategy:
@@ -66,7 +66,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Display build information
         run: |
@@ -77,7 +77,7 @@ jobs:
         uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
         with:
           driver-opts: |
             image=moby/buildkit:latest
@@ -85,7 +85,7 @@ jobs:
 
       - name: Extract metadata
         id: metadata
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: |
             gperdomor/nx-docker
@@ -105,7 +105,7 @@ jobs:
 
       - name: Login to GitHub Container Registry
         if: github.ref == 'refs/heads/main'
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -113,7 +113,7 @@ jobs:
 
       - name: Login to DockerHub
         if: github.ref == 'refs/heads/main'
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}

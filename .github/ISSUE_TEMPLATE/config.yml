@@ -2,10 +2,10 @@ blank_issues_enabled: false
 contact_links:
   # - name: "🚀 Feature Request"
   #   about: "Suggest a new feature to make Nx Tools better"
-  #   url: https://github.com/gperdomor/nx-tools/discussions/new?category=feature-requests
+  #   url: https://github.com/gperdomor/oss/discussions/new?category=feature-requests
   - name: Start a Discussion
-    about: 'Start a discussion to share your experience with Nx Tools or ask for help'
-    url: https://github.com/gperdomor/nx-tools/discussions/new/choose
+    about: 'Start a discussion to share your experience with packages of this repository or ask for help'
+    url: https://github.com/gperdomor/oss/discussions/new/choose
   - name: Read the community guidelines
     about: 'Please make sure you have read the submission guidelines before posting an issue'
-    url: https://github.com/gperdomor/nx-tools/blob/main/CONTRIBUTING.md#-submitting-an-issue
+    url: https://github.com/gperdomor/oss/blob/main/CONTRIBUTING.md#-submitting-an-issue

@@ -1,0 +1,31 @@
+---
+title: Comparisons
+description: How is Class Variance Builder different from other existing tools?
+icon: GitCompareArrows
+---
+
+Here's a comparison of Class Variance Builder <span className='text-fd-muted-foreground text-sm'>(CVB)</span> with
+other libraries that provide similar functionality.
+
+<Callout type="info">
+  This comparison strives to be as accurate and unbiased as possible. If you use any of these libraries and feel this
+  information could be improved, feel free to suggest changes using the "Edit this page" link at the right sidebar of
+  this page.
+</Callout>
+
+## Feature Table
+
+| Feature                       |   CVB   | Tailwind Variants | CVA | Windstitch | Classnames |
+| ----------------------------- | :-----: | :---------------: | :-: | :--------: | :--------: |
+| Variants API                  |   ✅    |        ✅         | ✅  |     ✅     |     ❌     |
+| Framework agnostic            |   ✅    |      ❌ [^1]      | ✅  |  ❌ [^1]   |     ✅     |
+| Split components (slots)      |   ✅    |        ✅         | ❌  |     ❌     |     ❌     |
+| Compound slots                |   ✅    |        ✅         | ❌  |     ❌     |     ❌     |
+| Overrides components          |   ✅    |        ✅         | ✅  |     ✅     |     ❌     |
+| Components composition        |   ✅    |        ✅         | ✅  |     ✅     |     ❌     |
+| Great DX (autocomplete types) |   ✅    |        ✅         | ✅  |     ✅     |     ❌     |
+| Hooks Support                 |   ✅    |        ❌         | ✅  |     ✅     |     ❌     |
+| Conflicts resolution          | ✅ [^2] |        ✅         | ❌  |     ❌     |     ❌     |
+
+[^1]: Needs Tailwind CSS to work
+[^2]: You can use onComplete hook in combination with `tailwind-merge` to resolve class conflicts when use Tailwind CSS
