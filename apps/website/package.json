@@ -10,7 +10,7 @@
     "fumadocs-typescript": "5.2.6",
     "fumadocs-ui": "16.10.5",
     "lucide-react": "0.577.0",
-    "next": "16.2.6",
+    "next": "16.2.9",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "tailwind-merge": "3.6.0"

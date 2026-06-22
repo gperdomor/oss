@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@nx/devkit": "23.0.0",
-    "next": "16.2.6",
+    "next": "16.2.9",
     "prisma": "7.8.0",
     "react": "19.2.5",
     "react-dom": "19.2.5"
@@ -22,7 +22,7 @@
     "@commitlint/config-conventional": "20.5.3",
     "@commitlint/config-nx-scopes": "20.5.0",
     "@eslint/js": "9.39.4",
-    "@next/eslint-plugin-next": "16.2.3",
+    "@next/eslint-plugin-next": "16.2.9",
     "@nx/eslint": "23.0.0",
     "@nx/eslint-plugin": "23.0.0",
     "@nx/js": "23.0.0",
@@ -49,7 +49,7 @@
     "czg": "1.13.1",
     "dotenv": "17.4.2",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.4",
+    "eslint-config-next": "16.2.9",
     "eslint-config-prettier": "10.1.8",
     "eslint-formatter-gitlab": "7.1.0",
     "eslint-plugin-import": "2.32.0",
