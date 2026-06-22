@@ -62,7 +62,7 @@
     "lefthook": "2.1.9",
     "memfs": "4.57.7",
     "nx": "23.0.0",
-    "oclif": "4.23.0",
+    "oclif": "4.23.16",
     "postcss": "8.5.15",
     "prettier": "3.8.4",
     "tailwindcss": "4.3.1",
