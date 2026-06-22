@@ -11,6 +11,9 @@ permissions:
   id-token: write # Required for OIDC
   contents: read
 
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
 jobs:
   publish:
     # prevents this action from running on forks
