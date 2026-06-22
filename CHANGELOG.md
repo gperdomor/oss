@@ -1,3 +1,13 @@
+## 7.3.0-beta.2 (2026-06-22)
+
+### 🩹 Fixes
+
+- npm trusted publish ([15e17cdb](https://github.com/gperdomor/oss/commit/15e17cdb))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.3.0-beta.1 (2026-06-22)
 
 ### 🩹 Fixes

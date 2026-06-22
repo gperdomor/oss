@@ -1,3 +1,7 @@
+## 7.3.0-beta.2 (2026-06-22)
+
+This was a version bump only for core to align it with other projects, there were no code changes.
+
 ## 7.3.0-beta.1 (2026-06-22)
 
 ### 🩹 Fixes
