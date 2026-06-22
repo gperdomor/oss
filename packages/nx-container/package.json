@@ -19,7 +19,7 @@
     "@nx-tools/core": "workspace:*",
     "csv-parse": "^5.6.0",
     "handlebars": "^4.7.8",
-    "semver": "^7.7.4",
+    "semver": "^7.8.4",
     "tmp": "^0.2.7"
   },
   "peerDependencies": {

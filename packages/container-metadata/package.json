@@ -35,7 +35,7 @@
     "csv-parse": "^5.6.0",
     "handlebars": "^4.7.8",
     "moment-timezone": "^0.6.0",
-    "semver": "^7.7.4"
+    "semver": "^7.8.4"
   },
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
