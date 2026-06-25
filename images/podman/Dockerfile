@@ -12,10 +12,11 @@ RUN dnf -y update && \
 	tar \
 	unzip \
 	zip \
+	libatomic \
 	&& dnf clean all && \
 	rm -rf /var/cache /var/log/dnf* /var/log/yum.*
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 
 ENV NVM_DIR=/root/.nvm
 
