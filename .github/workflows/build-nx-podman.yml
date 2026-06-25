@@ -24,14 +24,14 @@ jobs:
         id: node-tags
         with:
           image: 'node'
-          filter: '^(20|22|24)\.[0-9]+\.[0-9]+$'
+          filter: '^(20|22|24|26)\.[0-9]+\.[0-9]+$'
           sort: true
 
       - uses: ./.github/actions/list-tags
         id: nx-podman-tags
         with:
           image: 'gperdomor/nx-podman'
-          filter: '^(20|22|24)\.[0-9]+\.[0-9]+$'
+          filter: '^(20|22|24|26)\.[0-9]+\.[0-9]+$'
           sort: true
 
   calculate-tag-difference:
