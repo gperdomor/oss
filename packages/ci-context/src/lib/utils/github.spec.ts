@@ -36,6 +36,7 @@ describe('GitHub Context', () => {
     vi.stubEnv('GITHUB_RUN_NUMBER', '20');
     vi.stubEnv('GITHUB_RUN_ID', '200');
     vi.stubEnv('GITHUB_REPOSITORY', 'gperdomor/oss');
+    vi.stubEnv('GITHUB_EVENT_PATH', '');
   });
 
   afterEach(() => {
