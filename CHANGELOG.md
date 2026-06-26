@@ -1,3 +1,13 @@
+## 7.3.0-beta.7 (2026-06-26)
+
+### 🏡 Chore
+
+- enable trusted publisher ([32458565](https://github.com/gperdomor/oss/commit/32458565))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.3.0-beta.6 (2026-06-26)
 
 ### 🏡 Chore

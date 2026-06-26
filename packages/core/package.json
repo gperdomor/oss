@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/core",
-  "version": "7.3.0-beta.6",
+  "version": "7.3.0-beta.7",
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
   "type": "module",
