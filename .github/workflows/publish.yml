@@ -2,10 +2,10 @@ name: Publish Package
 
 on:
   push:
-    # tags:
-    #   - 'v*'
-    #   - '*.*.*'
-    #   - '*.*.*-*'
+    tags:
+      - 'v*'
+      - '*.*.*'
+      - '*.*.*-*'
 
 permissions:
   id-token: write # Required for OIDC
@@ -38,37 +38,25 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        # shell: bash
 
       - name: Print Environment Info
         run: pnpm exec nx report
-      #   shell: bash
 
       - name: Building packages
         run: pnpm exec nx run-many --target=build --no-cloud
-      #   shell: bash
-
-      # - name: Determine npm tag
-      #   id: npm-tag
-      #   run: |
-      #     TAG_NAME="${GITHUB_REF#refs/tags/}"
-      #     if [[ "$TAG_NAME" =~ -(alpha|beta|rc|next|canary) ]]; then
-      #       echo "tag=next" >> $GITHUB_OUTPUT
-      #       echo "Pre-release detected. Using 'next' tag."
-      #     else
-      #       echo "tag=latest" >> $GITHUB_OUTPUT
-      #       echo "Stable release detected. Using 'latest' tag."
-      #     fi
-      #   shell: bash
-
-      - name: Bump package versions
-        run: ./tools/scripts/strip-beta.sh
-        shell: bash
-
-      - run: echo "tag=nightly" >> $GITHUB_OUTPUT
+      - name: Determine npm tag
+        id: npm-tag
+        run: |
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          if [[ "$TAG_NAME" =~ -(alpha|beta|rc|next|canary) ]]; then
+            echo "tag=next" >> $GITHUB_OUTPUT
+            echo "Pre-release detected. Using 'next' tag."
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+            echo "Stable release detected. Using 'latest' tag."
+          fi
 
       - name: Publish packages
-        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks
-        shell: bash
+        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }}
         env:
           NPM_CONFIG_PROVENANCE: true
