@@ -2,18 +2,14 @@ name: Publish Package
 
 on:
   push:
-    tags:
-      - 'v*'
-      - '*.*.*'
-      - '*.*.*-*'
+    # tags:
+    #   - 'v*'
+    #   - '*.*.*'
+    #   - '*.*.*-*'
 
 permissions:
   id-token: write # Required for OIDC
   contents: read
-
-env:
-  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  NX_NO_CLOUD: true
 
 jobs:
   publish:
@@ -36,38 +32,43 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
           package-manager-cache: false # never use caching in release builds
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        shell: bash
+        # shell: bash
 
       - name: Print Environment Info
         run: pnpm exec nx report
-        shell: bash
+      #   shell: bash
 
       - name: Building packages
-        run: pnpm exec nx run-many --target=build --exclude=cvb-docs,nx-tools-docs,website
+        run: pnpm exec nx run-many --target=build
+      #   shell: bash
+
+      # - name: Determine npm tag
+      #   id: npm-tag
+      #   run: |
+      #     TAG_NAME="${GITHUB_REF#refs/tags/}"
+      #     if [[ "$TAG_NAME" =~ -(alpha|beta|rc|next|canary) ]]; then
+      #       echo "tag=next" >> $GITHUB_OUTPUT
+      #       echo "Pre-release detected. Using 'next' tag."
+      #     else
+      #       echo "tag=latest" >> $GITHUB_OUTPUT
+      #       echo "Stable release detected. Using 'latest' tag."
+      #     fi
+      #   shell: bash
+
+      - name: Bump package versions
+        run: ./tools/scripts/strip-beta.sh
         shell: bash
 
-      - name: Determine npm tag
-        id: npm-tag
-        run: |
-          TAG_NAME="${GITHUB_REF#refs/tags/}"
-          if [[ "$TAG_NAME" =~ -(alpha|beta|rc|next|canary) ]]; then
-            echo "tag=next" >> $GITHUB_OUTPUT
-            echo "Pre-release detected. Using 'next' tag."
-          else
-            echo "tag=latest" >> $GITHUB_OUTPUT
-            echo "Stable release detected. Using 'latest' tag."
-          fi
-        shell: bash
+      - run: echo "tag=nightly" >> $GITHUB_OUTPUT
 
       - name: Publish packages
-        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }}
+        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
