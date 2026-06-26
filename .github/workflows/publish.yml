@@ -39,6 +39,7 @@ jobs:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
           package-manager-cache: false # never use caching in release builds
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         shell: bash
@@ -68,4 +69,5 @@ jobs:
         run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }}
         shell: bash
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true

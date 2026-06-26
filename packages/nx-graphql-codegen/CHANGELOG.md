@@ -1,3 +1,7 @@
+## 7.3.0-beta.4 (2026-06-26)
+
+This was a version bump only for nx-graphql-codegen to align it with other projects, there were no code changes.
+
 ## 7.3.0-beta.3 (2026-06-26)
 
 This was a version bump only for nx-graphql-codegen to align it with other projects, there were no code changes.
