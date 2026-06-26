@@ -45,7 +45,7 @@ jobs:
       #   shell: bash
 
       - name: Building packages
-        run: pnpm exec nx run-many --target=build
+        run: pnpm exec nx run-many --target=build --no-cloud
       #   shell: bash
 
       # - name: Determine npm tag
@@ -68,7 +68,7 @@ jobs:
       - run: echo "tag=nightly" >> $GITHUB_OUTPUT
 
       - name: Publish packages
-        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks --no-cloud
+        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks
         shell: bash
         env:
           NPM_CONFIG_PROVENANCE: true
