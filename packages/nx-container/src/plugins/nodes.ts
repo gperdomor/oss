@@ -18,11 +18,15 @@ import { DEFAULT_ENGINE, DEFAULT_REGISTRY } from '../generators/configuration/co
 const { calculateHashForCreateNodes } = (() => {
   // for compatibility with older versions of Nx
   try {
-    return require('@nx/devkit/internal');
+    const internal = require('@nx/devkit/internal');
+    if (internal?.calculateHashForCreateNodes) {
+      return internal;
+    }
   } catch {
-    return require('@nx/devkit/src/utils/calculate-hash-for-create-nodes');
+    // ignore
   }
-})() as typeof import('@nx/devkit/internal');
+  return require('@nx/devkit/src/utils/calculate-hash-for-create-nodes');
+})();
 
 export const PLUGIN_NAME = '@nx-tools/nx-container';
 
