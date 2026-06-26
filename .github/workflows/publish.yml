@@ -68,7 +68,7 @@ jobs:
       - run: echo "tag=nightly" >> $GITHUB_OUTPUT
 
       - name: Publish packages
-        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks
+        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-git-checks --no-cloud
         shell: bash
         env:
           NPM_CONFIG_PROVENANCE: true
