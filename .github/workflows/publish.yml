@@ -57,6 +57,6 @@ jobs:
           fi
 
       - name: Publish packages
-        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }}
+        run: pnpm exec nx release publish --access=public --tag=${{ steps.npm-tag.outputs.tag }} --no-cloud
         env:
           NPM_CONFIG_PROVENANCE: true
