@@ -49,7 +49,7 @@ jobs:
         shell: bash
 
       - name: Building packages
-        run: pnpm exec nx run-many --target=build
+        run: pnpm exec nx run-many --target=build --exclude=cvb-docs,nx-tools-docs,website
         shell: bash
 
       - name: Determine npm tag
