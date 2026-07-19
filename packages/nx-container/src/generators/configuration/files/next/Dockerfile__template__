@@ -3,7 +3,7 @@
 # Please read this for more information https://nextjs.org/docs/pages/api-reference/next-config-js/output
 
 # Production image, copy all the files and run next
-FROM docker.io/node:lts-alpine AS runner
+FROM docker.io/node:lts-alpine@sha256:a0b9bf06e4e6193cf7a0f58816cc935ff8c2a908f81e6f1a95432d679c54fbfd AS runner
 RUN apk add --no-cache dumb-init
 ENV NODE_ENV=production
 ENV PORT=3000
