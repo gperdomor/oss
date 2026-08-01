@@ -7,12 +7,10 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/src/test-setup.[jt]s"
+      "!{projectRoot}/tsconfig.spec.json"
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml", "{workspaceRoot}/.gitlab-ci.yml"]
   },
-  "nxCloudId": "698b44accc4d72749cc9e0fb",
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
@@ -43,25 +41,6 @@
       }
     },
     {
-      "plugin": "@nx/vite/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "devTargetName": "dev",
-        "previewTargetName": "preview",
-        "serveStaticTargetName": "serve-static",
-        "typecheckTargetName": "vite:typecheck",
-        "buildDepsTargetName": "vite:build-deps",
-        "watchDepsTargetName": "vite:watch-deps"
-      }
-    },
-    {
-      "plugin": "@nx/vitest",
-      "options": {
-        "testTargetName": "vite:test"
-      }
-    },
-    {
       "plugin": "@nx/next/plugin",
       "options": {
         "startTargetName": "start",
@@ -73,44 +52,52 @@
       }
     }
   ],
+  "nxCloudId": "698b44accc4d72749cc9e0fb",
+  "analytics": true,
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "options": {
+        "format": "gitlab"
+      }
+    }
+  },
   "release": {
-    "projects": ["packages/*", "!class-variance-builder"],
+    "projectsRelationship": "independent",
     "releaseTag": {
       "pattern": "{version}"
     },
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build",
+      "conventionalCommits": true,
+      "updateDependents": "always",
+      "applyPreidToDependents": true,
       "versionActionsOptions": {
         "skipLockFileUpdate": true
       }
     },
     "conventionalCommits": {
       "types": {
-        "docs": {
-          "semverBump": "none"
-        },
-        "chore": true
+        "docs": { "semverBump": "none" },
+        "chore": { "semverBump": "none" }
       }
     },
     "changelog": {
-      "projectChangelogs": true,
-      "workspaceChangelog": {
+      "projectChangelogs": {
         "createRelease": "github"
       }
-    }
-  },
-  "targetDefaults": {
-    "test": {
-      "dependsOn": ["^build"]
     },
-    "@nx/js:tsc": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "lint": {
-      "options": {
-        "format": "gitlab"
+    "groups": {
+      "nx-tools": {
+        "projects": ["core", "nx-set-shas"],
+        "projectsRelationship": "fixed"
       }
     }
   },
@@ -121,9 +108,5 @@
         "linter": "eslint"
       }
     }
-  },
-  "analytics": false,
-  "migrate": {
-    "agentic": true
   }
 }

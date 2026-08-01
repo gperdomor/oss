@@ -1,7 +1,7 @@
 # Lefthook configuration
 # See: https://lefthook.dev/configuration/index.html
 
-min_version: 2.0.0
+min_version: 2.1.10
 
 pre-commit:
   parallel: true

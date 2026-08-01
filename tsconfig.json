@@ -36,5 +36,6 @@
     {
       "path": "./docs/nx-tools-docs"
     }
-  ]
+  ],
+  "compilerOptions": {}
 }

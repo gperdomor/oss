@@ -2,43 +2,16 @@ include:
   - template: Workflows/MergeRequest-Pipelines.gitlab-ci.yml
 
 default:
-  image: node:24
+  image: node:26
+
+stages:
+  - test
+  - security-scan
 
 variables:
   CI: 'true'
   GIT_DEPTH: 0
   GIT_FETCH_EXTRA_FLAGS: --filter=tree:0
-
-lint:commit-msg:
-  before_script:
-    - npm install --global corepack@latest
-    - corepack enable
-    - corepack install
-    - pnpm config set store-dir .pnpm-store
-    - pnpm install --frozen-lockfile
-  script:
-    - pnpm exec commitlint --from ${CI_MERGE_REQUEST_DIFF_BASE_SHA} --to ${CI_COMMIT_SHA}
-  rules:
-    - if: $CI_MERGE_REQUEST_IID
-      when: always
-    - when: never
-
-lint:branch:
-  script:
-    - |
-      export BRANCH_REGEX_RULE="^(master|main|develop|release){1}$|^(feature|fix|hotfix|release|renovate)\/.+$"
-      if [[ $CI_COMMIT_REF_NAME =~ $BRANCH_REGEX_RULE ]]; then
-        echo "Branch name validation passed!"
-      else
-        echo "Error Msg: Branch name validate failed please rename your current branch"
-        echo "Branch Name: \"$CI_COMMIT_REF_NAME\""
-        echo "Pattern: \"/$BRANCH_REGEX_RULE/g\""
-        exit 1
-      fi
-  rules:
-    - if: $CI_COMMIT_TAG
-      when: never
-    - when: always
 
 # Main job
 CI:
@@ -52,6 +25,7 @@ CI:
   cache:
     key:
       files:
+        - package.json
         - pnpm-lock.yaml
     paths:
       - .pnpm-store
@@ -81,3 +55,27 @@ CI:
   artifacts:
     reports:
       codequality: gl-codequality.json
+
+socket-security:
+  stage: security-scan
+  needs: []
+  image:
+    name: socketdev/cli:latest
+    entrypoint: ['']
+    # Override the entrypoint to run commands directly
+  # Required for GitLab integration to work properly
+  variables:
+    SOCKET_SECURITY_API_KEY: $SOCKET_SECURITY_API_KEY
+    GITLAB_TOKEN: $GITLAB_TOKEN
+    # This is an option to help speed up the processing
+    PIP_CACHE_DIR: '$CI_PROJECT_DIR/.cache/pip'
+  # This variable is optional, configuration for the runner
+  cache:
+    paths:
+      - .cache/pip/
+  script:
+    - |
+      socketcli \
+        --target-path $CI_PROJECT_DIR \
+        --scm gitlab \
+        --pr-number ${CI_MERGE_REQUEST_IID:-0}

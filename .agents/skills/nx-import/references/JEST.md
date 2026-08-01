@@ -106,12 +106,7 @@ Jest projects need a `tsconfig.spec.json` that includes test files:
     "module": "commonjs",
     "types": ["jest", "node"]
   },
-  "include": [
-    "jest.config.ts",
-    "src/**/*.test.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.d.ts"]
 }
 ```
 
