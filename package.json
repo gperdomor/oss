@@ -61,7 +61,7 @@
     "jsonc-eslint-parser": "2.4.2",
     "lefthook": "2.1.10",
     "nx": "23.1.1",
-    "oclif": "4.23.16",
+    "oclif": "4.23.29",
     "postcss": "8.5.15",
     "prettier": "3.9.5",
     "ts-node": "10.9.2",
