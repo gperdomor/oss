@@ -2,6 +2,7 @@ packages:
   - 'packages/*'
   - 'apps/*'
   - 'docs/*'
+
 allowBuilds:
   '@parcel/watcher': false
   '@prisma/engines': false
@@ -18,4 +19,6 @@ overrides:
   '@nx/devkit': '23.0.0'
   'nx': '23.0.0'
 
-minimumReleaseAge: 0
+catalog:
+  tslib: '2.8.1'
+  tsx: '4.23.1'

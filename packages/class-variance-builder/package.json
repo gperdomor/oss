@@ -54,5 +54,7 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "catalog:"
+  }
 }

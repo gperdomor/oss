@@ -72,7 +72,7 @@ When a project uses `eslint.config.cjs` (CJS flat config), `eslint .` lints the 
 module.exports = tseslint.config(
   {
     ignores: ['dist/**', 'node_modules/**', 'eslint.config.cjs'],
-  }
+  },
   // ...
 );
 ```

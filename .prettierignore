@@ -3,6 +3,7 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+.nx/self-healing
 
 # PNPM related files
 /.pnpm-store
@@ -31,5 +32,3 @@ apps/website/**/.source
 .github/workflows/build-nx-docker.yml
 .github/workflows/build-nx-podman.yml
 out-tsc
-
-.nx/self-healing

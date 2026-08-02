@@ -127,11 +127,7 @@ Add `"jsx": "react-jsx"` — in `tsconfig.base.json` for single-framework worksp
 ```js
 import nx from '@nx/eslint-plugin';
 import baseConfig from '../../eslint.config.mjs';
-export default [
-  ...baseConfig,
-  ...nx.configs['flat/react'],
-  { files: ['**/*.ts', '**/*.tsx'], rules: {} },
-];
+export default [...baseConfig, ...nx.configs['flat/react'], { files: ['**/*.ts', '**/*.tsx'], rules: {} }];
 ```
 
 ### React Version Conflicts
