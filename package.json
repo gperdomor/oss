@@ -44,7 +44,7 @@
     "@types/semver": "7.7.1",
     "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/coverage-v8": "4.1.10",
-    "@vitest/ui": "4.1.9",
+    "@vitest/ui": "4.1.10",
     "consola": "3.4.2",
     "czg": "1.13.1",
     "dotenv": "17.4.2",
