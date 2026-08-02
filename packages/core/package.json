@@ -37,6 +37,6 @@
   },
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
-    "tslib": "^2.6.0"
+    "tslib": "catalog:"
   }
 }

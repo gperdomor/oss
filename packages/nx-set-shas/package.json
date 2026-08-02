@@ -46,7 +46,7 @@
     "semver": "^7.8.5"
   },
   "peerDependencies": {
-    "tslib": "^2.6.0"
+    "tslib": "catalog:"
   },
   "oclif": {
     "bin": "nx-set-shas",

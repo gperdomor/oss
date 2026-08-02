@@ -48,6 +48,6 @@
     "std-env": "3.10.0"
   },
   "peerDependencies": {
-    "tslib": "^2.6.0"
+    "tslib": "catalog:"
   }
 }

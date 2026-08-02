@@ -22,10 +22,10 @@
   },
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
-    "tslib": "^2.6.0",
+    "tslib": "catalog:",
     "prisma": "^5.0.0 || ^6.0.0 || ^7.0.0",
     "ts-node": "^10.0.0",
-    "tsx": "^4.0.0"
+    "tsx": "catalog:"
   },
   "peerDependenciesMeta": {
     "tsx": {
