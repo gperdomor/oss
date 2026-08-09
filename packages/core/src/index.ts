@@ -1,7 +1,7 @@
 export { cp, findInPath, mkdirP, mv, rmRF, which } from '@actions/io';
 export type { CopyOptions, MoveOptions } from '@actions/io';
 export { asyncForEach } from './lib/async-for-each.js';
-export { exec } from './lib/exec.js';
+export { exec, execSync } from './lib/exec.js';
 export type { ExecError, ExecOptions, ExecResult } from './lib/exec.js';
 export { isDebug } from './lib/flags.js';
 export { getInputList } from './lib/get-input-list.js';

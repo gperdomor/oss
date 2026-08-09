@@ -1,4 +1,4 @@
-import { Options, Result, x } from 'tinyexec';
+import { Options, Result, SyncOptions, SyncResult, x, xSync } from 'tinyexec';
 
 export type ExecOptions = Options & { silent: boolean };
 
@@ -60,4 +60,11 @@ export async function exec(command: string, args?: string[], options?: Partial<E
   }
 
   return res;
+}
+
+export function execSync(command: string, args?: string[], options?: Partial<SyncOptions>): SyncResult {
+  return xSync(command, args, {
+    throwOnError: true,
+    ...options,
+  });
 }
