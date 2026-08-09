@@ -1,6 +1,10 @@
 {
   "name": "@nx-tools/nx-container",
   "version": "7.3.0",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
   "repository": {
@@ -8,41 +12,15 @@
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-container"
   },
-  "bugs": "https://github.com/gperdomor/oss/issues",
-  "type": "commonjs",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "generators": "./generators.json",
-  "executors": "./executors.json",
-  "dependencies": {
-    "@nx-tools/container-metadata": "workspace:*",
-    "@nx-tools/core": "workspace:*",
-    "csv-parse": "^5.6.0",
-    "handlebars": "^4.7.8",
-    "semver": "^7.8.5",
-    "tmp": "^0.2.7"
-  },
-  "peerDependencies": {
-    "@nx/devkit": ">=18.0.0 <24.0.0",
-    "@nx/js": ">=18.0.0 <24.0.0",
-    "dotenv": ">=16.0.0",
-    "nx": ">=18.0.0 <24.0.0",
-    "tslib": "catalog:"
-  },
-  "devDependencies": {
-    "@nx-tools/ci-context": "workspace:*",
-    "@types/tmp": "0.2.6",
-    "memfs": "4.64.0"
-  },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
-  },
   "files": [
     "dist",
     "!**/*.tsbuildinfo",
     "generators.json",
     "executors.json"
   ],
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -51,5 +29,30 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
-  }
+  },
+  "dependencies": {
+    "@nx-tools/container-metadata": "workspace:*",
+    "@nx-tools/core": "workspace:*",
+    "csv-parse": "^5.6.0",
+    "handlebars": "^4.7.8",
+    "semver": "^7.8.5",
+    "tmp": "^0.2.7"
+  },
+  "devDependencies": {
+    "@nx-tools/ci-context": "workspace:*",
+    "@types/tmp": "0.2.6",
+    "memfs": "4.64.0"
+  },
+  "peerDependencies": {
+    "@nx/devkit": ">=18.0.0 <24.0.0",
+    "@nx/js": ">=18.0.0 <24.0.0",
+    "dotenv": ">=16.0.0",
+    "nx": ">=18.0.0 <24.0.0",
+    "tslib": "catalog:"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0 || ^26.0.0"
+  },
+  "executors": "./executors.json",
+  "generators": "./generators.json"
 }

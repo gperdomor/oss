@@ -1,15 +1,22 @@
 {
   "name": "@nx-tools/container-metadata",
   "version": "7.3.0",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/container-metadata"
   },
-  "bugs": "https://github.com/gperdomor/oss/issues",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -21,13 +28,6 @@
       "default": "./dist/index.js"
     }
   },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
-  },
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo"
-  ],
   "dependencies": {
     "@nx-tools/ci-context": "workspace:*",
     "@nx-tools/core": "workspace:*",
@@ -40,5 +40,8 @@
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
     "tslib": "catalog:"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0 || ^26.0.0"
   }
 }

@@ -2,40 +2,42 @@
   "name": "cvb",
   "version": "1.1.2",
   "description": "Class Variance Builder 👷🏼",
-  "license": "MIT",
-  "author": "Gustavo Perdomo <gperdomor@gmail.com>",
-  "homepage": "https://github.com/gperdomor/oss/tree/main/packages/class-variance-builder",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gperdomor/oss.git",
-    "directory": "packages/class-variance-builder"
-  },
-  "bugs": {
-    "url": "https://github.com/gperdomor/oss/issues"
-  },
   "keywords": [
     "Class Variance Builder",
-    "class-variance-builder",
     "Slot Variance Builder",
-    "slot-variance-builder",
-    "cvb",
-    "svb",
+    "class-variance-builder",
     "classes",
     "classname",
     "classnames",
     "css",
     "cva",
-    "stitches",
-    "vanilla-extract",
-    "variants",
-    "tailwind-variants",
+    "cvb",
     "panda",
-    "pandacss"
+    "pandacss",
+    "slot-variance-builder",
+    "stitches",
+    "svb",
+    "tailwind-variants",
+    "vanilla-extract",
+    "variants"
+  ],
+  "homepage": "https://github.com/gperdomor/oss/tree/main/packages/class-variance-builder",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Gustavo Perdomo <gperdomor@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gperdomor/oss.git",
+    "directory": "packages/class-variance-builder"
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
   ],
   "type": "module",
-  "engines": {
-    "node": ">=18"
-  },
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -50,11 +52,10 @@
       "default": "./dist/index.js"
     }
   },
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo"
-  ],
   "dependencies": {
     "tslib": "catalog:"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

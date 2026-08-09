@@ -1,30 +1,16 @@
 {
   "name": "@nx-tools/nx-graphql-codegen",
   "version": "7.3.0",
-  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
+  "license": "MIT",
   "author": "Rene Bonilla <rbonillajr@hotmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-graphql-codegen"
-  },
-  "bugs": "https://github.com/gperdomor/oss/issues",
-  "license": "MIT",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "generators": "./generators.json",
-  "executors": "./executors.json",
-  "dependencies": {
-    "@nx-tools/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "@graphql-codegen/cli": "^5.0.0",
-    "@nx/devkit": ">=18.0.0 <24.0.0",
-    "tslib": "catalog:",
-    "ts-node": "^10.0.0"
-  },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
   },
   "files": [
     "dist",
@@ -32,6 +18,9 @@
     "generators.json",
     "executors.json"
   ],
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -40,5 +29,19 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
-  }
+  },
+  "dependencies": {
+    "@nx-tools/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@nx/devkit": ">=18.0.0 <24.0.0",
+    "ts-node": "^10.0.0",
+    "tslib": "catalog:"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0 || ^26.0.0"
+  },
+  "executors": "./executors.json",
+  "generators": "./generators.json"
 }

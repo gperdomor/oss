@@ -1,7 +1,8 @@
 {
   "name": "@org/source",
-  "description": "Nx workspace for open-source packages and tools.",
   "version": "0.0.0",
+  "private": true,
+  "description": "Nx workspace for open-source packages and tools.",
   "license": "MIT",
   "scripts": {
     "check-format": "nx format:check --all",
@@ -9,7 +10,6 @@
     "commit": "czg",
     "preinstall": "node ./tools/scripts/preinstall.mjs"
   },
-  "private": true,
   "dependencies": {
     "@nx/devkit": "23.1.1",
     "next": "catalog:",
@@ -73,6 +73,7 @@
     "vite-plugin-dts": "4.5.4",
     "vitest": "4.1.10"
   },
+  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
   "nx": {
     "includedScripts": [],
     "targets": {
@@ -85,6 +86,5 @@
         }
       }
     }
-  },
-  "packageManager": "pnpm@11.19.0+sha512.7881f3ed590d472c4a955e2b88b2121791116066dcc88cbca3849ec9b60f1bbaa6d2ccb221fa91da4e1c65bef2bcbe379365aea7ac539c7bf86dedc3a1b22dce"
+  }
 }

@@ -1,9 +1,12 @@
 {
   "name": "@nx-tools/nx-prisma",
   "version": "7.3.0",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
-  "type": "commonjs",
   "contributors": [
     "wSedlacek"
   ],
@@ -12,35 +15,15 @@
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-prisma"
   },
-  "bugs": "https://github.com/gperdomor/oss/issues",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "executors": "./executors.json",
-  "generators": "./generators.json",
-  "dependencies": {
-    "@nx-tools/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "@nx/devkit": ">=18.0.0 <24.0.0",
-    "tslib": "catalog:",
-    "prisma": "^5.0.0 || ^6.0.0 || ^7.0.0",
-    "ts-node": "^10.0.0",
-    "tsx": "catalog:"
-  },
-  "peerDependenciesMeta": {
-    "tsx": {
-      "optional": true
-    }
-  },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
-  },
   "files": [
     "dist",
     "!**/*.tsbuildinfo",
     "generators.json",
     "executors.json"
   ],
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -49,5 +32,25 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
-  }
+  },
+  "dependencies": {
+    "@nx-tools/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@nx/devkit": ">=18.0.0 <24.0.0",
+    "prisma": "^5.0.0 || ^6.0.0 || ^7.0.0",
+    "ts-node": "^10.0.0",
+    "tslib": "catalog:",
+    "tsx": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "tsx": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0 || ^26.0.0"
+  },
+  "executors": "./executors.json",
+  "generators": "./generators.json"
 }
