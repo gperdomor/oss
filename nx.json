@@ -95,8 +95,12 @@
       }
     },
     "groups": {
+      "cvb": {
+        "projects": ["class-variance-builder"],
+        "projectsRelationship": "fixed"
+      },
       "nx-tools": {
-        "projects": ["core", "nx-set-shas"],
+        "projects": ["core", "nx-container", "nx-graphql-codegen", "nx-prisma", "nx-set-shas"],
         "projectsRelationship": "fixed"
       }
     }
