@@ -1,5 +1,8 @@
-#!/usr/bin/env -S pnpm tsx --disable-warning=ExperimentalWarning
+#!/usr/bin/env -S node --import tsx --disable-warning=ExperimentalWarning
 
 import { execute } from '@oclif/core';
+import { createLoadOptions } from '../src/load-options.ts';
 
-await execute({ development: true, dir: import.meta.url });
+const loadOptions = createLoadOptions();
+
+await execute({ development: true, dir: import.meta.url, loadOptions });

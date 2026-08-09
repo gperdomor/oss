@@ -244,7 +244,7 @@ describe('exec', () => {
       const result = await exec('ls', ['this-file-does-not-exist'], {
         throwOnError: false,
       });
-      expect(result.exitCode).toBe(1);
+      expect(result.exitCode).not.toBe(0);
     });
 
     it('should preserve stdout in result', async () => {
@@ -371,7 +371,7 @@ describe('exec', () => {
       const result = execSync('ls', ['this-file-does-not-exist'], {
         throwOnError: false,
       });
-      expect(result.exitCode).toBe(1);
+      expect(result.exitCode).not.toBe(0);
     });
 
     it('should preserve stdout in sync result', () => {

@@ -1,29 +1,46 @@
 {
   "name": "@nx-tools/nx-set-shas",
   "version": "7.3.0",
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "description": "CLI that automatically detects base and head SHAs for nx affected commands in monorepo workflows",
+  "keywords": [
+    "affected",
+    "build-optimization",
+    "ci-cd",
+    "gitlab",
+    "gitlab-ci",
+    "monorepo",
+    "nx",
+    "nx-set-shas",
+    "nx-tools",
+    "oclif",
+    "pipeline"
+  ],
+  "homepage": "https://github.com/gperdomor/oss/tree/main/packages/nx-set-shas",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Gustavo Perdomo <gperdomor@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/nx-set-shas"
   },
-  "scripts": {
-    "prepack": "pnpm exec oclif manifest && pnpm exec oclif readme"
-  },
   "bin": {
     "nx-set-shas": "./bin/run.js"
   },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
-  },
-  "keywords": [
-    "nx-set-shas",
-    "nx-tools",
-    "oclif"
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "bin/run.js",
+    "bin/run.cmd",
+    "oclif.manifest.json"
   ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -33,32 +50,34 @@
       "default": "./dist/index.js"
     }
   },
-  "files": [
-    "bin",
-    "dist",
-    "oclif.manifest.json",
-    "!**/*.tsbuildinfo"
-  ],
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "pnpm exec oclif manifest && pnpm exec oclif readme"
+  },
   "dependencies": {
     "@nx-tools/core": "workspace:*",
     "@oclif/core": "4.13.2",
     "@oclif/plugin-help": "6.2.55",
-    "semver": "^7.8.5"
-  },
-  "peerDependencies": {
     "tslib": "catalog:"
+  },
+  "devDependencies": {
+    "@oclif/test": "4.1.20",
+    "tsx": "catalog:"
   },
   "oclif": {
     "bin": "nx-set-shas",
-    "dirname": "nx-set-shas",
     "commands": "./dist/commands",
+    "dirname": "nx-set-shas",
+    "hooks": {
+      "init": "./dist/hooks/init/node-version"
+    },
     "plugins": [
       "@oclif/plugin-help"
     ],
-    "hooks": {
-      "init": "./dist/lib/hooks/node-version"
-    },
     "topicSeparator": " ",
     "topics": {}
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0 || ^26.0.0"
   }
 }
