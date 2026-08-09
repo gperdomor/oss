@@ -1,16 +1,30 @@
 {
   "name": "@nx-tools/core",
   "version": "7.3.0",
+  "description": "Core utilities and helpers for Nx tools and integrations",
+  "keywords": [
+    "nx",
+    "nx-tools"
+  ],
+  "homepage": "https://github.com/gperdomor/oss/tree/main/packages/core",
+  "bugs": {
+    "url": "https://github.com/gperdomor/oss/issues",
+    "email": "gperdomor@gmail.com"
+  },
   "license": "MIT",
   "author": "Gustavo Perdomo <gperdomor@gmail.com>",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/gperdomor/oss",
     "directory": "packages/core"
   },
-  "bugs": "https://github.com/gperdomor/oss/issues",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "type": "module",
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
@@ -21,13 +35,6 @@
       "default": "./dist/index.js"
     }
   },
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22.12.0 <23 || >=24.0.0"
-  },
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo"
-  ],
   "dependencies": {
     "@actions/io": "^1.1.3",
     "csv-parse": "^5.6.0",
@@ -38,5 +45,8 @@
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
     "tslib": "catalog:"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0"
   }
 }
