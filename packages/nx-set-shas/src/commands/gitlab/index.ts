@@ -1,4 +1,4 @@
-import { exec } from '@nx-tools/core';
+import { execSync } from '@nx-tools/core';
 import { Command, Flags } from '@oclif/core';
 import { colorize } from '@oclif/core/ux';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
@@ -7,15 +7,16 @@ const DEFAULT_WORKING_DIRECTORY = '.';
 const EVENT_OPTIONS = ['push', 'merge_request_event'] as const;
 type MrEventType = (typeof EVENT_OPTIONS)[number];
 
-export const stripNewLineEndings = (string: string): string => string.replace('\n', '');
+export const stripNewLineEndings = (string: string): string => string.replace(/[\r\n]+$/g, '');
 
 export default class Gitlab extends Command {
   static override enableJsonFlag = true;
   static override description = 'Find the base and head SHAs required for the nx affected commands in GitLab CI';
   static override examples = [
+    `<%= config.bin %> <%= command.id %>`,
+    `<%= config.bin %> <%= command.id %> --json`,
     `<%= config.bin %> <%= command.id %> --token $GITLAB_TOKEN`,
-    `<%= config.bin %> <%= command.id %> --token $GITLAB_TOKEN --json`,
-    `<%= config.bin %> <%= command.id %> --token $GITLAB_TOKEN --o nx.env`,
+    `<%= config.bin %> <%= command.id %> --o nx.env`,
     `<%= config.bin %> <%= command.id %> --branch main --project 123456 --remote origin --token $GITLAB_TOKEN`,
   ];
   static override flags = {
@@ -29,7 +30,7 @@ export default class Gitlab extends Command {
     'error-on-no-successful-pipeline': Flags.boolean({
       default: false,
       description:
-        'By default, if no successful pipeline run is found on the main branch to determine the SHA, we will log a warning and use HEAD~1. Enable this option to error and exit instead.',
+        'By default, if no successful pipeline is found on the main branch to determine the SHA, we will log a warning and use HEAD~1. Enable this option to error and exit instead.',
     }),
     fallback: Flags.string({
       char: 'f',
@@ -40,17 +41,19 @@ export default class Gitlab extends Command {
     'last-successful-event': Flags.string({
       default: 'push',
       description:
-        'The type of event to check for the last successful commit corresponding to that pipeline-id, e.g. push, pull_request, release etc.',
+        'The type of event to check for the last successful commit corresponding to that pipeline, e.g. push, merge_request, etc.',
       options: EVENT_OPTIONS,
     }),
     output: Flags.string({
       char: 'o',
-      description: 'Output file where the env variables will be setted.',
+      description:
+        'Generate a file with the derived SHAs for base and head as NX_BASE and NX_HEAD environment variables within the current Job.',
     }),
     url: Flags.string({
       char: 'u',
-      description: 'The ID of the GitLab project.',
+      description: 'The GitLab API URL.',
       env: 'CI_API_V4_URL',
+      default: 'https://gitlab.com/api/v4',
       required: true,
     }),
     project: Flags.string({
@@ -75,7 +78,7 @@ export default class Gitlab extends Command {
     }),
   };
 
-  async run(): Promise<{ NX_BASE: string; NX_HEAD: string }> {
+  public async run(): Promise<{ NX_BASE: string; NX_HEAD: string }> {
     const { flags } = await this.parse(Gitlab);
     const {
       remote,
@@ -93,20 +96,24 @@ export default class Gitlab extends Command {
     this.setupWorkingDirectory(workingDirectory);
 
     let BASE_SHA: string | undefined;
-    let HEAD_SHA = await this.getHEAD();
+    let HEAD_SHA = this.getHEAD();
 
     const eventName = process.env.CI_MERGE_REQUEST_IID ? 'merge_request_event' : '';
 
     if (eventName === 'merge_request_event' && process.env.CI_MERGE_REQUEST_EVENT_TYPE !== 'merged_result') {
       BASE_SHA = await this.getBASE(remote);
     } else {
-      BASE_SHA = await this.findSuccessfulCommit({
-        lastSuccessfulEvent: lastSuccessfulEvent as MrEventType,
-        branch,
-        project,
-        token,
-        url,
-      });
+      try {
+        BASE_SHA = await this.findSuccessfulCommit({
+          lastSuccessfulEvent: lastSuccessfulEvent as MrEventType,
+          branch,
+          project,
+          token,
+          url,
+        });
+      } catch (e) {
+        this.error(`${e instanceof Error ? e.message : String(e)}`, { code: 'NO_SUCCESSFUL_PIPELINE', exit: 1 });
+      }
 
       if (!BASE_SHA) {
         if (errorOnNoSuccessfulPipeline) {
@@ -138,10 +145,12 @@ export default class Gitlab extends Command {
           } else {
             // Check if HEAD~1 exists, and if not, set BASE_SHA to the empty tree hash
             const LAST_COMMIT_CMD = `${remote}/${branch}~1`;
-            const baseRes = await exec('git', ['rev-parse', LAST_COMMIT_CMD], { silent: true });
+            const baseRes = execSync('git', ['rev-parse', LAST_COMMIT_CMD], { nodeOptions: { encoding: 'utf-8' } });
 
             if (baseRes.exitCode !== 0 || !baseRes.stdout.trim()) {
-              const emptyTreeRes = await exec('git', ['hash-object', '-t', 'tree', '/dev/null'], { silent: true });
+              const emptyTreeRes = execSync('git', ['hash-object', '-t', 'tree', '/dev/null'], {
+                nodeOptions: { encoding: 'utf-8' },
+              });
 
               // 4b825dc642cb6eb9a060e54bf8d69288fbee4904 is the expected result of hashing the empty tree
               BASE_SHA = emptyTreeRes.stdout ?? `4b825dc642cb6eb9a060e54bf8d69288fbee4904`;
@@ -204,17 +213,17 @@ export default class Gitlab extends Command {
     }
   }
 
-  async getBASE(remote: string): Promise<string> {
-    const cmd = await exec(
+  getBASE(remote: string): string {
+    const cmd = execSync(
       'git',
       ['merge-base', `${remote}/${process.env.CI_MERGE_REQUEST_TARGET_BRANCH_NAME}`, 'HEAD'],
-      { silent: true },
+      { nodeOptions: { encoding: 'utf-8' } },
     );
     return cmd.stdout.trim();
   }
 
-  async getHEAD(): Promise<string> {
-    const cmd = await exec('git', ['rev-parse', 'HEAD'], { silent: true });
+  getHEAD(): string {
+    const cmd = execSync('git', ['rev-parse', 'HEAD'], { nodeOptions: { encoding: 'utf-8' } });
     return cmd.stdout.trim();
   }
 
@@ -283,17 +292,17 @@ export default class Gitlab extends Command {
     url: string,
     project: string,
     headers: Record<string, string>,
-    branchName: string,
-    commitSha: string,
+    branch: string,
+    sha: string,
   ): Promise<boolean> {
     try {
-      await exec('git', ['cat-file', '-e', commitSha], {
+      execSync('git', ['cat-file', '-e', sha], {
         nodeOptions: { stdio: ['pipe', 'pipe', null] },
         throwOnError: false,
       });
 
       // Check the commit exists in general
-      let response = await fetch(`${url}/projects/${project}/repository/commits/${commitSha}`, {
+      let response = await fetch(`${url}/projects/${project}/repository/commits/${sha}`, {
         headers,
         signal: AbortSignal.timeout(5_000),
       });
@@ -305,7 +314,7 @@ export default class Gitlab extends Command {
 
       // Check the commit exists on the expected main branch (it will not in the case of a rebased main branch)
       const params = new URLSearchParams({
-        ref_name: branchName,
+        ref_name: branch,
         per_page: '100',
       });
 
@@ -320,7 +329,7 @@ export default class Gitlab extends Command {
 
       const commits = (await response.json()) as { id: string }[];
 
-      return commits.some((commit: { id: string }) => commit.id === commitSha);
+      return commits.some((commit: { id: string }) => commit.id === sha);
     } catch {
       return false;
     }
