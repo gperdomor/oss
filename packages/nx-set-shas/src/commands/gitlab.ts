@@ -1,7 +1,9 @@
 import { execSync } from '@nx-tools/core';
 import { Command, Flags } from '@oclif/core';
-import { colorize } from '@oclif/core/ux';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { styleText } from 'node:util';
+import { GitLabClient } from '../lib/gitlab-client.js';
+import type { GitLabCommit, GitLabPipeline } from '../lib/gitlab-types.js';
 
 const DEFAULT_WORKING_DIRECTORY = '.';
 const EVENT_OPTIONS = ['push', 'merge_request_event'] as const;
@@ -19,6 +21,15 @@ export default class Gitlab extends Command {
     `<%= config.bin %> <%= command.id %> --o nx.env`,
     `<%= config.bin %> <%= command.id %> --branch main --project 123456 --remote origin --token $GITLAB_TOKEN`,
   ];
+
+  private readonly logger = {
+    info: (msg: string, ctx?: Record<string, unknown>) => this.log(`${msg}${ctx ? ` ${JSON.stringify(ctx)}` : ''}`),
+    warn: (msg: string, ctx?: Record<string, unknown>) =>
+      this.log(styleText('yellow', `WARNING: ${msg}${ctx ? ` ${JSON.stringify(ctx)}` : ''}`)),
+    success: (msg: string, ctx?: Record<string, unknown>) =>
+      this.log(styleText('blue', `${msg}${ctx ? ` ${JSON.stringify(ctx)}` : ''}`)),
+  };
+
   static override flags = {
     branch: Flags.string({
       char: 'b',
@@ -118,61 +129,34 @@ export default class Gitlab extends Command {
       if (!BASE_SHA) {
         if (errorOnNoSuccessfulPipeline) {
           this.error(
-            colorize(
+            styleText(
               'red',
               [
-                `Unable to find a successful pipeline run on 'origin/${branch}'`,
-                `NOTE: You have set 'error-on-no-successful-pipeline' on the action so this is a hard error.`,
-                `Is it possible that you have no runs currently on 'origin/${branch}'?`,
-                `- If yes, then you should run the pipeline without this flag first.`,
-                `- If no, then you might have changed your git history and those commits no longer exist.`,
-                `\n`,
+                `Unable to find a successful pipeline run on '${remote}/${branch}'`,
+                "NOTE: You have set 'error-on-no-successful-pipeline' on the action so this is a hard error.",
+                `Is it possible that you have no runs currently on '${remote}/${branch}'?`,
+                '- If yes, then you should run the pipeline without this flag first.',
+                '- If no, then you might have changed your git history and those commits no longer exist.',
+                '\n',
               ].join('\n'),
             ),
             { code: 'NO_SUCCESSFUL_PIPELINE', exit: 1 },
           );
         } else {
-          this.log(
-            colorize(
-              'yellow',
-              `\nWARNING: Unable to find a successful pipeline run on '${remote}/${branch}', or the latest successful pipeline was connected to a commit which no longer exists on that branch (e.g. if that branch was rebased).\n`,
-            ),
+          this.logger.warn(
+            `Unable to find a successful pipeline run on '${remote}/${branch}', or the latest successful pipeline was connected to a commit which no longer exists on that branch (e.g. if that branch was rebased).\n`,
           );
 
-          if (fallback) {
-            BASE_SHA = fallback;
-            this.log(`Using provided fallback SHA: ${BASE_SHA}\n`);
-          } else {
-            // Check if HEAD~1 exists, and if not, set BASE_SHA to the empty tree hash
-            const LAST_COMMIT_CMD = `${remote}/${branch}~1`;
-            const baseRes = execSync('git', ['rev-parse', LAST_COMMIT_CMD], { nodeOptions: { encoding: 'utf-8' } });
-
-            if (baseRes.exitCode !== 0 || !baseRes.stdout.trim()) {
-              const emptyTreeRes = execSync('git', ['hash-object', '-t', 'tree', '/dev/null'], {
-                nodeOptions: { encoding: 'utf-8' },
-              });
-
-              // 4b825dc642cb6eb9a060e54bf8d69288fbee4904 is the expected result of hashing the empty tree
-              BASE_SHA = emptyTreeRes.stdout ?? `4b825dc642cb6eb9a060e54bf8d69288fbee4904`;
-              this.log(
-                colorize(
-                  'yellow',
-                  `HEAD~1 does not exist. We are therefore defaulting to use the empty git tree hash as BASE.\n`,
-                ),
-              );
-            } else {
-              this.log(colorize('yellow', `We are therefore defaulting to use HEAD~1 on '${remote}/${branch}'\n`));
-
-              BASE_SHA = baseRes.stdout.trim();
-            }
-
-            this.log(
+          const fallbackResult = await this.resolveFallbackSHA(remote, branch, fallback);
+          BASE_SHA = fallbackResult.sha;
+          if (fallbackResult.source !== 'provided') {
+            this.logger.info(
               `NOTE: You can instead make this a hard error by setting 'error-on-no-successful-pipeline' on the action in your pipeline.\n`,
             );
           }
         }
       } else {
-        this.log(
+        this.logger.info(
           ['', `Found the last successful pipeline run on '${remote}/${branch}'`, `Commit: ${BASE_SHA}`, ''].join('\n'),
         );
       }
@@ -181,7 +165,8 @@ export default class Gitlab extends Command {
     BASE_SHA = stripNewLineEndings(BASE_SHA);
     HEAD_SHA = stripNewLineEndings(HEAD_SHA);
 
-    this.log(colorize('blue', [`NX_BASE: ${BASE_SHA}`, `NX_HEAD: ${HEAD_SHA}`].join('\n')));
+    // Log base and head SHAs used for nx affected
+    this.logger.success([`Base SHA: ${BASE_SHA}`, `Head SHA: ${HEAD_SHA}`].join('\n'));
 
     let lines: string[] = [];
 
@@ -194,7 +179,7 @@ export default class Gitlab extends Command {
       }
       lines.push(`NX_BASE=${BASE_SHA}`, `NX_HEAD=${HEAD_SHA}`);
       writeFileSync(output, lines.join('\n'), { encoding: 'utf-8' });
-      this.log(colorize('blue', `\nNX_BASE and NX_HEAD environment variables have been written to '${output} file'\n`));
+      this.logger.success(`NX_BASE and NX_HEAD environment variables have been written to '${output}' file`);
     }
 
     return {
@@ -202,13 +187,42 @@ export default class Gitlab extends Command {
       NX_HEAD: HEAD_SHA,
     };
   }
+  private async resolveFallbackSHA(
+    remote: string,
+    branch: string,
+    fallbackFlag: string,
+  ): Promise<{ sha: string; source: 'provided' | 'HEAD~1' | 'empty-tree' }> {
+    if (fallbackFlag) {
+      this.logger.info(`Using provided fallback SHA: ${fallbackFlag}`);
+      return { sha: fallbackFlag, source: 'provided' };
+    }
+
+    const LAST_COMMIT_CMD = `${remote}/${branch}~1`;
+    const baseRes = execSync('git', ['rev-parse', LAST_COMMIT_CMD], {
+      nodeOptions: { encoding: 'utf-8' },
+    });
+
+    if (baseRes.exitCode !== 0 || !baseRes.stdout.trim()) {
+      const emptyTreeRes = execSync('git', ['hash-object', '-t', 'tree', '/dev/null'], {
+        nodeOptions: { encoding: 'utf-8' },
+      });
+
+      const EMPTY_TREE_HASH = '4b825dc642cb6eb9a060e54bf8d69288fbee4904';
+      const sha = emptyTreeRes.stdout?.trim() ?? EMPTY_TREE_HASH;
+      this.logger.warn(`HEAD~1 does not exist. Defaulting to use the empty git tree hash as BASE.`);
+      return { sha, source: 'empty-tree' };
+    }
+
+    this.logger.warn(`We are therefore defaulting to use HEAD~1 on '${remote}/${branch}'`);
+    return { sha: baseRes.stdout.trim(), source: 'HEAD~1' };
+  }
 
   setupWorkingDirectory(workingDirectory: string) {
     if (workingDirectory !== DEFAULT_WORKING_DIRECTORY) {
       if (existsSync(workingDirectory)) {
         process.chdir(workingDirectory);
       } else {
-        this.log(colorize('yellow', `\nWARNING: Working directory '${workingDirectory}' doesn't exist.\n`));
+        this.logger.warn(`Working directory '${workingDirectory}' doesn't exist.`);
       }
     }
   }
@@ -255,83 +269,66 @@ export default class Gitlab extends Command {
       ? { 'PRIVATE-TOKEN': token }
       : { 'JOB-TOKEN': process.env['CI_JOB_TOKEN'] ?? '' };
 
-    const response = await fetch(`${url}/projects/${project}/pipelines?${params.toString()}`, {
-      headers,
-      signal: AbortSignal.timeout(5_000),
-    });
+    const client = new GitLabClient({ url, project, headers });
 
-    let shas: string[];
+    const pipelines = await client.get<GitLabPipeline[]>('/pipelines', params);
+    const shas = pipelines.map((pipeline) => pipeline.sha);
 
-    if (response.ok) {
-      const json = (await response.json()) as { sha: string }[];
-      shas = json.map((pipeline) => pipeline.sha);
-    } else {
-      const json = (await response.json()) as { message: string };
-      throw new Error(json.message);
-    }
-
-    return this.findExistingCommit(url, project, headers, branch, shas);
+    return this.findExistingCommit(client, branch, shas);
   }
 
-  async findExistingCommit(
-    url: string,
-    project: string,
-    headers: Record<string, string>,
-    branchName: string,
-    shas: string[],
-  ): Promise<string | undefined> {
+  async findExistingCommit(client: GitLabClient, branchName: string, shas: string[]): Promise<string | undefined> {
     for (const commitSha of shas) {
-      if (await this.commitExists(url, project, headers, branchName, commitSha)) {
+      if (await this.commitExists(client, branchName, commitSha)) {
         return commitSha;
       }
     }
     return undefined;
   }
 
-  async commitExists(
-    url: string,
-    project: string,
-    headers: Record<string, string>,
-    branch: string,
-    sha: string,
-  ): Promise<boolean> {
+  private async checkCommitExistsLocally(sha: string): Promise<boolean> {
     try {
-      execSync('git', ['cat-file', '-e', sha], {
+      const result = execSync('git', ['cat-file', '-e', sha], {
         nodeOptions: { stdio: ['pipe', 'pipe', null] },
         throwOnError: false,
       });
+      return result.exitCode === 0;
+    } catch {
+      return false;
+    }
+  }
 
-      // Check the commit exists in general
-      let response = await fetch(`${url}/projects/${project}/repository/commits/${sha}`, {
-        headers,
-        signal: AbortSignal.timeout(5_000),
-      });
+  private async checkCommitExistsInGitLab(client: GitLabClient, sha: string): Promise<boolean> {
+    try {
+      await client.get<GitLabCommit>(`/repository/commits/${sha}`);
+      return true;
+    } catch {
+      return false;
+    }
+  }
 
-      if (!response.ok) {
-        const json = (await response.json()) as { message: string };
-        throw new Error(json.message);
-      }
-
-      // Check the commit exists on the expected main branch (it will not in the case of a rebased main branch)
+  private async checkCommitExistsOnBranch(client: GitLabClient, branch: string, sha: string): Promise<boolean> {
+    try {
       const params = new URLSearchParams({
         ref_name: branch,
         per_page: '100',
       });
-
-      response = await fetch(`${url}/projects/${project}/repository/commits?${params.toString()}`, {
-        headers,
-        signal: AbortSignal.timeout(5_000),
-      });
-      if (!response.ok) {
-        const json = (await response.json()) as { message: string };
-        throw new Error(json.message);
-      }
-
-      const commits = (await response.json()) as { id: string }[];
-
-      return commits.some((commit: { id: string }) => commit.id === sha);
+      const commits = await client.get<GitLabCommit[]>('/repository/commits', params);
+      return commits.some((commit) => commit.id === sha);
     } catch {
       return false;
     }
+  }
+
+  async commitExists(client: GitLabClient, branchName: string, commitSha: string): Promise<boolean> {
+    if (!(await this.checkCommitExistsLocally(commitSha))) {
+      return false;
+    }
+
+    if (!(await this.checkCommitExistsInGitLab(client, commitSha))) {
+      return false;
+    }
+
+    return this.checkCommitExistsOnBranch(client, branchName, commitSha);
   }
 }
