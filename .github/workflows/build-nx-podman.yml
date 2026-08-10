@@ -18,7 +18,7 @@ jobs:
       nx-podman-tags: ${{ steps.nx-podman-tags.outputs.tags }}
       nx-podman-tags-csv: ${{ steps.nx-podman-tags.outputs.tags-csv }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/list-tags
         id: node-tags
@@ -43,7 +43,7 @@ jobs:
       missing-tags-csv: ${{ steps.difference.outputs.missing-tags-csv }}
       missing-count: ${{ steps.difference.outputs.missing-count }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/calculate-tag-difference
         id: difference
@@ -66,7 +66,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Display build information
         run: |
