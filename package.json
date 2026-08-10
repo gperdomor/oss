@@ -35,7 +35,7 @@
     "@prisma/client": "7.8.0",
     "@swc-node/register": "1.11.1",
     "@swc/cli": "0.8.1",
-    "@swc/core": "1.15.43",
+    "@swc/core": "1.15.47",
     "@swc/helpers": "0.5.23",
     "@types/mdx": "2.0.14",
     "@types/node": "24.13.3",
