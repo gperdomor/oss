@@ -1,4 +1,4 @@
-FROM docker.io/nginx:stable-alpine
+FROM docker.io/nginx:stable-alpine@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94
 COPY dist/apps/<%= projectName %>/* /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
