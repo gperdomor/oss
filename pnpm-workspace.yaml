@@ -25,7 +25,7 @@ catalog:
   'fumadocs-core': '16.10.5'
   'fumadocs-docgen': '3.1.0'
   'fumadocs-mdx': '14.3.2'
-  'fumadocs-typescript': '5.2.6'
+  'fumadocs-typescript': '5.4.1'
   'fumadocs-ui': '16.10.5'
   'lucide-react': '0.577.0'
   'next': '16.2.12'
