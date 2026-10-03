@@ -32,7 +32,7 @@
     "@nx/vitest": "23.1.1",
     "@nx/web": "23.1.1",
     "@nx/workspace": "23.1.1",
-    "@prisma/client": "7.8.0",
+    "@prisma/client": "7.10.0",
     "@swc-node/register": "1.11.1",
     "@swc/cli": "0.8.1",
     "@swc/core": "1.15.43",
