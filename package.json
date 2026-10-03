@@ -46,7 +46,7 @@
     "@vitest/coverage-v8": "4.1.10",
     "@vitest/ui": "4.1.10",
     "consola": "3.4.2",
-    "czg": "1.13.1",
+    "czg": "1.14.0",
     "dotenv": "17.4.2",
     "eslint": "9.39.5",
     "eslint-config-next": "16.2.12",
