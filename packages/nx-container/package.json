@@ -41,7 +41,7 @@
   "devDependencies": {
     "@nx-tools/ci-context": "workspace:*",
     "@types/tmp": "0.2.6",
-    "memfs": "4.64.0"
+    "memfs": "4.79.0"
   },
   "peerDependencies": {
     "@nx/devkit": ">=18.0.0 <24.0.0",
