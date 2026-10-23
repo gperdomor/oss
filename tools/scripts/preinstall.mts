@@ -2,7 +2,7 @@
  * Pre-install script to validate development environment requirements
  *
  * Validates:
- * - Node.js version (26.0+)
+ * - Node.js version (22.0+)
  * - Package manager (pnpm recommended)
  * - Basic environment setup
  */
@@ -20,7 +20,7 @@ if (process.env.CI) {
  */
 const REQUIREMENTS = {
   node: {
-    major: 26,
+    major: 22,
     minor: 0,
     patch: 0,
   },
