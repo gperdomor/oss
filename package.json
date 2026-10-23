@@ -60,7 +60,7 @@
     "lefthook": "2.2.2",
     "nx": "23.1.1",
     "oclif": "4.23.29",
-    "postcss": "8.5.23",
+    "postcss": "8.5.31",
     "prettier": "3.9.10",
     "ts-node": "10.9.2",
     "tslib": "catalog:",
