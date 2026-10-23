@@ -57,7 +57,7 @@
   "dependencies": {
     "@nx-tools/core": "workspace:*",
     "@oclif/core": "4.13.2",
-    "@oclif/plugin-help": "6.2.55",
+    "@oclif/plugin-help": "6.3.0",
     "tslib": "catalog:"
   },
   "devDependencies": {
