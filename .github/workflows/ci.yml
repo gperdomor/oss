@@ -23,7 +23,7 @@ jobs:
           filter: tree:0
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v5
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
         with:
           run_install: false
@@ -34,7 +34,7 @@ jobs:
       # - run: pnpm dlx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="lint,test,build,typecheck,e2e-ci"
 
       # Cache node_modules
-      - uses: actions/setup-node@9adcad0a513901ea44e21bdc5f0872053be9f7fc
+      - uses: actions/setup-node@v7
         with:
           node-version-file: 'mise.toml'
           cache: 'pnpm'
