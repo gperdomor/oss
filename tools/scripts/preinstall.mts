@@ -2,25 +2,25 @@
  * Pre-install script to validate development environment requirements
  *
  * Validates:
- * - Node.js version (22.0+)
+ * - Node.js version (26.0+)
  * - Package manager (pnpm recommended)
  * - Basic environment setup
  */
+
+import { execSync } from 'node:child_process';
+import { error, info, start, success, warn } from './console.mts';
 
 // Skip validation in CI environments
 if (process.env.CI) {
   process.exit(0);
 }
 
-import { consola } from 'consola';
-import { execSync } from 'node:child_process';
-
 /**
  * Configuration for minimum required versions
  */
 const REQUIREMENTS = {
   node: {
-    major: 22,
+    major: 26,
     minor: 0,
     patch: 0,
   },
@@ -59,10 +59,10 @@ function isVersionValid(current, required) {
 function checkPackageManager() {
   try {
     execSync('pnpm --version', { stdio: 'ignore' });
-    consola.success('pnpm detected');
+    success('pnpm detected');
   } catch {
-    consola.warn('pnpm not detected. Consider using pnpm for better performance and dependency management.');
-    consola.info('Install pnpm: npm install -g pnpm');
+    warn('pnpm not detected. Consider using pnpm for better performance and dependency management.');
+    info('Install pnpm: npm install -g pnpm');
   }
 }
 
@@ -74,19 +74,19 @@ function validateNodeVersion() {
   const currentVersion = parseVersion(nodeVersion);
   const requiredVersion = REQUIREMENTS.node;
 
-  consola.info(`Checking Node.js version: v${nodeVersion}`);
+  info(`Checking Node.js version: v${nodeVersion}`);
 
   if (!isVersionValid(currentVersion, requiredVersion)) {
-    consola.error(
+    error(
       `❌ Node.js v${requiredVersion.major}.${requiredVersion.minor}.${requiredVersion.patch}+ is required, but you have v${nodeVersion}`,
     );
-    consola.info('Please update Node.js to continue:');
-    consola.info('- Visit https://nodejs.org/');
-    consola.info('- Or use a version manager like nvm, fnm, or volta');
+    info('Please update Node.js to continue:');
+    info('- Visit https://nodejs.org/');
+    info('- Or use a version manager like mise, nvm, fnm, or volta');
     process.exit(1);
   }
 
-  consola.success(`Node.js v${nodeVersion} meets requirements`);
+  success(`Node.js v${nodeVersion} meets requirements`);
 }
 
 /**
@@ -94,14 +94,14 @@ function validateNodeVersion() {
  */
 function main() {
   try {
-    consola.info('🔍 Validating development environment...');
+    start('🔍 Validating development environment...');
 
     validateNodeVersion();
     checkPackageManager();
 
-    consola.success('🎉 Environment validation completed successfully!');
-  } catch (error) {
-    consola.error('❌ Environment validation failed:', error.message);
+    success('🎉 Environment validation completed successfully!');
+  } catch (err) {
+    error('❌ Environment validation failed:', err.message);
     process.exit(1);
   }
 }

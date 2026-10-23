@@ -1,5 +1,5 @@
-import { consola } from 'consola';
 import { existsSync, readFileSync } from 'node:fs';
+import { error, start, success } from './console.mts';
 
 async function checkLockFiles() {
   const errors = [];
@@ -31,13 +31,13 @@ async function checkLockFiles() {
   return errors;
 }
 
-consola.start('🔒🔒🔒 Validating lock files 🔒🔒🔒');
+start('🔒🔒🔒 Validating lock files 🔒🔒🔒');
 const invalid = await checkLockFiles();
 
 if (invalid.length > 0) {
-  invalid.forEach((e) => consola.error(e));
+  invalid.forEach((e) => error(e));
   process.exit(1);
 } else {
-  consola.success('Lock file is valid 👍');
+  success('Lock file is valid 👍');
   process.exit(0);
 }

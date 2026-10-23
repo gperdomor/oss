@@ -22,6 +22,8 @@ CI:
         NX_CLOUD_ACCESS_TOKEN: ${NX_CLOUD_ACCESS_TOKEN_RW}
     - variables:
         NX_CLOUD_ACCESS_TOKEN: ${NX_CLOUD_ACCESS_TOKEN_RO}
+  variables:
+    PNPM_HOME: '$CI_PROJECT_DIR/.pnpm'
   cache:
     key:
       files:
@@ -30,16 +32,16 @@ CI:
     paths:
       - .pnpm-store
   before_script:
-    - npm install --global corepack@latest
-    - corepack enable
-    - corepack install
+    - export PATH="$PNPM_HOME/bin:$PATH"
+    - curl -fsSL https://get.pnpm.io/install.sh | env ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
     - pnpm config set store-dir .pnpm-store
   script:
     # This enables task distribution via Nx Cloud
     # Run this command as early as possible, before dependencies are installed
-    # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
+    # Configure Nx Agents and task distribution in .nx/ci-config.yaml
+    # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#nx-cloud-start-nx-agents
     # Uncomment this line to enable task distribution
-    # - pnpm dlx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
+    # - pnpm dlx nx start-nx-agents
 
     - pnpm install --frozen-lockfile
     - export NX_HEAD=$CI_COMMIT_SHA
@@ -50,11 +52,10 @@ CI:
     - pnpm exec nx-cloud record -- nx format:check
     - pnpm exec nx affected -t lint test build typecheck
     # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
+
   after_script:
+    - export PATH="$PNPM_HOME/bin:$PATH"
     - pnpm exec nx fix-ci
-  artifacts:
-    reports:
-      codequality: gl-codequality.json
 
 socket-security:
   stage: security-scan

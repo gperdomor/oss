@@ -50,7 +50,7 @@ Thumbs.db
 .nx/migrate-runs
 
 # Fix for issue when working on the repo in a dev container
-/.pnpm-store
+.pnpm-store
 
 vitest.config.*.timestamp*
 vite.config.*.timestamp*

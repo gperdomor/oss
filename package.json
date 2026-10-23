@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "check-format": "nx format:check --all",
-    "check-lock-files": "node ./tools/scripts/check-lock-files.mjs",
+    "check-lock-files": "node ./tools/scripts/check-lock-files.mts",
     "commit": "czg",
-    "preinstall": "node ./tools/scripts/preinstall.mjs"
+    "preinstall": "node ./tools/scripts/preinstall.mts"
   },
   "dependencies": {
     "@nx/devkit": "23.1.1",
@@ -18,9 +18,9 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.1",
-    "@commitlint/config-conventional": "21.2.0",
-    "@commitlint/config-nx-scopes": "21.2.0",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
+    "@commitlint/config-nx-scopes": "21.2.3",
     "@eslint/js": "9.39.5",
     "@next/eslint-plugin-next": "16.2.12",
     "@nx/eslint": "23.1.1",
@@ -45,8 +45,7 @@
     "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/coverage-v8": "4.1.10",
     "@vitest/ui": "4.1.10",
-    "consola": "3.4.2",
-    "czg": "1.13.1",
+    "czg": "1.14.0",
     "dotenv": "17.4.2",
     "eslint": "9.39.5",
     "eslint-config-next": "16.2.12",
@@ -59,7 +58,7 @@
     "jiti": "2.7.0",
     "jsdom": "27.4.0",
     "jsonc-eslint-parser": "2.4.2",
-    "lefthook": "2.1.10",
+    "lefthook": "2.2.2",
     "nx": "23.1.1",
     "oclif": "4.23.29",
     "postcss": "8.5.23",
@@ -73,7 +72,13 @@
     "vite-plugin-dts": "4.5.4",
     "vitest": "4.1.10"
   },
-  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^12.15.0",
+      "onFail": "download"
+    }
+  },
   "nx": {
     "includedScripts": [],
     "targets": {

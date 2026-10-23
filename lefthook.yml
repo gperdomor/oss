@@ -1,7 +1,7 @@
 # Lefthook configuration
 # See: https://lefthook.dev/configuration/index.html
 
-min_version: 2.1.10
+min_version: 2.2.0
 
 pre-commit:
   parallel: true
@@ -24,7 +24,7 @@ pre-push:
   jobs:
     - name: check-format
       run: pnpm exec nx format:check {push_files}
-      glob: '*.{js,mjs,jsx,json,css,scss,md,ts,tsx,html,graphql,yml,yaml}'
+      glob: '*.{js,mjs,jsx,json,css,scss,md,ts,mts,tsx,html,graphql,yml,yaml}'
 
     - name: check-lock-files
       run: pnpm run check-lock-files
@@ -32,10 +32,10 @@ pre-push:
 post-checkout:
   jobs:
     - name: notify-lockfile-changes
-      run: node ./tools/scripts/notify-lockfile-changes.mjs $(git diff-tree -r --name-only --no-commit-id {1} {2})
+      run: node ./tools/scripts/notify-lockfile-changes.mts $(git diff-tree -r --name-only --no-commit-id {1} {2})
 
 post-merge:
   jobs:
     - name: notify-lockfile-changes
       files: git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD
-      run: node ./tools/scripts/notify-lockfile-changes.mjs {files}
+      run: node ./tools/scripts/notify-lockfile-changes.mts {files}

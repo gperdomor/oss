@@ -5,20 +5,8 @@
 /.nx/workspace-data
 .nx/self-healing
 
-# PNPM related files
-/.pnpm-store
+.pnpm-store
 pnpm-lock.yaml
-
-# Agents related files
-.agents
-.claude
-.codex
-.cursor
-.gemini
-.github/*
-!.github/workflows/
-!.github/workflows/**
-.opencode
 
 /tmp
 /**/dist

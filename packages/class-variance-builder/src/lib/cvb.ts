@@ -12,7 +12,7 @@ const cxInternal: CX = (...inputs) => {
     i = 0,
     arg: unknown;
 
-  for (; i < inputs.length; ) {
+  for (; i < inputs.length;) {
     if ((arg = inputs[i++]) && typeof arg === 'string') {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       str && (str += ' ');

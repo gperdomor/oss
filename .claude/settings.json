@@ -12,7 +12,12 @@
   },
   "sandbox": {
     "network": {
-      "allowedDomains": ["www.google-analytics.com"]
+      "allowedDomains": ["www.google-analytics.com"],
+      "allowUnixSockets": ["/tmp/.nx", "~/.nx"]
+    },
+    "filesystem": {
+      "allowRead": ["/tmp/.nx", "~/.nx"],
+      "allowWrite": ["/tmp/.nx", "~/.nx"]
     }
   }
 }
