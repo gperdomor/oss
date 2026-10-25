@@ -69,7 +69,7 @@
     "verdaccio": "6.8.0",
     "vite": "8.3.4",
     "vite-plugin-dts": "4.5.4",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "devEngines": {
     "packageManager": {
