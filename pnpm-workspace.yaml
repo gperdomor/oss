@@ -17,7 +17,7 @@ allowBuilds:
 
 overrides:
   '@nx/devkit': '23.1.1'
-  'nx': '23.1.1'
+  'nx': '23.2.1'
 
 catalog:
   '@tailwindcss/postcss': '4.3.3'
