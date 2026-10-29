@@ -33,7 +33,7 @@
   "dependencies": {
     "@nx-tools/container-metadata": "workspace:*",
     "@nx-tools/core": "workspace:*",
-    "csv-parse": "^5.6.0",
+    "csv-parse": "^7.0.3",
     "handlebars": "^4.7.8",
     "semver": "^7.8.5",
     "tmp": "^0.2.7"
@@ -44,10 +44,10 @@
     "memfs": "4.64.0"
   },
   "peerDependencies": {
-    "@nx/devkit": ">=18.0.0 <24.0.0",
-    "@nx/js": ">=18.0.0 <24.0.0",
+    "@nx/devkit": ">=18.0.0 <25.0.0",
+    "@nx/js": ">=18.0.0 <25.0.0",
     "dotenv": ">=16.0.0",
-    "nx": ">=18.0.0 <24.0.0",
+    "nx": ">=18.0.0 <25.0.0",
     "tslib": "catalog:"
   },
   "engines": {
