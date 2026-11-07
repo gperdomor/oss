@@ -2,7 +2,7 @@ include:
   - template: Workflows/MergeRequest-Pipelines.gitlab-ci.yml
 
 default:
-  image: node:26
+  image: node:26@sha256:438603bbb5cda404b9416f0b5c8026f61501ab911760d861ec28c36b5d675725
 
 stages:
   - test
@@ -61,7 +61,7 @@ socket-security:
   stage: security-scan
   needs: []
   image:
-    name: socketdev/cli:latest
+    name: socketdev/cli:latest@sha256:2ade8a3873684306d2eaf4e65a4a40f88a5aae9479e4a8678b225f7d58f7adb8
     entrypoint: ['']
     # Override the entrypoint to run commands directly
   # Required for GitLab integration to work properly
