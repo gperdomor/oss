@@ -1,3 +1,24 @@
+## 7.4.0-alpha.0 (2026-11-09)
+
+### 🚀 Features
+
+- **nx-set-shas:** revamped command logic and code organization ([#1559](https://github.com/gperdomor/oss/pull/1559))
+
+### 🩹 Fixes
+
+- **deps:** bump @oclif/core from 4.13.2 to v4.14.0 ([#1571](https://github.com/gperdomor/oss/pull/1571))
+- **deps:** bump @oclif/core from 4.11.7 to v4.13.2 ([8fb18de](https://github.com/gperdomor/oss/commit/8fb18de))
+- **deps:** bump @oclif/plugin-help from 6.2.52 to v6.2.55 ([a2001f3](https://github.com/gperdomor/oss/commit/a2001f3))
+
+### 🏡 Chore
+
+- use pnpm catalog ([ff4ea35](https://github.com/gperdomor/oss/commit/ff4ea35))
+- update to nx 23.1.1 ([#1550](https://github.com/gperdomor/oss/pull/1550))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+
 ## 7.3.0 (2026-06-26)
 
 ### 🩹 Fixes
