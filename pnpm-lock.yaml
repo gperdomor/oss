@@ -580,8 +580,8 @@ importers:
         specifier: 23.1.1
         version: 23.1.1(nx@23.1.1(@swc-node/register@1.11.1(@swc/core@1.16.18(@swc/helpers@0.5.23))(@swc/types@0.1.28)(@typescript/typescript6@6.0.2)(supports-color@8.1.1))(@swc/core@1.16.18(@swc/helpers@0.5.23)))
       csv-parse:
-        specifier: ^5.6.0
-        version: 5.6.0
+        specifier: ^7.0.0
+        version: 7.0.3
       std-env:
         specifier: 3.10.0
         version: 3.10.0
@@ -6573,9 +6573,6 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
-
-  csv-parse@5.6.0:
-    resolution: {integrity: sha512-l3nz3euub2QMg5ouu5U09Ew9Wf6/wQ8I++ch1loQ0ljmzhmfZYrH9fflS22i/PQEvsPvxCwxgz5q7UB8K1JO4Q==}
 
   csv-parse@7.0.3:
     resolution: {integrity: sha512-YFd3QM/yo17vH91L1IOZuvl09zM0zEEtdfTcOCKWcMdM++MNaQSyp09slXyFCLaPXvHstQFx/xC8myiFHSMUvw==}
@@ -19688,8 +19685,6 @@ snapshots:
       lru-cache: 11.5.2
 
   csstype@3.2.3: {}
-
-  csv-parse@5.6.0: {}
 
   csv-parse@7.0.3: {}
 
