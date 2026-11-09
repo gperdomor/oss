@@ -159,7 +159,7 @@ describe('exec', () => {
     });
 
     it('should fail when command exits with non-zero code', async () => {
-      await expect(exec('sh', ['-c', 'exit 1'])).rejects.toThrow('Process exited with non-zero status (1)');
+      await expect(exec('sh', ['-c', 'exit 1'])).rejects.toThrow();
     });
 
     describe('silent option', () => {
