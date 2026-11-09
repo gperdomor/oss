@@ -1,3 +1,20 @@
+## 7.4.0-alpha.0 (2026-11-09)
+
+### 🚀 Features
+
+- add support for nx 24 ([#1589](https://github.com/gperdomor/oss/pull/1589))
+
+### 🏡 Chore
+
+- sort package jsons and node 26 support for engines field ([dd80ec5](https://github.com/gperdomor/oss/commit/dd80ec5))
+- use pnpm catalog ([ff4ea35](https://github.com/gperdomor/oss/commit/ff4ea35))
+- update to nx 23.1.1 ([#1550](https://github.com/gperdomor/oss/pull/1550))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+- Optischa
+
 ## 7.3.0 (2026-06-26)
 
 ### 🏡 Chore
