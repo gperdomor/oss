@@ -58,7 +58,7 @@
     "jsdom": "27.4.0",
     "jsonc-eslint-parser": "2.4.2",
     "lefthook": "2.2.2",
-    "nx": "23.1.1",
+    "nx": "23.2.1",
     "oclif": "4.23.29",
     "postcss": "8.5.31",
     "prettier": "3.9.10",
