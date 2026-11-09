@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/nx-set-shas",
-  "version": "7.3.0",
+  "version": "7.4.0-alpha.0",
   "description": "CLI that automatically detects base and head SHAs for nx affected commands in monorepo workflows",
   "keywords": [
     "affected",

@@ -1,6 +1,6 @@
 {
   "name": "@nx-tools/nx-prisma",
-  "version": "7.3.0",
+  "version": "7.4.0-alpha.0",
   "bugs": {
     "url": "https://github.com/gperdomor/oss/issues",
     "email": "gperdomor@gmail.com"

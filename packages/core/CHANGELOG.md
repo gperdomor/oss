@@ -1,3 +1,25 @@
+## 7.4.0-alpha.0 (2026-11-09)
+
+### 🚀 Features
+
+- add support for nx 24 ([#1589](https://github.com/gperdomor/oss/pull/1589))
+- **nx-set-shas:** revamped command logic and code organization ([#1559](https://github.com/gperdomor/oss/pull/1559))
+- **core:** added execSync method ([#1558](https://github.com/gperdomor/oss/pull/1558))
+
+### 🩹 Fixes
+
+- **deps:** bump tinyexec from 1.2.4 to v1.3.1 ([#1573](https://github.com/gperdomor/oss/pull/1573))
+
+### 🏡 Chore
+
+- use pnpm catalog ([ff4ea35](https://github.com/gperdomor/oss/commit/ff4ea35))
+- update to nx 23.1.1 ([#1550](https://github.com/gperdomor/oss/pull/1550))
+
+### ❤️ Thank You
+
+- Gustavo Perdomo
+- Optischa
+
 ## 7.3.0 (2026-06-26)
 
 ### 🩹 Fixes
