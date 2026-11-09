@@ -5563,8 +5563,8 @@ packages:
     resolution: {integrity: sha512-qzNWA0+YUbN3lVz79b2WK+X3QbR8+hmd6nMTAko1F/1jAeK7VbpK7TcfkYU4dL8iaLNNGYL94WsTewwH17jMTQ==}
     engines: {node: '>=20'}
 
-  '@xhmikosr/decompress-tar@9.0.1':
-    resolution: {integrity: sha512-4AkVR1SoqTxYY22IRRYKDeLirPIDGqMqYsqgjKYuwhgRcBb+yDP4t5Xph33UCzL/nahK/aADmlMEjTNstbX7kw==}
+  '@xhmikosr/decompress-tar@9.0.2':
+    resolution: {integrity: sha512-8nPZ6lZ3ExhsSxi/X/PMB3K+Vtsuxk43HowxYpxw4AsCHTYqFBXwC8B3Y+M/meaUOGOVm+2tFNUAfWGRjBt+Ww==}
     engines: {node: '>=20'}
 
   '@xhmikosr/decompress-tarbz2@9.0.2':
@@ -5579,8 +5579,8 @@ packages:
     resolution: {integrity: sha512-2MS94QnmXQwjkKN8WyFiu1sU7J3rcWJcMze4kRYsX7tN+CXpUGECgkh4YSOhujpkWPuVlFudIziJHO/TxOqkQQ==}
     engines: {node: '>=20'}
 
-  '@xhmikosr/decompress@11.1.3':
-    resolution: {integrity: sha512-NiyhJq6z7ERsYghcnXZUI6ooDXgZtoB+G9eUsYhfSM4VLp2rKx9UxhKI1NEf1PqosrNPxG3bnSsr2UBVbNurlg==}
+  '@xhmikosr/decompress@11.1.4':
+    resolution: {integrity: sha512-ZbYL7SAfY37/TMpopqBR3mQiuQ76kI/RNpN4q82YHSw/UxktZNy8P4wgiKPSrTImMAWRaUG8UK1pgEa56YdLaw==}
     engines: {node: '>=20'}
 
   '@xhmikosr/downloader@16.3.0':
@@ -18407,7 +18407,7 @@ snapshots:
       - supports-color
     optional: true
 
-  '@xhmikosr/decompress-tar@9.0.1(supports-color@7.2.0)':
+  '@xhmikosr/decompress-tar@9.0.2(supports-color@7.2.0)':
     dependencies:
       file-type: 21.3.4(supports-color@7.2.0)
       is-stream: 4.0.1
@@ -18417,7 +18417,7 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  '@xhmikosr/decompress-tar@9.0.1(supports-color@8.1.1)':
+  '@xhmikosr/decompress-tar@9.0.2(supports-color@8.1.1)':
     dependencies:
       file-type: 21.3.4(supports-color@8.1.1)
       is-stream: 4.0.1
@@ -18430,7 +18430,7 @@ snapshots:
 
   '@xhmikosr/decompress-tarbz2@9.0.2(supports-color@7.2.0)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@7.2.0)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@7.2.0)
       file-type: 21.3.4(supports-color@7.2.0)
       is-stream: 4.0.1
       seek-bzip: 2.0.0
@@ -18442,7 +18442,7 @@ snapshots:
 
   '@xhmikosr/decompress-tarbz2@9.0.2(supports-color@8.1.1)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@8.1.1)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@8.1.1)
       file-type: 21.3.4(supports-color@8.1.1)
       is-stream: 4.0.1
       seek-bzip: 2.0.0
@@ -18455,7 +18455,7 @@ snapshots:
 
   '@xhmikosr/decompress-targz@9.0.1(supports-color@7.2.0)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@7.2.0)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@7.2.0)
       file-type: 21.3.4(supports-color@7.2.0)
       is-stream: 4.0.1
     transitivePeerDependencies:
@@ -18465,7 +18465,7 @@ snapshots:
 
   '@xhmikosr/decompress-targz@9.0.1(supports-color@8.1.1)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@8.1.1)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@8.1.1)
       file-type: 21.3.4(supports-color@8.1.1)
       is-stream: 4.0.1
     transitivePeerDependencies:
@@ -18491,9 +18491,9 @@ snapshots:
       - supports-color
     optional: true
 
-  '@xhmikosr/decompress@11.1.3(supports-color@7.2.0)':
+  '@xhmikosr/decompress@11.1.4(supports-color@7.2.0)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@7.2.0)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@7.2.0)
       '@xhmikosr/decompress-tarbz2': 9.0.2(supports-color@7.2.0)
       '@xhmikosr/decompress-targz': 9.0.1(supports-color@7.2.0)
       '@xhmikosr/decompress-unzip': 8.2.1(supports-color@7.2.0)
@@ -18504,9 +18504,9 @@ snapshots:
       - react-native-b4a
       - supports-color
 
-  '@xhmikosr/decompress@11.1.3(supports-color@8.1.1)':
+  '@xhmikosr/decompress@11.1.4(supports-color@8.1.1)':
     dependencies:
-      '@xhmikosr/decompress-tar': 9.0.1(supports-color@8.1.1)
+      '@xhmikosr/decompress-tar': 9.0.2(supports-color@8.1.1)
       '@xhmikosr/decompress-tarbz2': 9.0.2(supports-color@8.1.1)
       '@xhmikosr/decompress-targz': 9.0.1(supports-color@8.1.1)
       '@xhmikosr/decompress-unzip': 8.2.1(supports-color@8.1.1)
@@ -18521,7 +18521,7 @@ snapshots:
   '@xhmikosr/downloader@16.3.0(supports-color@7.2.0)':
     dependencies:
       '@xhmikosr/archive-type': 8.1.0(supports-color@7.2.0)
-      '@xhmikosr/decompress': 11.1.3(supports-color@7.2.0)
+      '@xhmikosr/decompress': 11.1.4(supports-color@7.2.0)
       content-disposition: 2.0.1
       ext-name: 5.0.0
       file-type: 21.3.4(supports-color@7.2.0)
@@ -18535,7 +18535,7 @@ snapshots:
   '@xhmikosr/downloader@16.3.0(supports-color@8.1.1)':
     dependencies:
       '@xhmikosr/archive-type': 8.1.0(supports-color@8.1.1)
-      '@xhmikosr/decompress': 11.1.3(supports-color@8.1.1)
+      '@xhmikosr/decompress': 11.1.4(supports-color@8.1.1)
       content-disposition: 2.0.1
       ext-name: 5.0.0
       file-type: 21.3.4(supports-color@8.1.1)
