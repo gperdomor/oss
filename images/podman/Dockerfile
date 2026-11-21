@@ -1,4 +1,4 @@
-FROM quay.io/containers/podman:v5.8.2
+FROM quay.io/containers/podman:v5.8.2@sha256:b7594b0449818be37495f02f698ff98e25b888465134ff53e0d975f33a682b25
 ARG NODE_VERSION
 RUN dnf -y update && \
 	dnf -y install \
